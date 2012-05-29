@@ -1,4 +1,7 @@
 #include "testmc.h"
+#include "../MarchingCube/isosurface.h"
+#include "../MarchingCube/nonobtusemc.h"
+#include "../MeshIO/meshio.h"
 
 namespace DUT
 {
@@ -10,8 +13,9 @@ namespace DUT
         std::vector<cv::Point3_<unsigned int>> faceList;
         MeshIO::readSMF(fileDir + "horse_4k.smf", vertexList, faceList);
         double isoLevel = 0.0f;
-        IsoSurface<double> mc;
-        mc.generateSurface(NULL, isoLevel, 100, 100, 100, 0.0025, 0.0025, 0.0025);
+        NonobtuseMC<double> mc;
+        std::string filename = fileDir + "scalarFileFileName.txt";
+        mc.generateSurface(filename.c_str(), isoLevel, MIDPOINT);
         return 0;
     }
 }
