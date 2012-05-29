@@ -2,13 +2,13 @@
 #define DUT_ISOSURFACE_H
 
 #include "../config.h"
+#include "datadef.h"
 #include <map>
 #include <vector>
 #include <opencv2/opencv.hpp>
 
 namespace DUT
 {
-    typedef unsigned int uint;
     struct Point3dId
     {
         uint iId;
@@ -27,7 +27,15 @@ namespace DUT
 
     public:
         // Generate the isosurface from the scalar field contained in the buffer scalarField.
-        virtual void generateSurface(const T* scalarField, T isoLevel, uint cellsX, uint cellsY, uint cellsZ, double cellLengthX, double cellLengthY, double cellLengthZ);
+        virtual void generateSurface(
+            const T* scalarField,
+            T isoLevel,
+            uint cellsX,
+            uint cellsY,
+            uint cellsZ,
+            double cellLengthX,
+            double cellLengthY,
+            double cellLengthZ);
         // Return true if a valid surface has been generated.
         virtual bool isSurfaceValid();
         // Delete the isosurface.
@@ -60,7 +68,7 @@ namespace DUT
         // return m_tIsoLevel
         virtual T getIsoLevel() const;
 
-        //protected:
+    //protected:
     public:
         // The vertices which make up the isosurface.
         std::vector<cv::Point3d> iVertices;
@@ -73,21 +81,22 @@ namespace DUT
         // List of TRIANGLEs which form the triangulation of the isosurface.
         TriangleVec iTriangleVec;
 
+    //protected:
     public:
         // Return the edge id.
-        uint getEdgeId(uint x, uint y, uint z, uint edgeNo);
+        virtual uint getEdgeId(uint x, uint y, uint z, uint edgeNo);
         // Return the vertex id.
-        uint getVertexId(uint x, uint y, uint z);
+        virtual uint getVertexId(uint x, uint y, uint z);
         // Calculate the intersection point of the isosurface with an edge.
-        Point3dId calculateIntersection(uint x, uint y, uint z, uint edgeNo);
+        virtual Point3dId calculateIntersection(uint x, uint y, uint z, uint edgeNo);
         // Interpolate between two grid points to produce the point at which the isosurface intersects an edge.
-        Point3dId interpolate(const cv::Point3d& point1, const cv::Point3d& point2, T val1, T val2);
+        virtual Point3dId interpolate(const cv::Point3d& point1, const cv::Point3d& point2, T val1, T val2);
         // Rename vertices and triangles so that they can be accessed more efficiently.
-        void renameVerticesAndTriangles();
+        virtual void renameVerticesAndTriangles();
         // Calculate the normals.
-        void calculateNormals();
+        virtual void calculateNormals();
 
-        //protected:
+    //protected:
     public:
         // No. of cells in x, y, and z directions.
         uint iCellsX;
