@@ -42,10 +42,7 @@ bool OBJParser::parse(vector<vector<double> > &verticesList, vector<vector<int> 
         }
         else if(type == 'f')
         {
-            stream >> face[0] >> face[1] >> face[2];
-            --face[0];
-            --face[1];
-            --face[2];
+            stream >> face[0] >> face[1] >> face[2]; // be the same as SMF
             faceList.push_back(face);
         }
         else
