@@ -47,7 +47,10 @@ bool OFFParser::parse(vector<vector<double> > &verticesList, vector<vector<int> 
         stream >> count;
         if(count == 3)
         {
-            stream >> face[0] >> face[1] >> face[2];
+            stream >> face[0] >> face[1] >> face[2]; // be the same as SMF
+            ++face[0];
+            ++face[0];
+            ++face[0];
         }
         else
         {
