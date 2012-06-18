@@ -71,7 +71,10 @@
   <ItemGroup>
     <ClInclude Include="CIsoSurface.h" />
     <ClInclude Include="cnonobtusemc.h" />
+    <ClInclude Include="datadef.h" />
     <ClInclude Include="helper.h" />
+    <ClInclude Include="nonobtuse.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="tilingnonobtusemc.h" />
     <ClInclude Include="tribox.h" />
     <ClInclude Include="Vectors.h" />
@@ -80,6 +83,8 @@
     <ClCompile Include="CIsoSurface.cpp" />
     <ClCompile Include="cnonobtusemc.cpp" />
     <ClCompile Include="helper.cpp" />
+    <ClCompile Include="nonobtuse.cpp" />
+    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="tilingnonobtusemc.cpp" />
     <ClCompile Include="tribox.cpp" />
     <ClCompile Include="Vectors.cpp" />

@@ -8,6 +8,12 @@
 
 #include "helper.h"
 
+bool operator == (Edge e1, Edge e2)
+{
+	return ((e1.vertex1Idx == e2.vertex1Idx) && (e1.vertex2Idx == e2.vertex2Idx)) ||
+	    ((e1.vertex1Idx == e2.vertex2Idx) && (e1.vertex2Idx == e2.vertex1Idx));
+}
+
 // compare two double values with tolerence eps
 bool equal(double a, double b, double eps)
 {

@@ -25,6 +25,14 @@ struct Edge {
     int vertex2Idx;
 };
 
+bool operator == (Edge e1, Edge e2);
+
+struct EdgeNeighbours {
+	Edge e;			// edge
+	int polyNeighbour1Idx;	// polygon 1 sharing with edge
+	int polyNeighbour2Idx;	// polygon 2 sharing with edge; -1 if one doesn't exist
+};
+
 struct EdgeInfo {
 	pair<int, int> edge;				// edge (v1, v2)
 	vector<int> nbrPolys;		// neighbour polygons that uses this edge
