@@ -33,6 +33,15 @@
     <ClInclude Include="tribox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="datadef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonobtuse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CIsoSurface.cpp">
@@ -51,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tribox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nonobtuse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
