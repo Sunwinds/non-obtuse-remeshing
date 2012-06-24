@@ -51,16 +51,22 @@ float light0_intensity = 1.0;
 
 int   main_window;
 
-int gShowCellsRegion = 1;
+int gShowCellsRegion = 0;
 int gShowScalarField = 1;
 
+float fCellLengthX = 0.01;
+float fCellLengthY = 0.01;
+float fCellLengthZ = 0.01;
+int nCellX = 100;
+int nCellY = 100;
+int nCellZ = 100;
 // armadillo
-float fCellLengthX = 1.5;
-float fCellLengthY = 1.5;
-float fCellLengthZ = 1.5;
-int nCellX = 90;
-int nCellY = 120;
-int nCellZ = 80;
+//float fCellLengthX = 1.5;
+//float fCellLengthY = 1.5;
+//float fCellLengthZ = 1.5;
+//int nCellX = 90;
+//int nCellY = 120;
+//int nCellZ = 80;
 // hand
 //float fCellLengthX = 0.01;
 //float fCellLengthY = 0.01;
@@ -1093,6 +1099,43 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
     case 27:
     case 'q':
         exit(0);
+        break;
+    case 'b':
+        {
+            const double* vList = g_rdr.getVertices();
+            int vCount = g_rdr.getNumVertices();
+            double xMin = 32767, xMax = 0;
+            double yMin = 32767, yMax = 0;
+            double zMin = 32767, zMax = 0;
+            const double* vPtr = vList;
+            for(int i = 0; i < vCount; ++i)
+            {
+                double x = *vPtr;
+                if(x < xMin) xMin = x;
+                if(x > xMax) xMax = x;
+                ++vPtr;
+                double y = *vPtr;
+                if(y < yMin) yMin = y;
+                if(y > yMax) yMax = y;
+                ++vPtr;
+                double z = *vPtr;
+                if(z < zMin) zMin = z;
+                if(z > zMax) zMax = z;
+                ++vPtr;
+            }
+            double xLen = xMax - xMin;
+            double yLen = yMax - yMin;
+            double zLen = zMax - zMin;
+            double minLen = min(xLen, min(yLen, zLen));
+            double step = minLen / 200;
+            fCellLengthX = step;
+            fCellLengthY = step;
+            fCellLengthZ = step;
+            nCellX = int(xLen / step + 0.5) + 1;
+            nCellY = int(yLen / step + 0.5) + 1;
+            nCellZ = int(zLen / step + 0.5) + 1;
+        }
+        cout << "done!" << endl;
         break;
     case 'c': // create scalar field
         control_cb(SAVE_SCALARFIELD_ID);
