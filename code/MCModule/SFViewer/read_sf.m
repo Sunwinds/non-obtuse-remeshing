@@ -18,6 +18,8 @@ for i = 1:8
 end
 
 [v,cnt] = fscanf(fid,'%d', prod(dim));
+sum(v==1)
+sum(v==-1)
 if cnt~=prod(dim)
     warning('Problem in reading scalers.');
 end
