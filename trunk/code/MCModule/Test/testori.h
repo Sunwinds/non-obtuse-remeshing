@@ -14,6 +14,7 @@
 
 using namespace std;
 
+// test original code
 int testori(int argc, char* argv[]);
 
 #endif // TESTORI_H
