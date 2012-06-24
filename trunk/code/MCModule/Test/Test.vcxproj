@@ -83,11 +83,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="testmc.cpp" />
+    <ClCompile Include="testimc.cpp" />
+    <ClCompile Include="testnmc.cpp" />
     <ClCompile Include="testori.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testmc.h" />
+    <ClInclude Include="testimc.h" />
+    <ClInclude Include="testnmc.h" />
     <ClInclude Include="testori.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

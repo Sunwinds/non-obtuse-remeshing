@@ -18,18 +18,24 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testmc.cpp">
+    <ClCompile Include="testori.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testori.cpp">
+    <ClCompile Include="testimc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testnmc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testmc.h">
+    <ClInclude Include="testori.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testori.h">
+    <ClInclude Include="testimc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testnmc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
