@@ -21,6 +21,9 @@ end
 if cnt~=prod(dim)
     warning('Problem in reading scalers.');
 end
+% v = [1:12]';
+% v = reshape(v,3,2,2);
+% v = reshape(v, 12, 1);
 v = reshape(v, dim(1), dim(2), dim(3));
     
 fclose(fid);
