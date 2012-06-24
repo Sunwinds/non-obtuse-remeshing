@@ -1,7 +1,13 @@
 close all;
 
-[dim,v] = read_sf('..\Test\mesh\horse_sf_out.txt');
-% [x,y,z] = ndgrid(1:dim(1),1:dim(2),1:dim(3));
+% [dim,v] = read_sf('..\Test\mesh\armadillo_sf_out.txt');
+% [dim,v] = read_sf('..\Test\mesh\horse_sf_out.txt');
+[dim,v] = read_sf('..\Test\mesh\hand_sf_out.txt');
+
+% Number of 1 and -1 of:
+% armadillo_sf_out.txt: 820831, 71060.
+% horse_sf_out.txt: 293096, 205. The ratio of number of 1 & -1 is obviously wrong!
+% hand_sf_out.txt: 152388, 51013
 [x,y,z] = meshgrid(1:dim(2),1:dim(1),1:dim(3));
 
 %% the csv file can be viewed as points with scalars or structured grid in Paraview
