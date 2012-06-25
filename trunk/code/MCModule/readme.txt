@@ -8,3 +8,16 @@
 7、在OpenGL窗口上按s，当命令提示符窗口显示done!后，会保存marching cube到mesh文件夹下生成test_mc.smf
 8、在OpenGL窗口上按ESC键，退出程序
 9、将smf文件直接重命名成obj，就可以在一般网格显示软件上显示了
+
+======================================================
+if you can not generate a distance field, the face orientation of the input mesh must be wrong:
+1. Open the input mesh in MeshLab, if it is black, then use the following operation to invert face orientations:
+MeshLab/Filters/Normals,Curvatures and Orientations/Invert Faces Orientations
+
+2. Save the result to a *.off file.
+3. Use off2smf.m convert and normalize it into a *smf
+(after normailzing it, the GUI of testori will display result normal.)
+4. Use test/testori!
+
+=======================================================
+If the face orientation is right, the generated distance field may be still wrong. see err_scalarField_sphere_4k.png
