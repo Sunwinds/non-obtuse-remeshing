@@ -2,7 +2,7 @@ close all;
 
 % [dim,v] = read_sf('..\Test\mesh\armadillo_sf_out.txt');
 % [dim,v] = read_sf('..\Test\mesh\horse_sf_out.txt');
-[dim,v] = read_sf('..\Test\mesh\hand_sf_out.txt');
+[dim,v] = read_sf('..\Test\mesh\test_sf.txt');
 
 % Number of 1 and -1 of:
 % armadillo_sf_out.txt: 820831, 71060.
