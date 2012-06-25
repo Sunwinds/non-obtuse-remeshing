@@ -13,12 +13,12 @@ int gWndHeight = 900;
 int   light0_enabled = 1;
 int   gShadingType = 1;
 
-char  open_text[] = "./mesh/armadillo_5k.smf";
-char  save_text[] = "./mesh/armadillo_5k_mc.smf";
-char  open_scalarField_text[] = "./mesh/armadillo_sf_in.txt";
-char  save_scalarField_text[] = "./mesh/armadillo_sf_out.txt";
-char  optimize_scalarField_text[] = "./mesh/armadillo_sf_opt.txt";
-char  optimize_debug_text[] = "./mesh/armadillo_sf_deb.txt";
+char  open_text[] = "./mesh/test.smf";
+char  save_text[] = "./mesh/test_mc.smf";
+char  open_scalarField_text[] = "./mesh/test_sf.txt";
+char  save_scalarField_text[] = "./mesh/test_sf.txt";
+char  optimize_scalarField_text[] = "./mesh/test_sf_opt.txt";
+char  optimize_debug_text[] = "./mesh/test_sf_deb.txt";
 
 int   gShowObtuseAngles = 0;
 int   degree = 0;
@@ -1127,13 +1127,19 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
             double yLen = yMax - yMin;
             double zLen = zMax - zMin;
             double minLen = min(xLen, min(yLen, zLen));
-            double step = minLen / 200;
+            double step = minLen / 50;
             fCellLengthX = step;
             fCellLengthY = step;
             fCellLengthZ = step;
-            nCellX = int(xLen / step + 0.5) + 1;
-            nCellY = int(yLen / step + 0.5) + 1;
-            nCellZ = int(zLen / step + 0.5) + 1;
+            nCellX = int(xLen / step + 0.5) + 10;
+            nCellY = int(yLen / step + 0.5) + 10;
+            nCellZ = int(zLen / step + 0.5) + 10;
+            cout << "nCellX: " << nCellX << endl;
+            cout << "nCellY: " << nCellY << endl;
+            cout << "nCellZ: " << nCellZ << endl;
+            cout << "fCellLengthX: " << fCellLengthX << endl;
+            cout << "fCellLengthY: " << fCellLengthY << endl;
+            cout << "fCellLengthZ: " << fCellLengthZ << endl;
         }
         cout << "done!" << endl;
         break;
