@@ -21,3 +21,15 @@ MeshLab/Filters/Normals,Curvatures and Orientations/Invert Faces Orientations
 
 =======================================================
 If the face orientation is right, the generated distance field may be still wrong. see err_scalarField_sphere_4k.png
+即使用cube_602.smf也会错，原因待查。
+首先考虑onoobtuse.cpp的TODO: problems with cases where ray intersects vertex or edge
+
+==========================================================
+使用ParaView查看标量场out.csv (SFViewer.m 作用在test_sf.txt上，即可生成)
+1. open "out.csv"
+2. 不选 "Have Headers"那一项，然后单击“Apply”按钮
+3. 参考http://paraview.org/Wiki/ParaView/Data_formats 的 Displaying data as structured grid
+4. Whole Extent 填写：0-nCellsX，0-nCellsY，0-nCellsZ
+5. y column选Field 1； z column选Field 2
+6. Apply
+7. Add a "Clip" filter to view the result.
