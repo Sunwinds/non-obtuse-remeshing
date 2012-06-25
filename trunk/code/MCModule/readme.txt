@@ -16,7 +16,7 @@ MeshLab/Filters/Normals,Curvatures and Orientations/Invert Faces Orientations
 
 2. Save the result to a *.off file.
 3. Use off2smf.m convert and normalize it into a *smf
-(after normailzing it, the GUI of testori will display result normal.)
+(after normailzing it, the GUI of testori will display result normal. see err_mc_sphere_4k.png)
 4. Use test/testori!
 
 =======================================================
