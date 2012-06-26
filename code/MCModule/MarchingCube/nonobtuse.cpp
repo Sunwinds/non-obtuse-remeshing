@@ -1116,32 +1116,50 @@ int Nonobtuse::getScalarField(const double* verticesList, int numVertices,
 						switch (xIntPtList[rayIdx][currentIntPt].intType)
 						{
 							case 1:		// intersection is inside the triangle (ray hits frontside)
+								// added 4 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType > 0)
+									break;
+								if (currentIntPt == numIntPt-1)
+									break;
 								++countFrontInt;
 								break;
 							case -1:	// intersection is inside the triangle (ray hits backside)
+								// added 4 lines by jjcao
+								if (currentIntPt == 0)
+									break;
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType < 0)
+									break;
 								--countFrontInt;
 								break;
 							case 2:		// intersection is at a vertex (ray hits frontside)
-								// added 2 lines by jjcao
-								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == 2)
+								// added 4 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType > 0)
+									break;
+								if (currentIntPt == numIntPt-1)
 									break;
 								++countFrontInt;
 								break;
 							case -2:	// intersection is at a vertex (ray hits backside)
-								// added 2 lines by jjcao
-								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == -2)
+								// added 4 lines by jjcao
+								if (currentIntPt == 0)
+									break;
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType < 0)
 									break;
 								--countFrontInt;
 								break;
 							case 3:		// intersection is on an edge (ray hits frontside)
-								// added 2 lines by jjcao
-								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == 3)
+								// added 4 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType > 0)
+									break;
+								if (currentIntPt == numIntPt-1)
 									break;
 								++countFrontInt;
 								break;
 							case -3:	// intersection is on an edge (ray hits backside)
-								// added 2 lines by jjcao
-								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == -3)
+								// added 4 lines by jjcao
+								if (currentIntPt == 0)
+									break;
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType < 0)
 									break;
 								--countFrontInt;
 								break;

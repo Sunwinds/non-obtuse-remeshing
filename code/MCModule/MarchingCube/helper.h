@@ -61,11 +61,11 @@ struct lineMeshIntType {
 bool equal(double a, double b, double eps);
 
 // added by jjcao
-// compare two double points with tolerence eps
+// compare two double points with tolerence eps. if they are equal, p2<=p1;
 // p1 (in): double [3]
 // p2 (in): double [3]
 // eps (in): epsilon
-bool equalPts(double* p1, double* p2, double eps);
+bool equalPts(const double* p1, double* p2, double eps);
 
 // Cross Product c = a x b
 // c (out): vector c
