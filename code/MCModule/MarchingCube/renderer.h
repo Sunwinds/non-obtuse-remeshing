@@ -185,6 +185,9 @@ protected:
     float fCellLengthY;
     float fCellLengthZ;
     */
+
+public:
+    bool bDisplayModel;
 };
 
 #endif
