@@ -47,3 +47,10 @@ If the face orientation is right, the generated distance field may be still wron
 5. y column选Field 1； z column选Field 2
 6. Apply
 7. Add a "Clip" filter to view the result.
+
+========================================================
+generate signed distance field from mesh:
+http://techhouse.brown.edu/~dmorris/projects/voxelizer/ (先用这个程序试试，再找以下文章的代码，不行就挑一个，自己编)
+3D Distance Fields: A Survey of Techniques and Applications
+Generating Signed Distance Fields From Triangle Meshes
+http://www.cs.sfu.ca/~haoz/pubs/olson_zhang_cgf08.pdf
