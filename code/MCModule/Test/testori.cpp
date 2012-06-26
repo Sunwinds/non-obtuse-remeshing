@@ -1287,13 +1287,13 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
             double yLen = yMax - yMin;
             double zLen = zMax - zMin;
             double minLen = min(xLen, min(yLen, zLen));
-            double step = minLen / 20;
+            double step = minLen / 4;
             fCellLengthX = step;
             fCellLengthY = step;
             fCellLengthZ = step;
-            nCellX = int(xLen / step + 0.5) + 4;
-            nCellY = int(yLen / step + 0.5) + 4;
-            nCellZ = int(zLen / step + 0.5) + 4;
+            nCellX = int(xLen / step + 0.5) + 1;
+            nCellY = int(yLen / step + 0.5) + 2;
+            nCellZ = int(zLen / step + 0.5) + 2;
             cout << "nCellX: " << nCellX << endl;
             cout << "nCellY: " << nCellY << endl;
             cout << "nCellZ: " << nCellZ << endl;
