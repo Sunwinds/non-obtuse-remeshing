@@ -54,3 +54,13 @@ http://techhouse.brown.edu/~dmorris/projects/voxelizer/ (œ»”√’‚∏ˆ≥Ã–Ú ‘ ‘£¨‘Ÿ’““
 3D Distance Fields: A Survey of Techniques and Applications
 Generating Signed Distance Fields From Triangle Meshes
 http://www.cs.sfu.ca/~haoz/pubs/olson_zhang_cgf08.pdf
+
+            double step = minLen / 10;
+            fCellLengthX = step;
+            fCellLengthY = step;
+            fCellLengthZ = step;
+            nCellX = int(xLen / step + 0.5) + 4;
+            nCellY = int(yLen / step + 0.5) + 4;
+            nCellZ = int(zLen / step + 0.5) + 4;
+
+	    14, 0.1

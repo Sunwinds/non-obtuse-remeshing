@@ -14,10 +14,17 @@ bool operator == (Edge e1, Edge e2)
 	    ((e1.vertex1Idx == e2.vertex2Idx) && (e1.vertex2Idx == e2.vertex1Idx));
 }
 // added by jjcao
-// compare two double points with tolerence eps
-bool equalPts(double* p1, double* p2, double eps)
+// compare two double points with tolerence eps. if they are equal, p2<=p1;
+bool equalPts(const double* p1, double* p2, double eps)
 {
-	return ( fabs(p1[0] - p2[0]) <= eps && fabs(p1[1] - p2[1]) <= eps && fabs(p1[2] - p2[2]) <= eps);
+	//double tmp = sqrt((p1[0] - p2[0])*(p1[0] - p2[0])+(p1[1] - p2[1])*(p1[1] - p2[1])+(p1[2] - p2[2])*(p1[2] - p2[2]));
+	//bool result( tmp <= eps);
+
+	bool result( fabs(p1[0] - p2[0]) <= eps && fabs(p1[1] - p2[1]) <= eps && fabs(p1[2] - p2[2]) <= eps);
+	if (result){
+		p2[0] = p1[0]; p2[1] = p1[1]; p2[2] = p1[2];
+	}
+	return result;
 }
 // compare two double values with tolerence eps
 bool equal(double a, double b, double eps)
