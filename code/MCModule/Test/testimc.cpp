@@ -4,12 +4,12 @@ int testimc(int argc, char* argv[])
 {
     //Part 1: the data, two choices
     //Data1: just have one cube
- /*   uint cellsX = 1, cellsY = 1, cellsZ = 1;
-    double cellLengthX = 0.25, cellLengthY = 0.25, cellLengthZ = 0.25; */
+    //uint cellsX = 1, cellsY = 1, cellsZ = 1;
+    //float cellLengthX = 0.25f, cellLengthY = 0.25f, cellLengthZ = 0.25f;
 
     //case2: a sphere
     int cellsX = 20, cellsY = 20, cellsZ = 20;
-    double cellLengthX = 0.11, cellLengthY = 0.11, cellLengthZ = 0.11;
+    float cellLengthX = 0.11f, cellLengthY = 0.11f, cellLengthZ = 0.11f;
 
     double* scalarField = new double[(cellsX + 1) * (cellsY + 1)* (cellsX + 1)];
     for(int z = 0; z <= cellsZ; z++)
@@ -22,7 +22,7 @@ int testimc(int argc, char* argv[])
                 double xx = (x-cellsX/2) * cellLengthX, yy = (y-cellsY/2) * cellLengthY, zz = (z-cellsZ/2) * cellLengthZ;
 
                 //Data 1:
-               // scalarField[index] = xx - 0.2;
+                // scalarField[index] = xx - 0.2;
 
                 //Data 2
                 scalarField[index] = xx * xx+ yy*yy + zz*zz - 1.0;

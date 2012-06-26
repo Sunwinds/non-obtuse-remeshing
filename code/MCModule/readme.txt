@@ -9,6 +9,15 @@
 8、在OpenGL窗口上按ESC键，退出程序
 9、将smf文件直接重命名成obj，就可以在一般网格显示软件上显示了
 
+快捷键：
+u：上移
+j：下移
+h：左移
+k：右移
+y：移远
+i：移近
+支持鼠标按住左键旋转
+
 ======================================================
 if you can not generate a distance field, the face orientation of the input mesh must be wrong:
 1. Open the input mesh in MeshLab, if it is black, then use the following operation to invert face orientations:
