@@ -1116,7 +1116,7 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
     case 'q':
         exit(0);
         break;
-    case 'a':
+    case 'a': // adjust model size
         {
             // open file
             SMFParser smfparser;
@@ -1132,7 +1132,7 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
                 cout << "data is incorrect!" << endl;
                 return;
             }
-            // normalize
+            // adjust model size
             double xMin = 32767, xMax = 0;
             double yMin = 32767, yMax = 0;
             double zMin = 32767, zMax = 0;
@@ -1168,6 +1168,64 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
                 *iter = (*iter - yMin) * ratio - centerX;
                 ++iter;
                 *iter = (*iter - zMin) * ratio - centerX;
+            }
+            // save file
+            ofstream outFile;
+            outFile.open(open_text, ofstream::out);
+            outFile.setf(ofstream::fixed, ofstream::floatfield);
+            outFile.precision(6);
+            // first line records the number of vertices and number of polygons
+            outFile << "#$SMF 1.0" << endl;
+            outFile << "#$vertices " << vList.size() << endl;
+            outFile << "#$faces " << fList.size() << endl;
+            // record list of vertices
+            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+            {
+                outFile << 'v';
+                for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
+                {
+                    outFile << ' ' << *iter;
+                }
+                outFile << endl;
+            }
+            // record list of polygons
+            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+            {
+                outFile << 'f';
+                for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
+                {
+                    outFile << ' ' << *iter;
+                }
+                outFile << endl;
+            }
+            outFile.close();
+        }
+        cout << "done!" << endl;
+        break;
+    case 'n': // reverse normal
+        {
+            // open file
+            SMFParser smfparser;
+            if(!smfparser.loadFile(open_text))
+            {
+                cout << "file is not found!" << endl;
+                return;
+            }
+            vector<vector<double>> vList;
+            vector<vector<int>> fList;
+            if(!smfparser.parse(vList, fList))
+            {
+                cout << "data is incorrect!" << endl;
+                return;
+            }
+            // reverse normal
+            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+            {
+                vector<int>::iterator iter = fIter->begin();
+                vector<int>::reverse_iterator riter = fIter->rbegin();
+                int temp = *iter;
+                *iter = *riter;
+                *riter = temp;
             }
             // save file
             ofstream outFile;
