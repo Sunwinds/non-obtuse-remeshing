@@ -1333,6 +1333,9 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
     case 'i': // move near
         gEyeZ -= gMovementStep;
         break;
+    case 'd': // display model or not
+        g_rdr.bDisplayModel = !g_rdr.bDisplayModel;
+        break;
     default:
         break;
     };

@@ -4,7 +4,8 @@
 Renderer::Renderer()
     :numVertices(0), verticesList(NULL), numPolygons(0),
     polygonsList(NULL), meshCentroid(NULL), vertexNormalsList(NULL),
-    faceNormalsList(NULL), bFileLoaded(false), vertexNeighbourList(NULL), edgeNeighbourList(NULL)
+    faceNormalsList(NULL), bFileLoaded(false), vertexNeighbourList(NULL), edgeNeighbourList(NULL),
+    bDisplayModel(true)
 {
 }
 
@@ -590,10 +591,11 @@ bool Renderer::saveFile(const char* filename)
 // renderMode = 2 <--> Select Vertices Mode
 void Renderer::render(int renderMode) const
 {
+    if(!bDisplayModel)
+        return;
     // sanity check
     if (!bFileLoaded)
         return;
-
     // render mesh
     if (renderMode == 0)
         gouraudRender();
@@ -1674,11 +1676,29 @@ void Renderer::renderScalarField(const float *sField, unsigned int numCellX, uns
     glDisable(GL_LIGHTING);
     glPointSize(5.0);
 
+    // draw axis
+    glLineWidth(3.0);
+    glBegin(GL_LINES);
+        // x axis
+        glColor3f(1.0, 0.0, 0.0);
+        glVertex3d(xoffset, yoffset, zoffset);
+        glVertex3d(xoffset + 1.5, yoffset, zoffset);
+        glColor3f(0.0, 1.0, 0.0);
+        glVertex3d(xoffset, yoffset, zoffset);
+        glVertex3d(xoffset, yoffset + 1.5, zoffset);
+        glColor3f(0.0, 0.0, 1.0);
+        glVertex3d(xoffset, yoffset, zoffset);
+        glVertex3d(xoffset, yoffset, zoffset + 1.5);
+    glEnd();
+    glLineWidth(1.0);
 
     // Generate isosurface.
-    for (unsigned int z = 0; z <= numCellZ; z++)
-        for (unsigned int y = 0; y <= numCellY; y++)
-            for (unsigned int x = 0; x <= numCellX; x++) {
+    for(unsigned int z = 0; z <= numCellZ; z++)
+    {
+        for(unsigned int y = 0; y <= numCellY; y++)
+        {
+            for(unsigned int x = 0; x <= numCellX; x++)
+            {
                 double xcoord = x*fCLengthX + xoffset;
                 double ycoord = y*fCLengthY + yoffset;
                 double zcoord = z*fCLengthZ + zoffset;
@@ -1696,11 +1716,12 @@ void Renderer::renderScalarField(const float *sField, unsigned int numCellX, uns
                 glVertex3d(xcoord, ycoord, zcoord);
                 glEnd();
             }
+        }
+    }
 
-
-            glPointSize(1.0);
-            glColor3f(0.0, 0.0, 0.0);
-            glEnable(GL_LIGHTING);
+    glPointSize(1.0);
+    glColor3f(0.0, 0.0, 0.0);
+    glEnable(GL_LIGHTING);
 }
 
 // render cell regions
