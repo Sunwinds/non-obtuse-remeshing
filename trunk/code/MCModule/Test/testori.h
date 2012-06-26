@@ -8,8 +8,8 @@
 #include "../MarchingCube/nonobtuse.h"
 #include <iostream>
 #include <sstream>
-//#include <stdio.h>
-#include <string>
+#include <stdlib.h>
+#include <string.h>
 #include <GL/glut.h>
 
 using namespace std;

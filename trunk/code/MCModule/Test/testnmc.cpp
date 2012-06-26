@@ -5,11 +5,11 @@ int testnmc(int argc, char* argv[])
     //Part 1: the data, two choices
     //Data 1: just have one cube
     //uint cellsX = 1, cellsY = 1, cellsZ = 1;
-    //double cellLengthX = 0.25, cellLengthY = 0.25, cellLengthZ = 0.25; 
+    //float cellLengthX = 0.25f, cellLengthY = 0.25f, cellLengthZ = 0.25f; 
 
     //Data 2: a sphere
     uint cellsX = 10, cellsY = 10, cellsZ = 10;
-    double cellLengthX = 0.11, cellLengthY = 0.11, cellLengthZ = 0.11;
+    float cellLengthX = 0.11f, cellLengthY = 0.11f, cellLengthZ = 0.11f;
 
     double* scalarField = new double[11 * 11 * 11];
     for(uint z = 0; z <= cellsZ; z++)

@@ -2,10 +2,26 @@
 
 int last_visibility_state = GLUT_VISIBLE;
 float xy_aspect = 0;
-int   last_x = 0;
-int   last_y = 0;
-float rotationX = 0;
-float rotationY = 0;
+// mouse
+const double gMouseStep = 0.2;
+const double gMovementStep = 0.02;
+int gMouseLastX = 0;
+int gMouseLastY = 0;
+bool gIsMoving = false;
+double gRotX = 0;
+double gRotY = 0;
+double gTransX = 0;
+double gTransY = 0;
+double gTransZ = 0;
+double gEyeX = 0;
+double gEyeY = 0;
+double gEyeZ = 1;
+double gCenterX = 0;
+double gCenterY = 0;
+double gCenterZ = 0;
+double gUpX = 0;
+double gUpY = 1;
+double gUpZ = 0;
 int gWndWidth = 900;
 int gWndHeight = 900;
 
@@ -1155,6 +1171,24 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
         control_cb(SAVE_BUTTON_ID);
         cout << "done!" << endl;
         break;
+    case 'u': // move up
+        gEyeY += gMovementStep;
+        break;
+    case 'j': // move down
+        gEyeY -= gMovementStep;
+        break;
+    case 'h': // move left
+        gEyeX -= gMovementStep;
+        break;
+    case 'k': // move right
+        gEyeX += gMovementStep;
+        break;
+    case 'y': // move far
+        gEyeZ += gMovementStep;
+        break;
+    case 'i': // move near
+        gEyeZ -= gMovementStep;
+        break;
     default:
         break;
     };
@@ -1185,6 +1219,50 @@ void myGlutIdle( void )
 
 void myGlutMouse(int button, int button_state, int x, int y )
 {
+    //int specialKey = glutGetModifiers();
+    switch(button_state)
+    {
+    case GLUT_DOWN:
+        {
+            switch(button)
+            {
+            case GLUT_LEFT_BUTTON: // for the left button
+                {
+                    gMouseLastX = x;
+                    gMouseLastY = y;
+                    gIsMoving = true;
+                }
+                break;
+            case GLUT_MIDDLE_BUTTON: // for the middle button
+                break;
+            case GLUT_RIGHT_BUTTON: // for the right button
+                break;
+            default:
+                break;
+            }
+        }
+        break;
+    case GLUT_UP:
+        {
+            switch(button)
+            {
+            case GLUT_LEFT_BUTTON: // for the left button
+                {
+                    gIsMoving = false;
+                }
+                break;
+            case GLUT_MIDDLE_BUTTON: // for the middle button
+                break;
+            case GLUT_RIGHT_BUTTON: // for the right button
+                break;
+            default:
+                break;
+            }
+        }
+        break;
+    default:
+        break;
+    }
 }
 
 
@@ -1192,19 +1270,32 @@ void myGlutMouse(int button, int button_state, int x, int y )
 
 void myGlutMotion(int x, int y )
 {
-    glutPostRedisplay();
+    if(gIsMoving)
+    {
+        double newPosX = x;
+        double newPosY = y;
+        double oldPosX = gMouseLastX;
+        double oldPosY = gMouseLastY;
+        double deltaX = (newPosX - oldPosX) * gMouseStep;
+        double deltaY = (newPosY - oldPosY) * gMouseStep;
+        double angle = gRotX + deltaY;
+        gRotX = angle > 360.0f ? angle - 360.0f : angle;
+        angle = gRotY + deltaX;
+        gRotY = angle > 360.0f ? angle - 360.0f : angle;
+        gMouseLastX = x;
+        gMouseLastY = y;
+        glutPostRedisplay();
+    }
 }
 
 /**************************************** myGlutReshape() *************/
 
 void myGlutReshape( int x, int y )
 {
-    glViewport( 0, 0, x, y );
+    //glViewport( 0, 0, x, y );
     gWndWidth = x;
     gWndHeight = y;
-
-    xy_aspect = (float)x / (float)y;
-
+    //xy_aspect = (float)x / (float)y;
     glutPostRedisplay();
 }
 
@@ -1214,7 +1305,8 @@ void myGlutReshape( int x, int y )
 void myGlutDisplay( void )
 {
     //glClearColor( .9f, .9f, .8f, 1.0f );
-    glClearColor( .95f, .95f, .9f, 1.0f );
+    //glClearColor( .95f, .95f, .9f, 1.0f );
+    glClearColor( 1.0f, 1.0f, 1.0f, 1.0f );
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
     // default viewport
@@ -1225,15 +1317,23 @@ void myGlutDisplay( void )
     // projection  
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    glFrustum( -xy_aspect*.01, xy_aspect*.01, -.01, .01, .1, 500.0 );
+    //glFrustum( -xy_aspect * 0.01, xy_aspect * 0.01, -0.01, 0.01, 0.1, 500.0 );
+    gluPerspective(30.0f, xy_aspect, 1.0f, 100.0f);
 
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
+    gluLookAt(
+        gEyeX, gEyeY, gEyeZ,
+        gCenterX, gCenterY, gCenterZ,
+        gUpX, gUpY, gUpZ);
 
     // scene transformation
-    glTranslatef( 0.0, 0.0, -5.0f );
+    //glTranslatef( 0.0, 0.0, -5.0f );
+    glTranslatef( 0.0, 0.0, -1.0f );
     glTranslatef( scene_pos[0], scene_pos[1], -scene_pos[2] );
+    glRotated(gRotX, 1.0f, 0.0f, 0.0f);
+    glRotated(gRotY, 0.0f, 1.0f, 0.0f);
     glMultMatrixf( scene_rotate );
 
     // light transformation
