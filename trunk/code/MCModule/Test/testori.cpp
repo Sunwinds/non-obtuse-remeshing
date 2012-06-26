@@ -1116,6 +1116,92 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
     case 'q':
         exit(0);
         break;
+    case 'a':
+        {
+            // open file
+            SMFParser smfparser;
+            if(!smfparser.loadFile(open_text))
+            {
+                cout << "file is not found!" << endl;
+                return;
+            }
+            vector<vector<double>> vList;
+            vector<vector<int>> fList;
+            if(!smfparser.parse(vList, fList))
+            {
+                cout << "data is incorrect!" << endl;
+                return;
+            }
+            // normalize
+            double xMin = 32767, xMax = 0;
+            double yMin = 32767, yMax = 0;
+            double zMin = 32767, zMax = 0;
+            double x = 0;
+            double y = 0;
+            double z = 0;
+            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+            {
+                vector<double>::iterator iter = vIter->begin();
+                x = *iter;
+                if(x < xMin) xMin = x;
+                if(x > xMax) xMax = x;
+                ++iter;
+                double y = *iter;
+                if(y < yMin) yMin = y;
+                if(y > yMax) yMax = y;
+                ++iter;
+                double z = *iter;
+                if(z < zMin) zMin = z;
+                if(z > zMax) zMax = z;
+            }
+            double xLen = xMax - xMin;
+            double yLen = yMax - yMin;
+            double ratio = 1.0 / max(xLen, yLen);
+            double centerX = (xMax - xMin) / 2 * ratio;
+            double centerY = (yMax - yMin) / 2 * ratio;
+            double centerZ = (zMax - zMin) / 2 * ratio;
+            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+            {
+                vector<double>::iterator iter = vIter->begin();
+                *iter = (*iter - xMin) * ratio - centerX;
+                ++iter;
+                *iter = (*iter - yMin) * ratio - centerX;
+                ++iter;
+                *iter = (*iter - zMin) * ratio - centerX;
+            }
+            // save file
+            ofstream outFile;
+            outFile.open(open_text, ofstream::out);
+            outFile.setf(ofstream::fixed, ofstream::floatfield);
+            outFile.precision(6);
+            // first line records the number of vertices and number of polygons
+            outFile << "#$SMF 1.0" << endl;
+            outFile << "#$vertices " << vList.size() << endl;
+            outFile << "#$faces " << fList.size() << endl;
+            // record list of vertices
+            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+            {
+                outFile << 'v';
+                for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
+                {
+                    outFile << ' ' << *iter;
+                }
+                outFile << endl;
+            }
+            // record list of polygons
+            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+            {
+                outFile << 'f';
+                for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
+                {
+                    outFile << ' ' << *iter;
+                }
+                outFile << endl;
+            }
+            outFile.close();
+        }
+        cout << "done!" << endl;
+        break;
     case 'b':
         {
             const double* vList = g_rdr.getVertices();
