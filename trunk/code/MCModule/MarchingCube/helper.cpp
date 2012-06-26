@@ -13,7 +13,12 @@ bool operator == (Edge e1, Edge e2)
 	return ((e1.vertex1Idx == e2.vertex1Idx) && (e1.vertex2Idx == e2.vertex2Idx)) ||
 	    ((e1.vertex1Idx == e2.vertex2Idx) && (e1.vertex2Idx == e2.vertex1Idx));
 }
-
+// added by jjcao
+// compare two double points with tolerence eps
+bool equalPts(double* p1, double* p2, double eps)
+{
+	return ( fabs(p1[0] - p2[0]) <= eps && fabs(p1[1] - p2[1]) <= eps && fabs(p1[2] - p2[2]) <= eps);
+}
 // compare two double values with tolerence eps
 bool equal(double a, double b, double eps)
 {
@@ -502,10 +507,13 @@ int line_triangle_intersection(double *intPt, double *pt1, double *pt2,
 		intPt[2] = pt1[2] + t*line[2];
 		
 		// now check if the intersecting point is one the 3 vertices
-		if ((triPt1[0] == intPt[0] && triPt1[1] == intPt[1] && triPt1[2] == intPt[2]) ||
-			(triPt2[0] == intPt[0] && triPt2[1] == intPt[1] && triPt2[2] == intPt[2]) ||
-			(triPt3[0] == intPt[0] && triPt3[1] == intPt[1] && triPt3[2] == intPt[2]))
-		{
+		// jjcao, change from: 
+		//if ((triPt1[0] == intPt[0] && triPt1[1] == intPt[1] && triPt1[2] == intPt[2]) ||
+		//	(triPt2[0] == intPt[0] && triPt2[1] == intPt[1] && triPt2[2] == intPt[2]) ||
+		//	(triPt3[0] == intPt[0] && triPt3[1] == intPt[1] && triPt3[2] == intPt[2]))
+		// to:
+		if ( equalPts(triPt1, intPt, 0.000001) || equalPts(triPt2, intPt, 0.000001) || equalPts(triPt3, intPt, 0.000001) )
+		{			
 			if (dp < 0.0)	// check facing
 				return 2;	// hits front side
 			else

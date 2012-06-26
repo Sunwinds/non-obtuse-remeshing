@@ -1122,15 +1122,27 @@ int Nonobtuse::getScalarField(const double* verticesList, int numVertices,
 								--countFrontInt;
 								break;
 							case 2:		// intersection is at a vertex (ray hits frontside)
+								// added 2 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == 2)
+									break;
 								++countFrontInt;
 								break;
 							case -2:	// intersection is at a vertex (ray hits backside)
+								// added 2 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == -2)
+									break;
 								--countFrontInt;
 								break;
 							case 3:		// intersection is on an edge (ray hits frontside)
+								// added 2 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == 3)
+									break;
 								++countFrontInt;
 								break;
 							case -3:	// intersection is on an edge (ray hits backside)
+								// added 2 lines by jjcao
+								if (currentIntPt >0 && xIntPtList[rayIdx][currentIntPt-1].intType == -3)
+									break;
 								--countFrontInt;
 								break;
 							case 4:		// intersection contains an edge (coplanar)
