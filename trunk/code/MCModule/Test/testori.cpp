@@ -29,8 +29,8 @@ int gWndHeight = 900;
 int   light0_enabled = 1;
 int   gShadingType = 1;
 
-char  open_text[] = "./mesh/test.smf";
-char  save_text[] = "./mesh/test_mc.smf";
+char  open_text[] = "./mesh/test.obj";
+char  save_text[] = "./mesh/test_mc.obj";
 char  open_scalarField_text[] = "./mesh/test_sf.txt";
 char  save_scalarField_text[] = "./mesh/test_sf.txt";
 char  optimize_scalarField_text[] = "./mesh/test_sf_opt.txt";
@@ -1308,7 +1308,47 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
         cout << "done!" << endl;
         break;
     case 'o': // open marching cube
-        control_cb(OPEN_SF_MIDPOINT_ID);
+        {
+            int method = 0;
+            cout << "choose SF2MC method:" << endl;
+            cout << "\t0: isosurface midpoint" << endl;
+            cout << "\t1: isosurface interpolate" << endl;
+            cout << "\t2: nonobtuse interpolate" << endl;
+            cin >> method;
+            cout << endl;
+            switch(method)
+            {
+            case 0:
+                control_cb(OPEN_SF_MIDPOINT_ID);
+                break;
+            case 1:
+                control_cb(OPEN_SF_INTERP_ID);
+                break;
+            case 2:
+                control_cb(OPEN_SF_NO_INTERP_ID);
+                break;
+            }
+        }
+        cout << "done!" << endl;
+        break;
+    case 'm':
+        {
+            int method = 0;
+            cout << "choose MC method:" << endl;
+            cout << "\t0: tiling mc" << endl;
+            cout << "\t1: simple mc" << endl;
+            cin >> method;
+            cout << endl;
+            switch(method)
+            {
+            case 0:
+                control_cb(TILING_NONOBTUSE_ID);
+                break;
+            case 1:
+                control_cb(SIMPLE_MC_ID);
+                break;
+            }
+        }
         cout << "done!" << endl;
         break;
     case 's': // save marching cube
@@ -2223,7 +2263,7 @@ bool init(int argc, char* argv[])
 
                 char savePath[100];
                 strcpy(savePath, argv[3]);
-                strcat(savePath, ".initial.smf");
+                strcat(savePath, ".initial.obj");
                 g_rdr.loadMeshInfo(g_optn.getNoVertices(), g_optn.getNumNoVertices(), g_optn.getNoPolygons(), g_optn.getNumNoPolygons());
                 g_rdr.saveFile(savePath);
 
@@ -2238,7 +2278,7 @@ bool init(int argc, char* argv[])
                     timeTakenList.push_back(timeTaken);
 
                     stringstream ss1;
-                    ss1 << argv[3] << ".smooth." << i << ".smf";
+                    ss1 << argv[3] << ".smooth." << i << ".obj";
                     g_rdr.loadMeshInfo(g_optn.getNoVertices(), g_optn.getNumNoVertices(), g_optn.getNoPolygons(), g_optn.getNumNoPolygons());
                     g_rdr.saveFile(ss1.str().c_str());
 
@@ -2251,7 +2291,7 @@ bool init(int argc, char* argv[])
                     timeTakenList.push_back(timeTaken);
 
                     stringstream ss2;
-                    ss2 << argv[3] << ".optn." << i << ".smf";
+                    ss2 << argv[3] << ".optn." << i << ".obj";
                     g_rdr.loadMeshInfo(g_optn.getNoVertices(), g_optn.getNumNoVertices(), g_optn.getNoPolygons(), g_optn.getNumNoPolygons());
                     g_rdr.saveFile(ss2.str().c_str());
 
@@ -2279,7 +2319,7 @@ bool init(int argc, char* argv[])
 
                 //g_rdr.saveFile(argv[3]);
                 strcpy(savePath, argv[3]);
-                strcat(savePath, ".final.smf");
+                strcat(savePath, ".final.obj");
                 g_rdr.saveFile(savePath);
 
                 // 					strcpy(savePath, argv[3]);

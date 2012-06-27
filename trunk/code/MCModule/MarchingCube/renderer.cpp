@@ -560,7 +560,10 @@ bool Renderer::saveFile(const char* filename)
         return false;
 
     // first line records the number of vertices and number of polygons
-    outFile << "# " << numVertices << " " << numPolygons << endl;
+    //outFile << "# " << numVertices << " " << numPolygons << endl;
+    outFile << "#$SMF 1.0" << endl;
+    outFile << "#$vertices " << numVertices << endl;
+    outFile << "#$faces " << numPolygons << endl;
 
     // record list of vertices
     for (int i = 0; i < numVertices; i++)
@@ -1709,6 +1712,10 @@ void Renderer::renderScalarField(const float *sField, unsigned int numCellX, uns
                 }
                 else
                 {
+                    if(bDisplayModel)
+                    {
+                        continue;
+                    }
                     glColor3f(0.0, 0.0, 1.0);
                 }
 
