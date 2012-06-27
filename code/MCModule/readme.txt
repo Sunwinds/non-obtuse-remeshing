@@ -1,17 +1,26 @@
-使用说明：
-1、选择一个你要测试的SMF格式的网格，将其命名为test.smf，放在mesh文件夹里
-2、Test.exe和mesh文件夹要在同一目录下
-3、运行Test.exe，会显示test.smf，相关信息在命令提示符窗口中显示
-4、在OpenGL窗口上按b，当命令提示符窗口显示done!后，会按照X、Y、Z最短的那个方向切分50份的步长构造marching cube
-5、在OpenGL窗口上按c，当命令提示符窗口显示done!后，会在mesh文件夹里生成scalar field文件test_sf.txt
-6、在OpenGL窗口上按o，当命令提示符窗口显示done!后，会将读入的test_sf.txt生成marching cube，并在OpenGL窗口显示
-7、在OpenGL窗口上按s，当命令提示符窗口显示done!后，会保存marching cube到mesh文件夹下生成test_mc.smf
-8、在OpenGL窗口上按ESC键，退出程序
-9、将smf文件直接重命名成obj，就可以在一般网格显示软件上显示了
-
 网格预处理方法：
-1、在OpenGL窗口上按a，当命令提示符窗口显示done!后，会将test.smf对其到坐标系中心，大小缩放到1，需要重新打开程序！
-2、在OpenGL窗口上按n，当命令提示符窗口显示done!后，会将test.smf所有三角形顶点顺序取反，即翻转法向，需要重新打开程序！
+1、在OpenGL窗口上按a，当命令提示符窗口显示done!后，会将test.obj对其到坐标系中心，大小缩放到1，需要重新打开程序！
+2、在OpenGL窗口上按n，当命令提示符窗口显示done!后，会将test.obj所有三角形顶点顺序取反，即翻转法向，需要重新打开程序！
+
+程序使用说明：
+SF：scalar field
+MC：marching cube
+1、选择一个你要测试的SMF格式的网格，将其命名为test.obj，放在mesh文件夹里
+2、Test.exe和mesh文件夹要在同一目录下
+3、运行Test.exe，会显示test.obj，相关信息在命令提示符窗口中显示
+4、在OpenGL窗口上按b，当命令提示符窗口显示done!后，会按照X、Y、Z最短的那个方向切分20份的步长构造SF
+5、在OpenGL窗口上按c，当命令提示符窗口显示done!后，会在mesh文件夹里生成SF文件test_sf.txt
+6、在OpenGL窗口上按o，在命令提示符窗口选择SF转MC的方法：
+    0：MIDPOINT
+    1：INTERPOLATE
+    2：NONOBTUSE_INTERPOLATE
+    然后回车，当命令提示符窗口显示done!后，程序会将读入的test_sf.txt生成MC，并在OpenGL窗口显示
+7、在6的前提下，在OpenGL窗口上按m，在命令提示符窗口选择重新生成MC的方法：
+    0：对生成的MC用tiling重新生成一个新的MC
+    1：对生成的MC用tiling中的simple_mc方法重新生成一个新的MC
+    然后回车，当命令提示符窗口显示done!后，新生成的MC会在OpenGL窗口显示
+8、在OpenGL窗口上按s，当命令提示符窗口显示done!后，会保存marching cube到mesh文件夹下生成test_mc.obj
+9、在OpenGL窗口上按ESC键，退出程序
 
 快捷键：
 u：上移
@@ -20,7 +29,10 @@ h：左移
 k：右移
 y：移远
 i：移近
-d：显示或隐藏model，方便看标量场
+d：显示或隐藏model和标量场：
+    始终显示网格内部标量场
+    显示Model时，网格外部标量场隐藏
+    隐藏Model时，网格外部标量场显示
 支持鼠标按住左键旋转
 
 ======================================================
@@ -35,7 +47,7 @@ MeshLab/Filters/Normals,Curvatures and Orientations/Invert Faces Orientations
 
 =======================================================
 If the face orientation is right, the generated distance field may be still wrong. see err_scalarField_sphere_4k.png
-即使用cube_602.smf也会错，原因待查。
+即使用cube_602.obj也会错，原因待查。
 首先考虑onoobtuse.cpp的TODO: problems with cases where ray intersects vertex or edge
 
 ==========================================================

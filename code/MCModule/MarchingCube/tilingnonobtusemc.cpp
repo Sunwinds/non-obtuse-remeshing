@@ -14,6 +14,8 @@ bool operator==(EdgePosInfo a, EdgePosInfo b)
 	return (a.edgeIdx == b.edgeIdx);
 }
 
+//#define USETMC
+#ifdef USETMC
 // modified from parent class to make 1 as outside, 0 as inside
 template <class T> const int CIsoSurface<T>::m_triTable[256][16] = {
 	//
@@ -365,7 +367,7 @@ template <class T> const int CIsoSurface<T>::m_triTable[256][16] = {
 	{0, 8, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},	// 1111 1110; v -0		(case -1)
 	{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}// 1111 1111; all		(case 0)
 };
-
+#endif // USETMC
 
 template <class T> TilingNonobtuseMC<T>::TilingNonobtuseMC()
 :CNonobtuseMC<T>::CNonobtuseMC(), cubesProperty(NULL), nextUnusedVertexID(0), nextUnusedEdgeID(0), closestTriList(NULL),
@@ -491,7 +493,7 @@ template <class T> clock_t TilingNonobtuseMC<T>::GenerateSurface(const double* v
 			}
 		}
 	}
-
+    /*
 	cout << "Start stitching ... " << endl;
 
 	// post process stitching
@@ -503,7 +505,7 @@ template <class T> clock_t TilingNonobtuseMC<T>::GenerateSurface(const double* v
 			}
 		}
 	}
-
+    */
 	// rename the vertex ids
 	RenameVerticesAndTriangles(verticesList, numVertices, polygonsList, numPolygons);
 	this->m_bValidSurface = true;

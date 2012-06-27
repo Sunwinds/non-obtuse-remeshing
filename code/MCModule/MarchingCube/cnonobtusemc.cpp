@@ -7,7 +7,9 @@
  ***************************************************************************/
  
 #include "cnonobtusemc.h"
-/*
+
+//#define USETMC
+#ifdef USETMC
 // modified from base class to give nonobtuse marching cube
 // also in some cases modified from base class to give less triangles
 template <class T> const int CIsoSurface<T>::m_triTable[256][16] = {
@@ -744,7 +746,7 @@ template <class T> const int CIsoSurface<T>::m_triTable[256][16] = {
 	{0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},	// 1111 1110; v -0		(case -1)
 	{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}// 1111 1111; all		(case 0)
 };
-*/
+#endif // USENMC
 
 template <class T> CNonobtuseMC<T>::CNonobtuseMC()
 :CIsoSurface<T>::CIsoSurface(), allTableIndex(NULL)
