@@ -4,9 +4,10 @@
 #include "../MarchingCube/CIsoSurface.h"
 #include "../MarchingCube/cnonobtusemc.h"
 #include "../MarchingCube/tilingnonobtusemc.h"
-#include "../MarchingCube/renderer.h"
 #include "../MarchingCube/nonobtuse.h"
+#include "../MarchingCube/renderer.h"
 #include "../MeshParser/smfparser.h"
+#include "../ObtuseOpt/nonobtoptn.h"
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>

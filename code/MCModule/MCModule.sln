@@ -9,6 +9,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj",
 	ProjectSection(ProjectDependencies) = postProject
 		{B6CFEF79-F58F-4EA8-BD4A-8DDF13367CC4} = {B6CFEF79-F58F-4EA8-BD4A-8DDF13367CC4}
 		{66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB} = {66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB}
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A} = {EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObtuseOpt", "ObtuseOpt\ObtuseOpt.vcxproj", "{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB} = {66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB}
 	EndProjectSection
 EndProject
 Global
@@ -29,6 +35,10 @@ Global
 		{24A2E093-D8BE-4E36-978C-EB99CDADFD78}.Debug|Win32.Build.0 = Debug|Win32
 		{24A2E093-D8BE-4E36-978C-EB99CDADFD78}.Release|Win32.ActiveCfg = Release|Win32
 		{24A2E093-D8BE-4E36-978C-EB99CDADFD78}.Release|Win32.Build.0 = Release|Win32
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}.Debug|Win32.Build.0 = Debug|Win32
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}.Release|Win32.ActiveCfg = Release|Win32
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
