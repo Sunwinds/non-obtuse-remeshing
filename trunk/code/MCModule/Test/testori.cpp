@@ -133,11 +133,12 @@ float optn_angleBound = 30.0;
 int gOptnAngleBound = 1;
 
 int gCleanWhenStuck = 0;
-
-//NORegionType g_region = ANGLEBOUND_7PLANES;
+// by Yu Cai, remove optimization
+NORegionType g_region = ANGLEBOUND_7PLANES;
 
 /** Pointers to the windows and some of the controls we'll create **/
 /*
+// by Yu Cai, remove glui
 GLUI		*glui;
 
 GLUI_Spinner	*obj_scale_spinner;
@@ -366,7 +367,8 @@ Nonobtuse g_nonObtuse;
 // CIsoSurface class instance
 CNonobtuseMC<float> g_isoSurface;
 // NonobtOptn class instance
-//NonobtOptn g_optn;
+// by Yu Cai, remove optimization
+NonobtOptn g_optn;
 // edges that make up an obtuse angle
 vector<Edge> obtuseEdges;
 // vertices where an obtuse angle occurs
@@ -404,6 +406,7 @@ bool init(int argc, char* argv[]);
 void resetProperties()
 {
     /*
+    // by Yu Cai, remove glui
     obj_scale_spinner->set_float_val(1.0);
     shading_radio_group->set_int_val(1);
     showObtuseAngles_checkbox->set_int_val(0);
@@ -518,6 +521,7 @@ void control_cb( int control )
     }
     else if ( control == RESET_OBJ_ID )	// reset object control
     {
+        // by Yu Cai, remove glui
         //view_rot_obj->reset();
         //trans_xy_obj->set_x(0.0);
         //trans_xy_obj->set_y(0.0);
@@ -532,6 +536,7 @@ void control_cb( int control )
     }
     else if ( control == RESET_SCENE_ID )	// reset scene control
     {
+        // by Yu Cai, remove glui
         //view_rot_scene->reset();
         //trans_xy_scene->set_x(0.0);
         //trans_xy_scene->set_y(0.0);
@@ -626,7 +631,8 @@ void control_cb( int control )
     {
         checkManifold(g_rdr.getVertices(), g_rdr.getNumVertices(), g_rdr.getPolygons(), g_rdr.getNumPolygons(), true, nonManifoldVertices, nonManifoldEdges, openManifoldEdges);
     }
-    /*
+    ///*
+    // by Yu Cai, remove optimization
     else if (control == OPTN_ANGLEBOUND_ID)
     {	
         if (gOptnAngleBound)
@@ -882,7 +888,7 @@ void control_cb( int control )
             }
         }
     }
-    */
+    //*/
     else if (control == SHOW_CELLREGION_ID)			// show cells region
     {
     }
@@ -1065,7 +1071,8 @@ void control_cb( int control )
         if (strcmp(save_text, "") != 0)
             g_rdr.saveFile(save_text);
     }
-    /*
+    ///*
+    // by Yu Cai, remove optimization
     else if (control == OPTIMIZE_LOADDEBUG_BUTTON_ID)
     {
         g_optn.loadDebug(optimize_debug_text);
@@ -1091,7 +1098,7 @@ void control_cb( int control )
             cout << "No mesh is loaded in optimizer" << endl;
         }
     }
-    */
+    //*/
 
     glutPostRedisplay();
 }
@@ -1562,6 +1569,7 @@ void myGlutDisplay( void )
     // shading mode
     int shadeMode(0);
     /*
+    // by Yu Cai, remove glui
     if (shading_radio_group->get_int_val() == 1)        // wireframe
     {
         glDisable(GL_LIGHTING);
@@ -1617,19 +1625,19 @@ void myGlutDisplay( void )
         g_rdr.render(shadeMode);
     }
     */
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glPolygonOffset(-0.5f, -0.5f);
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+    glPolygonOffset(-0.5f, -0.5f);
 
-        glDisable(GL_LIGHTING);
-        glPolygonMode(GL_FRONT, GL_LINE);
-        g_rdr.render();
-        glEnable(GL_LIGHTING);
+    glDisable(GL_LIGHTING);
+    glPolygonMode(GL_FRONT, GL_LINE);
+    g_rdr.render();
+    glEnable(GL_LIGHTING);
 
-        glPopAttrib();
+    glPopAttrib();
 
-        glPolygonMode(GL_FRONT, GL_FILL);
-        shadeMode = 0;
-        g_rdr.render(shadeMode);
+    glPolygonMode(GL_FRONT, GL_FILL);
+    shadeMode = 0;
+    g_rdr.render(shadeMode);
 
     // render scalar field
     if (gShowScalarField && g_isoSurface.IsSurfaceValid())
@@ -1702,6 +1710,7 @@ void myGlutDisplay( void )
 
 void glui_init()
 {
+    // by Yu Cai, remove glui
     ///*** Create the side subwindow ***/
     //glui = GLUI_Master.create_glui_subwindow( main_window, GLUI_SUBWINDOW_RIGHT );
 
@@ -2062,7 +2071,8 @@ bool init(int argc, char* argv[])
             cout << "Failed to load mesh file: " << argv[2] << endl;
         break;
     case 10:
-        /*	
+        ///*
+        // by Yu Cai, remove optimization
         // decimate debug file: {program_name} -decimateDebug {input_debug_file} {output_mesh_file} {num_Remaining} {decimate_threshold} {angleBound} {avoid_degree} {optn_alpha} {haveAngleBound}
         if (strcmp(argv[1], "-decimateDebug") == 0)	// decimate
         {
@@ -2365,7 +2375,7 @@ bool init(int argc, char* argv[])
         }
         return false;
         break;
-        */
+        //*/
     default:
         break;
     }
@@ -2386,7 +2396,7 @@ int testori(int argc, char* argv[])
     glutMainLoop();
 
     // clean up
-    delete[] centroid;
+    delete [] centroid;
 
     return 0;
 }
