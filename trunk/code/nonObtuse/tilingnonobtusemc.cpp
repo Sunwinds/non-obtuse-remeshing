@@ -138,7 +138,7 @@ template <class T> clock_t TilingNonobtuseMC<T>::GenerateSurface(const double* v
 			}
 		}
 	}
-    /*
+    
 	cout << "Start stitching ... " << endl;
 
 	// post process stitching
@@ -150,7 +150,7 @@ template <class T> clock_t TilingNonobtuseMC<T>::GenerateSurface(const double* v
 			}
 		}
 	}
-    */
+    
 	// rename the vertex ids
 	RenameVerticesAndTriangles(verticesList, numVertices, polygonsList, numPolygons);
 	this->m_bValidSurface = true;
