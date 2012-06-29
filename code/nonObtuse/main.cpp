@@ -1497,6 +1497,12 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
             nCellX = int(xLen / step + 0.5) + 10;
             nCellY = int(yLen / step + 0.5) + 10;
             nCellZ = int(zLen / step + 0.5) + 10;
+            nCellsX_spinner->set_int_val(nCellX);
+            nCellsY_spinner->set_int_val(nCellY);
+            nCellsZ_spinner->set_int_val(nCellZ);
+            fCellLengthX_spinner->set_float_val(fCellLengthX);
+            fCellLengthY_spinner->set_float_val(fCellLengthX);
+            fCellLengthZ_spinner->set_float_val(fCellLengthX);
             cout << "nCellX: " << nCellX << endl;
             cout << "nCellY: " << nCellY << endl;
             cout << "nCellZ: " << nCellZ << endl;
