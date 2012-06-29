@@ -1,0 +1,103 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpdense.mak
+
+..\src\DenseLinearAlgebra\DenseGenMatrix.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixTypes.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\utilities\ooqpblas.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\DenseLinearAlgebra\DenseLinearAlgebraPackage.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseLinearAlgebraPackage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymIndefSolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\DenseLinearAlgebra\DenseStorage.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\utilities\ooqpblas.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\DenseLinearAlgebra\DenseSymMatrix.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixTypes.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymIndefSolver.h"\
+	"..\src\DenseLinearAlgebra\DeSymPSDSolver.h"\
+	"..\src\utilities\ooqpblas.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\DenseLinearAlgebra\DeSymIndefSolver.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymIndefSolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\DenseLinearAlgebra\DeSymPSDSolver.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymPSDSolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

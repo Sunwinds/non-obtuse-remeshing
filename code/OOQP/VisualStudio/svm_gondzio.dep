@@ -1,0 +1,135 @@
+# Microsoft Developer Studio Generated Dependency File, included by svm_gondzio.mak
+
+..\src\Svm\Svm.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Svm\Svm.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Svm\SvmLinsys.h"\
+	"..\src\Svm\SvmResiduals.h"\
+	"..\src\Svm\SvmVars.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Svm\SvmData.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Svm\SvmGondzioDriver.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\qpsolvers\gondziosolver.h"\
+	"..\src\Svm\Svm.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Svm\SvmLinsys.h"\
+	"..\src\Svm\SvmResiduals.h"\
+	"..\src\Svm\SvmVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Svm\SvmLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymPSDSolver.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Svm\SvmLinsys.h"\
+	"..\src\Svm\SvmResiduals.h"\
+	"..\src\Svm\SvmVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Svm\SvmResiduals.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Svm\SvmResiduals.h"\
+	"..\src\Svm\SvmVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Svm\SvmVars.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Svm\SvmData.h"\
+	"..\src\Svm\SvmVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

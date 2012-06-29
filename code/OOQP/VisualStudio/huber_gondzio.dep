@@ -1,0 +1,133 @@
+# Microsoft Developer Studio Generated Dependency File, included by huber_gondzio.mak
+
+..\src\Huber\Huber.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Huber\Huber.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Huber\HuberLinsys.h"\
+	"..\src\Huber\HuberResiduals.h"\
+	"..\src\Huber\HuberVars.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Huber\HuberData.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Huber\HuberGondzioDriver.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Huber\Huber.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Huber\HuberLinsys.h"\
+	"..\src\Huber\HuberResiduals.h"\
+	"..\src\Huber\HuberVars.h"\
+	"..\src\qpsolvers\gondziosolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Huber\HuberLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymPSDSolver.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Huber\HuberLinsys.h"\
+	"..\src\Huber\HuberResiduals.h"\
+	"..\src\Huber\HuberVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Huber\HuberResiduals.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Huber\HuberResiduals.h"\
+	"..\src\Huber\HuberVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Huber\HuberVars.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\Huber\HuberData.h"\
+	"..\src\Huber\HuberVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

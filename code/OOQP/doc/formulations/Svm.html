@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>SVM</TITLE>
+<LINK REV="made" HREF="mailto:flepied@debris.mandrakesoft.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#svm">SVM</A></LI>
+	<LI><A HREF="#usage">USAGE</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#building the executable">BUILDING THE EXECUTABLE</A></LI>
+	<LI><A HREF="#calling the svm solver with ascii data">CALLING THE SVM SOLVER WITH ASCII DATA</A></LI>
+	<LI><A HREF="#options">OPTIONS</A></LI>
+	<LI><A HREF="#sample input file">SAMPLE INPUT FILE</A></LI>
+	<LI><A HREF="#matlab interface">MATLAB INTERFACE</A></LI>
+	<LI><A HREF="#fin">FIN</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="svm">SVM</A></H1>
+<P>SVM - A module for creating linear support vector machine classifiers.</P>
+This page is part of the <A HREF=../index.html> OOQP documentation </A>.<P>
+<HR>
+<H1><A NAME="usage">USAGE</A></H1>
+<P>To read the data from a file:</P>
+<P><STRONG>svm-gondzio.exe</STRONG> [ <STRONG>--quiet</STRONG> ] [ <STRONG>--print-solution</STRONG> ] filename
+ [ penalty ]</P>
+<P>To generate a random problem for benchmarking:</P>
+<P><STRONG>svm-gondzio.exe</STRONG> [ <STRONG>--quiet</STRONG> ] [ <STRONG>--print-solution</STRONG> ] <CODE>random</CODE> 
+hdim nobs</P>
+<P>where ``<CODE>random</CODE>'' is a literal keyword.</P>
+<P>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<P>Linear support vector machine problems take two sets of points in
+n-space and attempt to find a hyperplane which separates them. If no
+such plane exists, it looks for a plane for which the
+misclassification errors are minimized, while satisfying some
+regularity condition. For additional details, we refer to Section 6.2
+of the paper ``Object-Oriented Software for Quadratic Programming'' that
+is included in this distribution, and to Chapter 5 of V. Vapnik: <EM>The
+Nature of Statistical Learning Theory</EM>, 2nd edition, Springer, 1999.</P>
+<P>The SVM module of OOQP accepts as input a collection of points in
+n-space, a label for each point (the label taking on one of two
+distinct values indicating the set to which the point belongs) and the
+value of the penalty parameter, which is the weight on the term in the
+objective function indicating violation of the constraints. The output
+is an n-vector <CODE>w</CODE> and a scalar <CODE>beta</CODE> that define the hyperplane. If the
+two sets are separable and the penalty parameter is sufficiently
+large, then <CODE>(w,beta)</CODE> defines a separating hyperplane.</P>
+<P>
+<HR>
+<H1><A NAME="building the executable">BUILDING THE EXECUTABLE</A></H1>
+<P>An implementation of the SVM solver that uses Gondzio's algorithm and
+reads data from an ascii file is supplied with the OOQP
+distribution. To generate this executable, first follow the
+installation procedures described in the file
+<A HREF=".././distribution-docs/INSTALL.html">INSTALL</A>. Then, from the main OOQP directory, type</P>
+<PRE>
+    make svm-gondzio.exe</PRE>
+<P>
+<HR>
+<H1><A NAME="calling the svm solver with ascii data">CALLING THE SVM SOLVER WITH ASCII DATA</A></H1>
+<P>The input file for the SVM module should contain the dimensions of the
+problem followed by the points in the problem and their labels. The
+format is as follows:</P>
+<PRE>
+       l
+       n
+       x1(1) x1(2) ... x1(n) label_1
+       x2(1) x2(2) ... x2(n) label_2
+       ...
+       xl(1) xl(2) ... xl(n) label_l</PRE>
+<P>where l is an integer representing the number of observations (must be
+at least 2); n is the dimension of the space in which all the data
+points reside (must be at least 1); <CODE>(xi(1) xi(2) ... xi(n))</CODE> represent
+the n coordinates of the i-th point, and label_i is a real number
+which takes on one of two distinct values, indicating the set to which
+point i belongs.</P>
+<P>The most common mode for invoking the executable is the following</P>
+<PRE>
+        svm-gondzio.exe filename penalty</PRE>
+<P>where ``filename'' is the name of the ascii file containing the data and
+``penalty'' is the positive real value defining the penalty parameter.
+One can also use the format:</P>
+<PRE>
+        svm-gondzio.exe filename</PRE>
+<P>which sets the penalty parameter to a default value of 1.0. Output
+from the solver will be written to <EM>filename.out</EM> where the string
+``filename'' will be replaced by the actual name of the input file. The
+output format is</P>
+<PRE>
+       n
+       w_1
+       ...
+       w_n
+       beta</PRE>
+<P>Where n, w and beta are as described above. If label_1 and label_2
+have opposite signs, then data with</P>
+<PRE>
+      w' * x - beta &gt;= 0</PRE>
+<P>is classifed as belonging to the set represented by the positive
+label. Otherwise, the first label to be found will be taken to
+represent the positive side of the hyperplane.</P>
+<P>Finally, to benchmark the efficiency of the solver for certain problem
+dimensions, one can type</P>
+<P></P>
+<PRE>
+
+        svm-gondzio.exe random n l</PRE>
+<P>where ``random'' is a literal keyword, and n and l are the problem
+dimensions as defined above.</P>
+<P>
+<HR>
+<H1><A NAME="options">OPTIONS</A></H1>
+<DL>
+<DT><STRONG><A NAME="item_%2D%2Dquiet">--quiet</A></STRONG><BR>
+<DD>
+Do not print progress information while the problem is being solved
+and do not print the solution to the screen.
+<P></P>
+<DT><STRONG><A NAME="item_%2D%2Dprint%2Dsolution">--print-solution</A></STRONG><BR>
+<DD>
+Print the solution to the screen when the algorithm is
+finished. Overrides the <STRONG>--quiet</STRONG> option.
+<P>The solution is printed by default if it is small (<CODE>hdim</CODE> &lt; 20) and
+the <STRONG>--quiet</STRONG> option is not in effect.</P>
+<P></P></DL>
+<P>
+<HR>
+<H1><A NAME="sample input file">SAMPLE INPUT FILE</A></H1>
+<P>We have supplied a real data set with the OOQP distribution which can
+be used to test the SVM solver. This set, in file
+<EM>OOQP/examples/Svm/svm.wisconsin.data</EM>, contains breast cancer data
+from a Wisconsin study. There are 679 observations of points from
+nine-dimensional space. To execute the program with this test data,
+make the svm-gondzio.exe file as described above, go to the OOQP
+directory, and type</P>
+<PRE>
+    svm-gondzio.exe ./examples/Svm/svm.wisconsin.data  penalty</PRE>
+<P>where ``penalty'' is the chosen value of the penalty parameter. Suitable
+values for ``penalty'' for this data set include 1.0 and 10.0.</P>
+<P>
+<HR>
+<H1><A NAME="matlab interface">MATLAB INTERFACE</A></H1>
+<P>The SVM code may be invoked from Matlab. Documentation for this
+interface may be read within Matlab. See the
+<A HREF=".././distribution-docs/README_Matlab.html">README_Matlab</A> file for instruction on how to install
+the Matlab interface. One the interface is installed, type</P>
+<PRE>
+        help ooqp_svm</PRE>
+<P>at the Matlab prompt.</P>
+<P>
+<HR>
+<H1><A NAME="fin">FIN</A></H1>
+Back to the <A HREF=../index.html> Documentation Roadmap </A>.
+</BODY>
+
+</HTML>

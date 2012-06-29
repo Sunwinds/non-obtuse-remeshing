@@ -1,0 +1,69 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpbase.mak
+
+..\src\Abstract\IotrRefCount.C : \
+	"..\src\Abstract\IotrRefCount.h"\
+	
+
+..\src\Abstract\OoqpMonitor.C : \
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\Solver.h"\
+	
+
+..\src\Vector\OoqpVector.C : \
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Vector\OoqpVector.h"\
+	
+
+..\src\Abstract\OoqpVersion.C : \
+	"..\src\Abstract\OoqpVersion.h"\
+	
+
+..\src\Vector\SimpleVector.C : \
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\utilities\ooqpblas.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	"..\src\Vector\VectorUtilities.h"\
+	
+
+..\src\Abstract\Solver.C : \
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\OoqpStartStrategy.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Status.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Abstract\Status.C : \
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Status.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Abstract\Variables.C : \
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	
+
+..\src\Vector\VectorUtilities.C : \
+	"..\src\Vector\VectorUtilities.h"\
+	

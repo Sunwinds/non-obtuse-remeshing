@@ -1,0 +1,58 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpsparse.mak
+
+..\src\SparseLinearAlgebra\SparseGenMatrix.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixTypes.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\SparseLinearAlgebra\SparseGenMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\SparseLinearAlgebra\SparseLinearAlgebraPackage.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\SparseLinearAlgebra\SparseGenMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseLinearAlgebraPackage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\SparseLinearAlgebra\SparseStorage.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\SparseLinearAlgebra\SparseSymMatrix.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixTypes.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

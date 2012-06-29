@@ -1,0 +1,7 @@
+# Microsoft Developer Studio Generated Dependency File, included by qpgen_cinterface_dense_example.mak
+
+..\QpGen\cinterface\dense_example.c : \
+	"..\..\include\cqpgen.h"\
+	"..\..\include\cqpgendense.h"\
+	"..\..\include\ooqpmonitordata.h"\
+	

@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>README_Windows -- A installation guide for OOQP under Microsoft
+Windows</TITLE>
+<LINK REV="made" HREF="mailto:flepied@debris.mandrakesoft.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsys">SYNOPSYS</A></LI>
+	<LI><A HREF="#cygwin">CYGWIN</A></LI>
+	<LI><A HREF="#visual c++">Visual C++</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>README_Windows -- A installation guide for OOQP under Microsoft
+Windows</P>
+This page is part of the <A HREF=../index.html> OOQP documentation </A>.<P>
+<HR>
+<H1><A NAME="synopsys">SYNOPSYS</A></H1>
+<P>OOQP was developed under an UNIX-like environment, but also may be
+installed and will run under Microsoft Windows. The C++ code itself is
+platform-independent.  The only issue is the system for building the
+libraries and executables.</P>
+<P>The file <A HREF=".././distribution-docs/INSTALL.html">INSTALL</A> contains instructions for compiling OOQP
+in a UNIX-like environment, as well as general information about
+installing OOQP. The current file contains suplemental information for
+compiling under Windows. You have two supported options. The first is
+to install and use Cygwin. The second is to compile under Microsoft
+Visual C++.</P>
+<P>
+<HR>
+<H1><A NAME="cygwin">CYGWIN</A></H1>
+<P>Cygwin is a UNIX-like environment that runs under Windows. It is
+freely available from <A HREF="http://www.cygwin.com,">http://www.cygwin.com,</A> or may be purchased on
+machine readable media.  If you choose to install Cygwin, you may
+simply follow the standard instructions in the <A HREF=".././distribution-docs/INSTALL.html">INSTALL</A>
+guide.</P>
+<P>
+<HR>
+<H1><A NAME="visual c++">Visual C++</A></H1>
+<P>The files needed to compile OOQP under Microsoft Visual Studio are not
+part of the standard OOQP distribution, but may be obtained from the
+OOQP web site <A HREF="http://www.cs.wisc.edu/~swright/ooqp.">http://www.cs.wisc.edu/~swright/ooqp.</A>  Obtain the Visual
+Studio support files and extract them as instructed on the web
+page. You should now have a VisualStudio subdirectory within the OOQP
+directory.</P>
+<P>You will also need to obtain the F2C translator and system libraries
+for Windows in order to compile MA27. See the <A HREF=".././distribution-docs/INSTALL.html">INSTALL</A> file
+for a discussion of the F2C and MA27 packages. Once you have obtained
+the F2C library, named vcf2c.lib, copy it to the lib subdirectory of
+the OOQP directory.</P>
+<P>Once you have all the necessary files, open the
+OOQP\VisualStudio\OOQP.dsw workspace from within VisualStudio and
+build all the projects within it.</P>
+<P>We were able to build OOQP on a Windows 2000 machine using Visual
+Studio v6.0.</P>
+
+</BODY>
+
+</HTML>

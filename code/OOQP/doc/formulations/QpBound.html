@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<TITLE>QpBound - A module for solving bound-constrained QPs of moderate size.</TITLE>
+<LINK REV="made" HREF="mailto:flepied@debris.mandrakesoft.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#building the executable">BUILDING THE EXECUTABLE</A></LI>
+	<LI><A HREF="#qps input for the qpbound solver">QPS INPUT FOR THE QPBOUND SOLVER</A></LI>
+	<LI><A HREF="#calling the qpbound solver with qps input">CALLING THE QPBOUND SOLVER WITH QPS INPUT</A></LI>
+	<LI><A HREF="#solution format">SOLUTION FORMAT</A></LI>
+	<LI><A HREF="#sample input file">SAMPLE INPUT FILE</A></LI>
+	<LI><A HREF="#use with petsc">USE WITH PETSC</A></LI>
+	<LI><A HREF="#fin">FIN</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>QpBound - A module for solving bound-constrained QPs of moderate size.</P>
+This page is part of the <A HREF=../index.html> OOQP documentation </A>.<P>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<P>We see a vector x = (x_1,x_2,...,x_n) that solves the following problem</P>
+<PRE>
+   min_x  c'x + (1/2) x'Qx,  subject to
+   x_i &gt;= l_i,  for i in L,
+   x_i &lt;= u_i,  for i in U,</PRE>
+<P>where Q is a positive semidefinite matrix, L and U are subsets of
+{1,2,...,n}, and l_i and u_i are lower and upper bounds,
+respectively. This solver stores Q as a symmetric dense matrix, and
+uses dense linear algebra software to solve the linear system at each
+interior-point iteration. Therefore, it should not be used to solve
+large problems.</P>
+<P>
+<HR>
+<H1><A NAME="building the executable">BUILDING THE EXECUTABLE</A></H1>
+<P>An implementation of the QpBound solver that uses Gondzio's algorithm
+and reads data from a QPS file is supplied with the OOQP
+distribution. To generate this executable, first follow the
+installation procedures described in the file
+<A HREF=".././distribution-docs/INSTALL.html">INSTALL</A>. Then, from the main OOQP directory, type</P>
+<PRE>
+    make qpbound-dense-gondzio.exe</PRE>
+<P>
+<HR>
+<H1><A NAME="qps input for the qpbound solver">QPS INPUT FOR THE QPBOUND SOLVER</A></H1>
+<P>The QPS file format should be the same as that used for input to the
+general QP solvers. This format is described in detail in the OOQP
+User Guide. There is one important restriction, however: The QPS file
+should not define any elements of a general constraint matrix (since
+this cannot be accommodated by the bound-constrained
+formulation). Specifically, as well as following the general rules for
+QPS file, the format should have the following properties.</P>
+<P>The ROWS section should contain a single entry (corresponding to the
+name assigned to the linear term c in the objective function).</P>
+<P>The COLUMNS section should contain n entries, one for each element of
+the vector x. Each entry should name the element of x, name the
+objective function, and give the numerical value of the
+corresponding component of the linear term c.</P>
+<P>The RHS section should be empty. That is, a line ``RHS'' should appear
+in the file, followed immediately by the line ``BOUNDS'' (indicating
+that the RHS section is empty).</P>
+<P>The RANGES sections should be absent. (There is no need even for the
+line ``RANGES'' to appear in the file.)</P>
+<P>The solver will terminate with an error message if the QPS file does
+not have these properties.</P>
+<P>We note one aspect of the QPS standard which is significant here: Each
+component of x is assumed by default to have a lower bound of 0 and an
+upper bound of infinity. When the BOUNDS section specifies only a
+lower bound l_i on the component x_i, then the component x_i is
+assumed to be bounded as follows: l_i &lt;= x_i. When the BOUNDS section
+specifies only an upper bound u_i on x_i, the component x_i is assumed
+to be bounded as follows: 0 &lt;= x_i &lt;= u_i. When the BOUNDS section
+specifies both a lower bound l_i and an upper bound u_i, the component
+x_i is assumed to be bounded as follows: l_i &lt;= x_i &lt;= u_i.</P>
+<P>Further information can be found in the OOQP User Guide and references
+cited therein, and on the following web site:</P>
+<PRE>
+  <A HREF="http://www-fp.mcs.anl.gov/otc/Guide/OptWeb/continuous/constrained/linearprog/mps.html">http://www-fp.mcs.anl.gov/otc/Guide/OptWeb/continuous/constrained/linearprog/mps.html</A></PRE>
+<P>(This site discusses MPS format, which is identical to QPS format with
+the exception of the QUADOBJ section, which defines the Hessian Q.)</P>
+<P>
+<HR>
+<H1><A NAME="calling the qpbound solver with qps input">CALLING THE QPBOUND SOLVER WITH QPS INPUT</A></H1>
+<P>Having constructed the <STRONG>qpbound-dense-gondzio.exe</STRONG> executable and an
+input file, the solver can be invoked as follows:</P>
+<P><STRONG>qpbound-dense-gondzio.exe</STRONG>  [ options ] filename</P>
+<P>where filename is a path to the qps file, and the options are as
+follows:</P>
+<DL>
+<DT><STRONG><A NAME="item_%2D%2Dquiet">--quiet</A></STRONG><BR>
+<DD>
+Print only the solution.
+<P></P>
+<DT><STRONG><A NAME="item_%2D%2Dverbose">--verbose</A></STRONG><BR>
+<DD>
+Print information at each interior-point iteration, and
+output from the linear algebra routines, as well as the solution.
+<P></P>
+<DT><STRONG><A NAME="item_N">--print-level N (where N is a nonnegative integer)</A></STRONG><BR>
+<DD>
+If N&gt;=10, print
+progress information at each interior-point iteration; if N&gt;=100,
+print information from the linear algebra routines.
+<P></P></DL>
+<P>If no options are specified, a print-level of 10 is assumed. That is,
+progress information from each interior-point iteration is printed,
+along with the solution.</P>
+<P>
+<HR>
+<H1><A NAME="solution format">SOLUTION FORMAT</A></H1>
+<P>When requested, the solution is printed to the standard output
+stream. First the vector x is listed by components, in the same order
+as the components appeared in the COLUMNS section of the QPS input
+file. Next, the Lagrange multipliers tau for the lower bounds are
+printed. Only components of tau for which lower bounds actually are
+present in the formulation are listed. Finally, the Lagrange
+multipliers nu for the upper bounds are printed. Only components of nu
+for which upper bounds actually are present in the formulation are
+listed.</P>
+<P>
+<HR>
+<H1><A NAME="sample input file">SAMPLE INPUT FILE</A></H1>
+<P>We have provided a sample input file examples/QpBound/simple.qps with
+the OOQP distribution. To invoke the solver on this file, go to the
+directory OOQP and type</P>
+<PRE>
+  qpbound-dense-gondzio.exe examples/QpBound/simple.qps</PRE>
+<P>If you wish the solver to print only the solution, type instead the
+following:</P>
+<PRE>
+  qpbound-dense-gondzio.exe --quiet examples/QpBound/simple.qps</PRE>
+<P>or</P>
+<PRE>
+  qpbound-dense-gondzio.exe --print-level N examples/QpBound/simple.qps</PRE>
+<P>where N is some integer between 0 and 9 (inclusive).</P>
+<P>
+<HR>
+<H1><A NAME="use with petsc">USE WITH PETSC</A></H1>
+<P>If you have the PETSc libraries installed, you may build a bound
+constrained QP solver that uses PETSc to solve the linear systems that
+arise in the QP algorithm. The executable is named
+<STRONG>qpbound-petsc-mehrotra.exe</STRONG> and may be called in the following
+manner.</P>
+<P><STRONG>qpbound-petsc-mehrotra.exe</STRONG> [ <STRONG>-print-level</STRONG> num ] [ <STRONG>-quiet</STRONG> ] 
+[ <STRONG>-verbose</STRONG> ] <STRONG>-file</STRONG> problem.qps</P>
+<P>The program options have the same meaning as given above. Not however,
+that only a single dash is used, and that the <STRONG>-file</STRONG> switch is
+required before the file name. The program also accepts all options
+understood by PETSc, allowing the the precoditioner, for instance, to
+be set at run time. The program is capable of being run on multiple
+processors, but the mechanism for invoking such a run is
+system-dependant.</P>
+<P>See the PETSc section in the <A HREF=".././distribution-docs/INSTALL.html#petsc">INSTALL</A> file for
+instructions on how to build this executable.</P>
+<P>
+<HR>
+<H1><A NAME="fin">FIN</A></H1>
+Back to the <A HREF=../index.html> Documentation Roadmap </A>.
+</BODY>
+
+</HTML>
