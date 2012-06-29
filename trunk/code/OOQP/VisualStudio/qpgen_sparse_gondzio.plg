@@ -1,0 +1,142 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: include - Win32 Debug--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+<h3>
+--------------------Configuration: libMA27 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30C.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/libMA27.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\Vanitha\UofW\OOQP\OOQP_Fall\extras\MA27\ma27.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30C.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\lib\libMA27.lib"  .\Debug\fd05.obj .\Debug\id05.obj .\Debug\ma27.obj .\Debug\za02.obj "
+<h3>Output Window</h3>
+Compiling...
+ma27.c
+C:\Users\Vanitha\UofW\OOQP\OOQP_Fall\extras\MA27\ma27.c(1600) : warning C4716: 'ma27hd_' : must return a value
+Creating library...
+<h3>
+--------------------Configuration: libooqpbase - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30D.tmp" with contents
+[
+/nologo /out:"..\lib\libooqpbase.lib" 
+.\Debug\Data.obj
+.\Debug\drand.obj
+.\Debug\IotrRefCount.obj
+.\Debug\OoqpMonitor.obj
+.\Debug\OoqpVector.obj
+.\Debug\OoqpVersion.obj
+.\Debug\SimpleVector.obj
+.\Debug\Solver.obj
+.\Debug\sort.obj
+.\Debug\Status.obj
+.\Debug\Variables.obj
+.\Debug\VectorUtilities.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30D.tmp"
+<h3>Output Window</h3>
+Creating library...
+<h3>
+--------------------Configuration: libooqpgensparse - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30E.tmp" with contents
+[
+/nologo /out:"..\lib\libooqpgensparse.lib" 
+.\Debug\cBounds.obj
+.\Debug\cMpsReader.obj
+.\Debug\cQpGen.obj
+.\Debug\cQpGenSparse.obj
+.\Debug\hash.obj
+.\Debug\Ma27Solver.obj
+.\Debug\MpsReader.obj
+.\Debug\QpGen.obj
+.\Debug\QpGenData.obj
+.\Debug\QpGenLinsys.obj
+.\Debug\QpGenResiduals.obj
+.\Debug\QpGenSparseLinsys.obj
+.\Debug\QpGenSparseMa27.obj
+.\Debug\QpGenSparseSeq.obj
+.\Debug\QpGenVars.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30E.tmp"
+<h3>Output Window</h3>
+Creating library...
+<h3>
+--------------------Configuration: libooqpgondzio - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "link.exe -lib /nologo /out:"..\lib\libooqpgondzio.lib"  .\Debug\GondzioSolver.obj "
+<h3>Output Window</h3>
+Creating library...
+<h3>
+--------------------Configuration: libooqpsparse - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "link.exe -lib /nologo /out:"..\lib\libooqpsparse.lib"  .\Debug\SparseGenMatrix.obj .\Debug\SparseLinearAlgebraPackage.obj .\Debug\SparseStorage.obj .\Debug\SparseSymMatrix.obj "
+<h3>Output Window</h3>
+Creating library...
+<h3>
+--------------------Configuration: qpgen_sparse_gondzio - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30F.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"../qpgen_sparse_gondzio.pdb" /debug /machine:I386 /nodefaultlib:"libc.lib" /out:"../qpgen_sparse_gondzio.exe" /pdbtype:sept 
+.\Debug\Data.obj
+.\Debug\drand.obj
+.\Debug\GondzioSolver.obj
+.\Debug\hash.obj
+.\Debug\IotrRefCount.obj
+.\Debug\MpsReader.obj
+.\Debug\OoqpMonitor.obj
+.\Debug\OoqpVector.obj
+.\Debug\OoqpVersion.obj
+.\Debug\QpGen.obj
+.\Debug\QpGenData.obj
+.\Debug\QpGenSparseLinsys.obj
+.\Debug\QpGenSparseMa27.obj
+.\Debug\QpGenVars.obj
+.\Debug\SimpleVector.obj
+.\Debug\Solver.obj
+.\Debug\sort.obj
+.\Debug\SparseGenMatrix.obj
+.\Debug\SparseLinearAlgebraPackage.obj
+.\Debug\SparseStorage.obj
+.\Debug\SparseSymMatrix.obj
+.\Debug\Status.obj
+.\Debug\Variables.obj
+.\Debug\VectorUtilities.obj
+..\lib\vcf2c.lib
+.\Debug\QpGenSparseGondzioDriver.obj
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libblas.lib
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libMA27.lib
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libooqpbase.lib
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libooqpgensparse.lib
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libooqpgondzio.lib
+\Users\Vanitha\UofW\OOQP\OOQP_Fall\lib\libooqpsparse.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP30F.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+qpgen_sparse_gondzio.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

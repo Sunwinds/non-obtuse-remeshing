@@ -1,0 +1,210 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpgendense.mak
+
+..\src\CInterface\cBounds.c : \
+	"..\src\CInterface\cBounds.h"\
+	
+
+..\src\CInterface\cMpsReader.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\CInterface\cMpsReader.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\CInterface\cQpGen.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\CInterface\cQpGen.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\CInterface\cQpGenDense.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\CInterface\cBounds.h"\
+	"..\src\CInterface\cQpGen.h"\
+	"..\src\CInterface\cQpGenDense.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenDense.h"\
+	"..\src\qpsolvers\gondziosolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\Readers\MpsReader.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGen.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenData.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenDense.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseLinearAlgebraPackage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymIndefSolver.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenDense.h"\
+	"..\src\QpGen\QpGenDenseLinsys.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenDenseLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenDenseLinsys.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenResiduals.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenVars.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

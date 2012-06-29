@@ -1,0 +1,241 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpgensparse.mak
+
+..\src\CInterface\cBounds.c : \
+	"..\src\CInterface\cBounds.h"\
+	
+
+..\src\CInterface\cMpsReader.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\CInterface\cMpsReader.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\CInterface\cQpGen.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\CInterface\cQpGen.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\CInterface\cQpGenSparse.C : \
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\CInterface\cBounds.h"\
+	"..\src\CInterface\cQpGen.h"\
+	"..\src\CInterface\cQpGenSparse.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenSparseMa27.h"\
+	"..\src\QpGen\QpGenSparseSeq.h"\
+	"..\src\qpsolvers\gondziosolver.h"\
+	
+
+..\src\LinearSolvers\Ma27Solver\Ma27Solver.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\LinearSolvers\Ma27Solver\Ma27Solver.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrixHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\Readers\MpsReader.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGen.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenData.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenResiduals.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenSparseLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenSparseLinsys.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrixHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenSparseMa27.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\LinearSolvers\Ma27Solver\Ma27Solver.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenSparseLinsys.h"\
+	"..\src\QpGen\QpGenSparseMa27.h"\
+	"..\src\QpGen\QpGenSparseSeq.h"\
+	"..\src\SparseLinearAlgebra\SparseLinearAlgebraPackage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrixHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenSparseSeq.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenSparseSeq.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\SparseLinearAlgebra\SparseGenMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseGenMatrixHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseLinearAlgebraPackage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorage.h"\
+	"..\src\SparseLinearAlgebra\SparseStorageHandle.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrix.h"\
+	"..\src\SparseLinearAlgebra\SparseSymMatrixHandle.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpGen\QpGenVars.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenLinsys.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

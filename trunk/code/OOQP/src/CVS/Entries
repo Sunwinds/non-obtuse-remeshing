@@ -1,0 +1,17 @@
+D/Abstract////
+D/Ampl////
+D/CInterface////
+D/DenseLinearAlgebra////
+D/Huber////
+D/LinearSolvers////
+D/Mex////
+D/PetscLinearAlgebra////
+D/QpBound////
+D/QpExample////
+D/QpGen////
+D/QpSolvers////
+D/Readers////
+D/SparseLinearAlgebra////
+D/Svm////
+D/Utilities////
+D/Vector////

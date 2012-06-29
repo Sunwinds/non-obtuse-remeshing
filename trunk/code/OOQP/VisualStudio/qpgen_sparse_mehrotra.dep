@@ -1,0 +1,30 @@
+# Microsoft Developer Studio Generated Dependency File, included by qpgen_sparse_mehrotra.mak
+
+..\src\QpGen\QpGenSparseMehrotraDriver.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\OoqpVersion.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Status.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpGen\QpGen.h"\
+	"..\src\QpGen\QpGenData.h"\
+	"..\src\QpGen\QpGenDriver.h"\
+	"..\src\QpGen\QpGenResiduals.h"\
+	"..\src\QpGen\QpGenSparseMa27.h"\
+	"..\src\QpGen\QpGenSparseSeq.h"\
+	"..\src\QpGen\QpGenVars.h"\
+	"..\src\qpsolvers\mehrotrasolver.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	

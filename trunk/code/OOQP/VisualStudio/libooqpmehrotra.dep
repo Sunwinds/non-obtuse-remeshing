@@ -1,0 +1,18 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpmehrotra.mak
+
+..\src\QpSolvers\MehrotraSolver.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\OoqpMonitor.h"\
+	"..\src\Abstract\OoqpMonitorData.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Status.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\qpsolvers\mehrotrasolver.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	

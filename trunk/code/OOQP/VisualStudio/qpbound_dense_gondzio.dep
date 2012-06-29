@@ -1,0 +1,66 @@
+# Microsoft Developer Studio Generated Dependency File, included by qpbound_dense_gondzio.mak
+
+..\src\QpBound\QpBoundDense.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseLinearAlgebraPackage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DeSymPSDSolver.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundDense.h"\
+	"..\src\QpBound\QpBoundDenseLinsys.h"\
+	"..\src\QpBound\QpBoundLinsys.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundDenseGondzioDriver.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Solver.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundDense.h"\
+	"..\src\QpBound\QpBoundResiduals.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\qpsolvers\gondziosolver.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundDenseLinsys.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundDenseLinsys.h"\
+	"..\src\QpBound\QpBoundLinsys.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	

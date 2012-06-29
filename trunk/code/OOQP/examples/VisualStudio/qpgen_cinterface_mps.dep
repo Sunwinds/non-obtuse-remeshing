@@ -1,0 +1,8 @@
+# Microsoft Developer Studio Generated Dependency File, included by qpgen_cinterface_mps.mak
+
+..\QpGen\cinterface\mps.c : \
+	"..\..\include\cmpsreader.h"\
+	"..\..\include\cqpgen.h"\
+	"..\..\include\cqpgensparse.h"\
+	"..\..\include\ooqpmonitordata.h"\
+	

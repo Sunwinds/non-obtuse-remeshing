@@ -1,0 +1,7 @@
+# Microsoft Developer Studio Generated Dependency File, included by qpgen_cinterface_example.mak
+
+..\QpGen\cinterface\example.c : \
+	"..\..\include\cqpgen.h"\
+	"..\..\include\cqpgensparse.h"\
+	"..\..\include\ooqpmonitordata.h"\
+	

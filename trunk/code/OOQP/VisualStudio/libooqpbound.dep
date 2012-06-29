@@ -1,0 +1,104 @@
+# Microsoft Developer Studio Generated Dependency File, included by libooqpbound.mak
+
+..\src\Readers\MpsReader.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpBound\QpBound.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearAlgebraPackage.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundResiduals.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundData.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseGenMatrixHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseStorage.h"\
+	"..\src\DenseLinearAlgebra\DenseStorageHandle.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrix.h"\
+	"..\src\DenseLinearAlgebra\DenseSymMatrixHandle.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\Readers\hash.h"\
+	"..\src\Readers\MpsReader.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	"..\src\Vector\SimpleVector.h"\
+	"..\src\Vector\SimpleVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundLinsys.C : \
+	"..\src\Abstract\DoubleLinearSolver.h"\
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\LinearSystem.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundLinsys.h"\
+	"..\src\QpBound\QpBoundResiduals.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundResiduals.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\Residuals.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundResiduals.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	
+
+..\src\QpBound\QpBoundVars.C : \
+	"..\src\Abstract\DoubleMatrix.h"\
+	"..\src\Abstract\DoubleMatrixHandle.h"\
+	"..\src\Abstract\IotrRefCount.h"\
+	"..\src\Abstract\ProblemFormulation.h"\
+	"..\src\Abstract\SmartPointer.h"\
+	"..\src\Abstract\Variables.h"\
+	"..\src\QpBound\QpBound.h"\
+	"..\src\QpBound\QpBoundData.h"\
+	"..\src\QpBound\QpBoundVars.h"\
+	"..\src\Vector\OoqpVector.h"\
+	"..\src\Vector\OoqpVectorHandle.h"\
+	

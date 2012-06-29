@@ -1,0 +1,69 @@
+# Microsoft Developer Studio Generated Dependency File, included by libblas.mak
+
+..\extras\blas\daxpy.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dcopy.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\ddot.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dgemm.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dgemv.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dger.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\src\Utilities\dpotrf.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\src\Utilities\dpotrs.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dscal.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dswap.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dsymv.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dsyr.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dsyrk.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\src\Utilities\dsytrf.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\src\Utilities\dsytrs.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\dtrsm.c : \
+	"..\extras\blas\f2c.h"\
+	
+
+..\extras\blas\idamax.c : \
+	"..\extras\blas\f2c.h"\
+	

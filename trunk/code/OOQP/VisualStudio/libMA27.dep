@@ -1,0 +1,17 @@
+# Microsoft Developer Studio Generated Dependency File, included by libMA27.mak
+
+..\extras\MA27\fd05.c : \
+	"..\extras\ma27\f2c.h"\
+	
+
+..\extras\MA27\id05.c : \
+	"..\extras\ma27\f2c.h"\
+	
+
+..\extras\MA27\ma27.c : \
+	"..\extras\ma27\f2c.h"\
+	
+
+..\extras\MA27\za02.c : \
+	"..\extras\ma27\f2c.h"\
+	
