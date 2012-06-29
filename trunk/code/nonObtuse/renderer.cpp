@@ -1,5 +1,5 @@
 #include "renderer.h"
-#include "../MeshParser/smfparser.h"
+#include "smfparser.h"
 
 Renderer::Renderer()
     :numVertices(0), verticesList(NULL), numPolygons(0),
