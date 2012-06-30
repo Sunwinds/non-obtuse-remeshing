@@ -38,7 +38,7 @@ int testnmc(int argc, char* argv[])
     std::vector<lineMeshIntType> zIntPtList;
     //xIntPtList.reserve(0);
     std::vector<int*> ignoreCubes;
-    marchingCube.GenerateSurface(scalarField, &xIntPtList, &yIntPtList, &zIntPtList, 0.0, 0.0, 0.0, 0.0, cellsX, cellsY, cellsZ, cellLengthX, cellLengthY, cellLengthZ, 0, ignoreCubes);
+    marchingCube.GenerateSurface(scalarField, &xIntPtList, &yIntPtList, &zIntPtList, 0.0, 0.0, 0.0, 0.0, cellsX, cellsY, cellsZ, cellLengthX, cellLengthY, cellLengthZ, 1, ignoreCubes);
 
     //Part 3: get the result, save in the file "result.OFF"
     double* vertexList = NULL;

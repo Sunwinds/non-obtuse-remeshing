@@ -1,0 +1,18 @@
+﻿Build started 29/06/2012 5:01:18 PM.
+     1>Project "D:\MCModule\ObtuseOpt\ObtuseOpt.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\ObtuseOpt.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\OOQP\inc /I"D:\Program_Library\VC\glui-2.36\src\include" /I"D:\Program_Library\VC\567_forHui\567-forHui\Geometry Enhancement\Workspace\Smoother" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _USE_MATH_DEFINES /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt nonobtoptn.cpp
+         nonobtoptn.cpp
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\MCModule\Debug\ObtuseOpt.lib" /NOLOGO Debug\nonobtoptn.obj
+         ObtuseOpt.vcxproj -> D:\MCModule\Debug\ObtuseOpt.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\ObtuseOpt.unsuccessfulbuild".
+         Touching "Debug\ObtuseOpt.lastbuildstate".
+     1>Done Building Project "D:\MCModule\ObtuseOpt\ObtuseOpt.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.85
