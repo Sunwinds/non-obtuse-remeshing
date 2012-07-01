@@ -27,6 +27,9 @@
     <ClCompile Include="testnmc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testdeform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testori.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testnmc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testdeform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

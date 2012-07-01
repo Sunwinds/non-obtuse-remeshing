@@ -53,6 +53,8 @@ public:
     int getVertices(double* &vList) const;
     // returns the const list of vertices coordinates
     const double* getVertices() const;
+	// return the list of vertices coordinates (Added by Hui)
+	double* getVertices() {return verticesList;}
     // return the number of vertices in the mesh
     int getNumVertices() const;
     // get the list of polygons; indices start count from 1
@@ -63,6 +65,8 @@ public:
     int getPolygons_idx0(int** &pList) const;
     // returns the list of polygons; indices start count from 0
     const int* const* getPolygons() const;
+	//returns the list of polygons; indices start count from 0 (Added by Hui)
+	int** getPolygons() {return polygonsList;} 
     // return the number of polygons in the mesh
     int getNumPolygons() const;
     // return the list of vertex normals
