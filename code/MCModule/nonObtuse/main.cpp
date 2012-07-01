@@ -102,7 +102,7 @@ float light0_intensity = 1.0;
 int   main_window;
 
 int gShowCellsRegion = 0;
-int gShowScalarField = 0;
+int gShowScalarField = 1;
 
 float fCellLengthX = 0.01;
 float fCellLengthY = 0.01;
@@ -373,6 +373,8 @@ GLUI_EditText *open_scalarField_box;
 GLUI_EditText *save_scalarField_box;
 
 GLUI_Button *open_button;
+GLUI_Button *adjust_size_button; // adjust mesh size (by caiyu)
+GLUI_Button *reverse_normal_button; // reverse all triangle normals of the mesh (by caiyu)
 GLUI_Button *save_button;
 GLUI_Button *open_sf_midpoint_button;
 GLUI_Button *open_sf_interp_button;
@@ -410,6 +412,7 @@ GLUI_Checkbox *showOpenManifoldEdges_checkbox;
 GLUI_Checkbox *showScalarField_checkbox;
 
 GLUI_Checkbox *showCellsRegion_checkbox;
+GLUI_Checkbox *showModel_checkbox; // when show model enabled, out scalarfield will be hiden (by caiyu)
 GLUI_Spinner *nCellsX_spinner;
 GLUI_Spinner *nCellsY_spinner;
 GLUI_Spinner *nCellsZ_spinner;
@@ -417,6 +420,7 @@ GLUI_Spinner *fCellLengthX_spinner;
 GLUI_Spinner *fCellLengthY_spinner;
 GLUI_Spinner *fCellLengthZ_spinner;
 GLUI_Spinner *fIsoValue_spinner;
+GLUI_Button *auto_cut_button; // auto cut cube (by caiyu)
 
 GLUI_Button *optimize_button;
 GLUI_EditText *optimize_scalarField_box;
@@ -461,95 +465,100 @@ GLUI_Spinner* optn_numSmoothStep_spinner;
 
 
 /********** User IDs for callbacks ********/
-#define RESET_OBJ_ID			201
-#define RESET_LIGHT_ID			204
-#define RESET_SCENE_ID			205
+enum GLUI_CTRL_ID
+{
+    RESET_OBJ_ID = 201,
+    RESET_LIGHT_ID,
+    RESET_SCENE_ID,
 
-#define NAV_ID				210
-#define LIGHT_NAV_ID			211
+    NAV_ID = 210,
+    LIGHT_NAV_ID,
 
-#define OPEN_TEXTBOX_ID			220
-#define OPEN_BUTTON_ID			221
-#define SAVE_TEXTBOX_ID			230
-#define SAVE_BUTTON_ID			231
+    OPEN_TEXTBOX_ID = 220,
+    OPEN_BUTTON_ID,
+    ADJUST_SIZE_BUTTON_ID, // adjust mesh size (by caiyu)
+    REVERSE_NORMAL_BUTTON_ID, // reverse all triangle normals of the mesh (by caiyu)
+    SAVE_TEXTBOX_ID = 230,
+    SAVE_BUTTON_ID,
 
-#define OPEN_SCALARFIELD_TEXTBOX_ID	240
-#define OPEN_SF_MIDPOINT_ID		241
-#define OPEN_SF_INTERP_ID		242
-#define OPEN_SF_NO_INTERP_ID		243
-#define SAVE_SCALARFIELD_TEXTBOX_ID	244
-#define SAVE_SCALARFIELD_ID		245
-#define NCELLX_ID			246
-#define NCELLY_ID			247
-#define NCELLZ_ID			248
-#define FCELLLENGTHX_ID			249
-#define FCELLLENGTHY_ID			250
-#define FCELLLENGTHZ_ID			251
-#define FISOVALUE_ID			252
-#define SHOW_CELLREGION_ID		253
-#define SHOW_SCALARFIELD_ID		254
-#define TILING_NONOBTUSE_ID		255
-#define SIMPLE_MC_ID					256
+    OPEN_SCALARFIELD_TEXTBOX_ID = 240,
+    OPEN_SF_MIDPOINT_ID,
+    OPEN_SF_INTERP_ID,
+    OPEN_SF_NO_INTERP_ID,
+    SAVE_SCALARFIELD_TEXTBOX_ID,
+    SAVE_SCALARFIELD_ID,
+    NCELLX_ID,
+    NCELLY_ID,
+    NCELLZ_ID,
+    FCELLLENGTHX_ID,
+    FCELLLENGTHY_ID,
+    FCELLLENGTHZ_ID,
+    FISOVALUE_ID,
+    AUTO_CUT_ID, // auto cut cube (by caiyu)
+    SHOW_CELLREGION_ID,
+    SHOW_SCALARFIELD_ID,
+    SHOW_MODEL_ID,  // when show model enabled, out scalarfield will be hiden (by caiyu)
+    TILING_NONOBTUSE_ID,
+    SIMPLE_MC_ID,
 
-#define SHADING_RADIOGROUP_ID		301
+    SHADING_RADIOGROUP_ID = 300,
 
-#define SHOW_OBTUSE_ID			400
+    SHOW_OBTUSE_ID = 400,
+    UPDATE_OBTUSE_BUTTON_ID,
+    BLIND_EDGEFLIP_BUTTON_ID,
+    GREEDY_EDGEFLIP_BUTTON_ID,
+    LIFT_VERTEX_BUTTON_ID,
+    DEGREE_ID,
+    SHOW_DEGREE_CHECKBOX_ID,
+    MOVE_VERTEX_CENTROID_BUTTON_ID,
+    MOVE_VERTEX_MEDIAN_BUTTON_ID,
+    MARCHING_CUBE_BUTTON_ID,
+    ANGLEPERBIN_ID,
+    ANGLE_HISTOGRAM_BUTTON_ID,
+    CHECK_DEGENERACY_ID,
+    CHECK_GEODEGENERACY_ID,
+    CHECK_MANIFOLD_ID,
+    CHECK_CLOSEDMANIFOLD_ID,
+    SHOW_NONMANIFOLDVERTICES_ID,
+    SHOW_NONMANIFOLDEDGES_ID,
+    SHOW_OPENMANIFOLDEDGES_ID,
 
-#define UPDATE_OBTUSE_BUTTON_ID		401
-#define BLIND_EDGEFLIP_BUTTON_ID 	402
-#define GREEDY_EDGEFLIP_BUTTON_ID 	403
-#define LIFT_VERTEX_BUTTON_ID 		404
-#define DEGREE_ID 			405
-#define SHOW_DEGREE_CHECKBOX_ID 	406
-#define MOVE_VERTEX_CENTROID_BUTTON_ID 	407
-#define MOVE_VERTEX_MEDIAN_BUTTON_ID 	408
-//#define MARCHING_CUBE_BUTTON_ID 409
-#define ANGLEPERBIN_ID			410
-#define ANGLE_HISTOGRAM_BUTTON_ID	411
-#define CHECK_DEGENERACY_ID			412
-#define CHECK_GEODEGENERACY_ID		413
-#define CHECK_MANIFOLD_ID			414
-#define CHECK_CLOSEDMANIFOLD_ID		415
-#define SHOW_NONMANIFOLDVERTICES_ID		416
-#define SHOW_NONMANIFOLDEDGES_ID		417
-#define SHOW_OPENMANIFOLDEDGES_ID		418
+    OPTN_ALPHA = 500,
+    OPTN_NUMITER_ID,
+    OPTIMIZE_BUTTON_ID,
+    OPTIMIZE_SCALARFIELD_TEXTBOX_ID,
+    OPTIMIZE_SCALARFIELD_ID,
+    OPTN_THRESHOLD,
+    OPTN_NUMONERINGSEARCH_ID,
+    OPTN_NUMONERINGQUADRIC_ID,
+    OPTN_NUMMOVEPERITER_ID,
+    SHOW_ORIGINALMESH_ID,
+    OPTN_OPACITY_ID,
+    OPTIMIZE_SMOOTH_BUTTON_ID,
+    OPTIMIZE_ALTERNATE_BUTTON_ID,
+    OPTN_FIRST_ID,
+    OPTN_NUMOPTN_ID,
+    OPTN_NUMSMOOTH_ID,
+    OPTN_RECOMPUTE_ID,
+    OPTN_RECOMPUTE_CLOSESTFACE_ID,
+    OPTN_IMPROVEMENT_THRESHOLD,
+    OPTN_ANGLEBOUND_ID,
+    OPTIMIZE_ALTERNATE_NEW_BUTTON_ID,
+    OPTIMIZE_SMOOTH_NEW_BUTTON_ID,
+    OPTIMIZE_NEW_BUTTON_ID,
+    REMOVE_BAD_VALENCES_BUTTON_ID,
+    OPTN_CLEANWHENSTUCK_ID,
+    OPTN_NUMSMOOTHINGSTEP_ID,
+    OPTN_DECIMATE_THRESHOLD,
 
-#define OPTN_ALPHA				500
-#define OPTN_NUMITER_ID			501
-#define OPTIMIZE_BUTTON_ID		502
-#define OPTIMIZE_SCALARFIELD_TEXTBOX_ID	503
-#define OPTIMIZE_SCALARFIELD_ID 504
-#define OPTN_THRESHOLD			505
-#define OPTN_NUMONERINGSEARCH_ID	506
-#define OPTN_NUMONERINGQUADRIC_ID	507
-#define OPTN_NUMMOVEPERITER_ID	508
-#define SHOW_ORIGINALMESH_ID	509
-#define OPTN_OPACITY_ID			510
-#define OPTIMIZE_SMOOTH_BUTTON_ID	511
-#define OPTIMIZE_ALTERNATE_BUTTON_ID	512
-#define OPTN_FIRST_ID			513
-#define OPTN_NUMOPTN_ID			514
-#define OPTN_NUMSMOOTH_ID		515
-#define OPTN_RECOMPUTE_ID		516
-#define OPTN_RECOMPUTE_CLOSESTFACE_ID	517
-#define OPTN_IMPROVEMENT_THRESHOLD	518
-#define OPTN_ANGLEBOUND_ID		519
-#define OPTIMIZE_ALTERNATE_NEW_BUTTON_ID	520
-#define OPTIMIZE_SMOOTH_NEW_BUTTON_ID		521
-#define OPTIMIZE_NEW_BUTTON_ID				522
-#define REMOVE_BAD_VALENCES_BUTTON_ID		523
-#define OPTN_CLEANWHENSTUCK_ID				524
-#define OPTN_NUMSMOOTHINGSTEP_ID			525
-#define OPTN_DECIMATE_THRESHOLD				526
+    OPTIMIZE_LOADDEBUG_BUTTON_ID = 600,
+    OPTIMIZE_SAVEDEBUG_BUTTON_ID,
+    OPTIMIZE_DEBUG_TEXTBOX_ID,
 
-#define OPTIMIZE_LOADDEBUG_BUTTON_ID	600
-#define OPTIMIZE_SAVEDEBUG_BUTTON_ID	601
-#define OPTIMIZE_DEBUG_TEXTBOX_ID		602
-
-#define OPTN_DECIMATE_NUMREMAINING_ID	700
-#define OPTIMIZE_DECIMATE_BUTTON_ID		701
-#define OPTN_DECIMATE_AVOID_DEGREE_ID	702
-
+    OPTN_DECIMATE_NUMREMAINING_ID = 700,
+    OPTIMIZE_DECIMATE_BUTTON_ID,
+    OPTN_DECIMATE_AVOID_DEGREE_ID
+};
 
 /********** Miscellaneous global variables **********/
 
@@ -1094,6 +1103,9 @@ void control_cb( int control )
 	else if (control == SHOW_SCALARFIELD_ID)		// show scalar field
 	{
 	}
+    else if(control == SHOW_MODEL_ID)  // when show model enabled, out scalarfield will be hiden (by caiyu)
+    {
+    }
 // 	else if (control == MARCHING_CUBE_BUTTON_ID)        // marching cube  ***** OBSOLETE *****
 // 	{
 // 		float *scalarField = NULL;
@@ -1194,6 +1206,54 @@ void control_cb( int control )
 			g_rdr.loadMeshInfo(novList, numNoVertices, nopList, numNoPolygons);			
 		}
 	}
+    else if(control == AUTO_CUT_ID) // auto cut cube (by caiyu)
+    {
+        const double* vList = g_rdr.getVertices();
+        int vCount = g_rdr.getNumVertices();
+        double xMin = 32767, xMax = 0;
+        double yMin = 32767, yMax = 0;
+        double zMin = 32767, zMax = 0;
+        const double* vPtr = vList;
+        for(int i = 0; i < vCount; ++i)
+        {
+            double x = *vPtr;
+            if(x < xMin) xMin = x;
+            if(x > xMax) xMax = x;
+            ++vPtr;
+            double y = *vPtr;
+            if(y < yMin) yMin = y;
+            if(y > yMax) yMax = y;
+            ++vPtr;
+            double z = *vPtr;
+            if(z < zMin) zMin = z;
+            if(z > zMax) zMax = z;
+            ++vPtr;
+        }
+        double xLen = xMax - xMin;
+        double yLen = yMax - yMin;
+        double zLen = zMax - zMin;
+        double minLen = min(xLen, min(yLen, zLen));
+        double step = minLen / 40;
+        fCellLengthX = step;
+        fCellLengthY = step;
+        fCellLengthZ = step;
+        nCellX = int(xLen / step + 0.5) + 10;
+        nCellY = int(yLen / step + 0.5) + 10;
+        nCellZ = int(zLen / step + 0.5) + 10;
+        nCellsX_spinner->set_int_val(nCellX);
+        nCellsY_spinner->set_int_val(nCellY);
+        nCellsZ_spinner->set_int_val(nCellZ);
+        fCellLengthX_spinner->set_float_val(fCellLengthX);
+        fCellLengthY_spinner->set_float_val(fCellLengthX);
+        fCellLengthZ_spinner->set_float_val(fCellLengthX);
+        cout << "nCellX: " << nCellX << endl;
+        cout << "nCellY: " << nCellY << endl;
+        cout << "nCellZ: " << nCellZ << endl;
+        cout << "fCellLengthX: " << fCellLengthX << endl;
+        cout << "fCellLengthY: " << fCellLengthY << endl;
+        cout << "fCellLengthZ: " << fCellLengthZ << endl;
+        cout << "Auto cut done!" << endl;
+    }
 	else if (control == SAVE_SCALARFIELD_ID)	// save scalarfield button
 	{
 		if (g_rdr.isLoaded())
@@ -1265,6 +1325,148 @@ void control_cb( int control )
 			}
 		}
 	}
+    else if(control == ADJUST_SIZE_BUTTON_ID) // ajust mesh size (by caiyu)
+    {
+        // open file
+        SMFParser smfparser;
+        if(!smfparser.loadFile(open_text))
+        {
+            cout << "File is not found!" << endl;
+            return;
+        }
+        vector<vector<double>> vList;
+        vector<vector<int>> fList;
+        if(!smfparser.parse(vList, fList))
+        {
+            cout << "Data is incorrect!" << endl;
+            return;
+        }
+        // adjust model size
+        double xMin = 32767, xMax = 0;
+        double yMin = 32767, yMax = 0;
+        double zMin = 32767, zMax = 0;
+        double x = 0;
+        double y = 0;
+        double z = 0;
+        for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+        {
+            vector<double>::iterator iter = vIter->begin();
+            x = *iter;
+            if(x < xMin) xMin = x;
+            if(x > xMax) xMax = x;
+            ++iter;
+            double y = *iter;
+            if(y < yMin) yMin = y;
+            if(y > yMax) yMax = y;
+            ++iter;
+            double z = *iter;
+            if(z < zMin) zMin = z;
+            if(z > zMax) zMax = z;
+        }
+        double xLen = xMax - xMin;
+        double yLen = yMax - yMin;
+        double ratio = 1.0 / max(xLen, yLen);
+        double centerX = (xMax - xMin) / 2 * ratio;
+        double centerY = (yMax - yMin) / 2 * ratio;
+        double centerZ = (zMax - zMin) / 2 * ratio;
+        for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+        {
+            vector<double>::iterator iter = vIter->begin();
+            *iter = (*iter - xMin) * ratio - centerX;
+            ++iter;
+            *iter = (*iter - yMin) * ratio - centerX;
+            ++iter;
+            *iter = (*iter - zMin) * ratio - centerX;
+        }
+        // save file
+        ofstream outFile;
+        outFile.open(open_text, ofstream::out);
+        outFile.setf(ofstream::fixed, ofstream::floatfield);
+        outFile.precision(6);
+        // first line records the number of vertices and number of polygons
+        outFile << "#$SMF 1.0" << endl;
+        outFile << "#$vertices " << vList.size() << endl;
+        outFile << "#$faces " << fList.size() << endl;
+        // record list of vertices
+        for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+        {
+            outFile << 'v';
+            for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
+            {
+                outFile << ' ' << *iter;
+            }
+            outFile << endl;
+        }
+        // record list of polygons
+        for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+        {
+            outFile << 'f';
+            for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
+            {
+                outFile << ' ' << *iter;
+            }
+            outFile << endl;
+        }
+        outFile.close();
+        cout << "Adjust mesh size done! Need restart!" << endl;
+    }
+    else if(control == REVERSE_NORMAL_BUTTON_ID) // reverse all triangle normals of the mesh (by caiyu)
+    {
+        // open file
+        SMFParser smfparser;
+        if(!smfparser.loadFile(open_text))
+        {
+            cout << "File is not found!" << endl;
+            return;
+        }
+        vector<vector<double>> vList;
+        vector<vector<int>> fList;
+        if(!smfparser.parse(vList, fList))
+        {
+            cout << "Data is incorrect!" << endl;
+            return;
+        }
+        // reverse normal
+        for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+        {
+            vector<int>::iterator iter = fIter->begin();
+            vector<int>::reverse_iterator riter = fIter->rbegin();
+            int temp = *iter;
+            *iter = *riter;
+            *riter = temp;
+        }
+        // save file
+        ofstream outFile;
+        outFile.open(open_text, ofstream::out);
+        outFile.setf(ofstream::fixed, ofstream::floatfield);
+        outFile.precision(6);
+        // first line records the number of vertices and number of polygons
+        outFile << "#$SMF 1.0" << endl;
+        outFile << "#$vertices " << vList.size() << endl;
+        outFile << "#$faces " << fList.size() << endl;
+        // record list of vertices
+        for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
+        {
+            outFile << 'v';
+            for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
+            {
+                outFile << ' ' << *iter;
+            }
+            outFile << endl;
+        }
+        // record list of polygons
+        for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
+        {
+            outFile << 'f';
+            for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
+            {
+                outFile << ' ' << *iter;
+            }
+            outFile << endl;
+        }
+        outFile.close();
+        cout << "Reverse mesh normal done! Need restart!" << endl;
+    }
 	else if (control == SAVE_BUTTON_ID)
 	{
 		if (strcmp(save_text, "") != 0)
@@ -1320,197 +1522,23 @@ void myGlutKeyboard(unsigned char Key, int x, int y)
         exit(0);
         break;
     case 'a': // adjust model size
-        {
-            // open file
-            SMFParser smfparser;
-            if(!smfparser.loadFile(open_text))
-            {
-                cout << "file is not found!" << endl;
-                return;
-            }
-            vector<vector<double>> vList;
-            vector<vector<int>> fList;
-            if(!smfparser.parse(vList, fList))
-            {
-                cout << "data is incorrect!" << endl;
-                return;
-            }
-            // adjust model size
-            double xMin = 32767, xMax = 0;
-            double yMin = 32767, yMax = 0;
-            double zMin = 32767, zMax = 0;
-            double x = 0;
-            double y = 0;
-            double z = 0;
-            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
-            {
-                vector<double>::iterator iter = vIter->begin();
-                x = *iter;
-                if(x < xMin) xMin = x;
-                if(x > xMax) xMax = x;
-                ++iter;
-                double y = *iter;
-                if(y < yMin) yMin = y;
-                if(y > yMax) yMax = y;
-                ++iter;
-                double z = *iter;
-                if(z < zMin) zMin = z;
-                if(z > zMax) zMax = z;
-            }
-            double xLen = xMax - xMin;
-            double yLen = yMax - yMin;
-            double ratio = 1.0 / max(xLen, yLen);
-            double centerX = (xMax - xMin) / 2 * ratio;
-            double centerY = (yMax - yMin) / 2 * ratio;
-            double centerZ = (zMax - zMin) / 2 * ratio;
-            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
-            {
-                vector<double>::iterator iter = vIter->begin();
-                *iter = (*iter - xMin) * ratio - centerX;
-                ++iter;
-                *iter = (*iter - yMin) * ratio - centerX;
-                ++iter;
-                *iter = (*iter - zMin) * ratio - centerX;
-            }
-            // save file
-            ofstream outFile;
-            outFile.open(open_text, ofstream::out);
-            outFile.setf(ofstream::fixed, ofstream::floatfield);
-            outFile.precision(6);
-            // first line records the number of vertices and number of polygons
-            outFile << "#$SMF 1.0" << endl;
-            outFile << "#$vertices " << vList.size() << endl;
-            outFile << "#$faces " << fList.size() << endl;
-            // record list of vertices
-            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
-            {
-                outFile << 'v';
-                for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
-                {
-                    outFile << ' ' << *iter;
-                }
-                outFile << endl;
-            }
-            // record list of polygons
-            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
-            {
-                outFile << 'f';
-                for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
-                {
-                    outFile << ' ' << *iter;
-                }
-                outFile << endl;
-            }
-            outFile.close();
-        }
-        cout << "done!" << endl;
+        control_cb(ADJUST_SIZE_BUTTON_ID);
         break;
     case 'n': // reverse normal
-        {
-            // open file
-            SMFParser smfparser;
-            if(!smfparser.loadFile(open_text))
-            {
-                cout << "file is not found!" << endl;
-                return;
-            }
-            vector<vector<double>> vList;
-            vector<vector<int>> fList;
-            if(!smfparser.parse(vList, fList))
-            {
-                cout << "data is incorrect!" << endl;
-                return;
-            }
-            // reverse normal
-            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
-            {
-                vector<int>::iterator iter = fIter->begin();
-                vector<int>::reverse_iterator riter = fIter->rbegin();
-                int temp = *iter;
-                *iter = *riter;
-                *riter = temp;
-            }
-            // save file
-            ofstream outFile;
-            outFile.open(open_text, ofstream::out);
-            outFile.setf(ofstream::fixed, ofstream::floatfield);
-            outFile.precision(6);
-            // first line records the number of vertices and number of polygons
-            outFile << "#$SMF 1.0" << endl;
-            outFile << "#$vertices " << vList.size() << endl;
-            outFile << "#$faces " << fList.size() << endl;
-            // record list of vertices
-            for(vector<vector<double>>::iterator vIter = vList.begin(); vIter != vList.end(); ++vIter)
-            {
-                outFile << 'v';
-                for(vector<double>::iterator iter = vIter->begin(); iter != vIter->end(); ++iter)
-                {
-                    outFile << ' ' << *iter;
-                }
-                outFile << endl;
-            }
-            // record list of polygons
-            for(vector<vector<int>>::iterator fIter = fList.begin(); fIter != fList.end(); ++fIter)
-            {
-                outFile << 'f';
-                for(vector<int>::iterator iter = fIter->begin(); iter != fIter->end(); ++iter)
-                {
-                    outFile << ' ' << *iter;
-                }
-                outFile << endl;
-            }
-            outFile.close();
-        }
-        cout << "done!" << endl;
+        control_cb(REVERSE_NORMAL_BUTTON_ID);
         break;
-    case 'b':
-        {
-            const double* vList = g_rdr.getVertices();
-            int vCount = g_rdr.getNumVertices();
-            double xMin = 32767, xMax = 0;
-            double yMin = 32767, yMax = 0;
-            double zMin = 32767, zMax = 0;
-            const double* vPtr = vList;
-            for(int i = 0; i < vCount; ++i)
-            {
-                double x = *vPtr;
-                if(x < xMin) xMin = x;
-                if(x > xMax) xMax = x;
-                ++vPtr;
-                double y = *vPtr;
-                if(y < yMin) yMin = y;
-                if(y > yMax) yMax = y;
-                ++vPtr;
-                double z = *vPtr;
-                if(z < zMin) zMin = z;
-                if(z > zMax) zMax = z;
-                ++vPtr;
-            }
-            double xLen = xMax - xMin;
-            double yLen = yMax - yMin;
-            double zLen = zMax - zMin;
-            double minLen = min(xLen, min(yLen, zLen));
-            double step = minLen / 40;
-            fCellLengthX = step;
-            fCellLengthY = step;
-            fCellLengthZ = step;
-            nCellX = int(xLen / step + 0.5) + 10;
-            nCellY = int(yLen / step + 0.5) + 10;
-            nCellZ = int(zLen / step + 0.5) + 10;
-            nCellsX_spinner->set_int_val(nCellX);
-            nCellsY_spinner->set_int_val(nCellY);
-            nCellsZ_spinner->set_int_val(nCellZ);
-            fCellLengthX_spinner->set_float_val(fCellLengthX);
-            fCellLengthY_spinner->set_float_val(fCellLengthX);
-            fCellLengthZ_spinner->set_float_val(fCellLengthX);
-            cout << "nCellX: " << nCellX << endl;
-            cout << "nCellY: " << nCellY << endl;
-            cout << "nCellZ: " << nCellZ << endl;
-            cout << "fCellLengthX: " << fCellLengthX << endl;
-            cout << "fCellLengthY: " << fCellLengthY << endl;
-            cout << "fCellLengthZ: " << fCellLengthZ << endl;
-        }
-        cout << "done!" << endl;
+    case 'b': // auto cut cube
+        control_cb(AUTO_CUT_ID);
+        break;
+    case 'c': // create scalar field
+        control_cb(SAVE_SCALARFIELD_ID);
+        cout << "Create scalarfield done!" << endl;
+    case 's': // save marching cube
+        control_cb(SAVE_BUTTON_ID);
+        cout << "Save marching cube done!" << endl;
+        break;
+    case 'd': // display model or not
+        g_rdr.bDisplayModel = !g_rdr.bDisplayModel;
         break;
     default:
         break;
@@ -1936,6 +1964,8 @@ void glui_init()
 	nCellsZ_spinner->set_alignment( GLUI_ALIGN_LEFT );
 	showCellsRegion_checkbox = glui->add_checkbox_to_panel(mc_spinner_rollout, "Show Cells Region", &gShowCellsRegion, SHOW_CELLREGION_ID, control_cb );
 	nCellsZ_spinner->set_alignment( GLUI_ALIGN_LEFT );
+    showModel_checkbox = glui->add_checkbox_to_panel(mc_spinner_rollout, "Show Model", (int*)&g_rdr.bDisplayModel, SHOW_MODEL_ID, control_cb ); // when show model enabled, out scalarfield will be hiden (by caiyu)
+	nCellsZ_spinner->set_alignment( GLUI_ALIGN_LEFT );
 	
 	glui->add_column_to_panel(mc_spinner_rollout, true);
 	
@@ -1952,6 +1982,8 @@ void glui_init()
 	fIsoValue_spinner = glui->add_spinner_to_panel(mc_spinner_rollout, "IsoValue:    ", GLUI_SPINNER_FLOAT, &fIsoValue, FISOVALUE_ID, control_cb);
 	fIsoValue_spinner->set_float_limits( -100.0, 100.0 );
 	fIsoValue_spinner->set_alignment( GLUI_ALIGN_LEFT );
+
+    auto_cut_button = glui->add_button_to_panel(mc_spinner_rollout, "Auto Cut", AUTO_CUT_ID, control_cb); // auto cut cube (by caiyu)
 	
 	save_scalarField_box = glui->add_edittext_to_panel(mc_rollout, "Save Scalar Field:", GLUI_EDITTEXT_TEXT, save_scalarField_text, SAVE_SCALARFIELD_TEXTBOX_ID, control_cb);
 	save_scalarField_box->set_w(400);
@@ -2003,7 +2035,12 @@ void glui_init()
 	
 	open_text_box = glui->add_edittext_to_panel(file_rollout, "Open Mesh:", GLUI_EDITTEXT_TEXT, open_text, OPEN_TEXTBOX_ID, control_cb);
 	open_text_box->set_w(400);
-	open_button = glui->add_button_to_panel(file_rollout, "Open", OPEN_BUTTON_ID, control_cb);
+    GLUI_Panel *file_open_panel = glui->add_panel_to_panel(file_rollout, "");
+	open_button = glui->add_button_to_panel(file_open_panel, "Open", OPEN_BUTTON_ID, control_cb);
+    glui->add_column_to_panel(file_open_panel, false);
+	adjust_size_button = glui->add_button_to_panel(file_open_panel, "Ajust Size", ADJUST_SIZE_BUTTON_ID, control_cb); // adjust mesh size (by caiyu)
+    glui->add_column_to_panel(file_open_panel, false);
+	reverse_normal_button = glui->add_button_to_panel(file_open_panel, "Reverse Normal", REVERSE_NORMAL_BUTTON_ID, control_cb); // reverse all triangle normals of the mesh (by caiyu)
 	save_text_box = glui->add_edittext_to_panel(file_rollout, "Save Mesh:", GLUI_EDITTEXT_TEXT, save_text, SAVE_TEXTBOX_ID, control_cb);
 	save_text_box->set_w(400);
 	save_button = glui->add_button_to_panel(file_rollout, "Save", SAVE_BUTTON_ID, control_cb);

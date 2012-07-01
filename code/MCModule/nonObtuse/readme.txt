@@ -6,7 +6,14 @@
 ============================================================
 ============  Usage of \MCModule\nonObtuse
 ============================================================
-在OpenGL窗口上按q，退出程序
-在OpenGL窗口上按a，当命令提示符窗口显示done!后，会将test.obj对其到坐标系中心，大小缩放到1，需要重新打开网格！如果看到的网格大小不合适，用之。
-在OpenGL窗口上按n，当命令提示符窗口显示done!后，会将test.obj所有三角形顶点顺序取反，即翻转法向，需要重新打开网格！
-在OpenGL窗口上按b，当命令提示符窗口显示done!后，会按照X、Y、Z最短的那个方向切分40份的步长构造SF
+在OpenGL窗口上按ESC或q，退出程序
+在OpenGL窗口上按a或按GLUI上窗口上File里的Adjust Size按钮，当命令提示符窗口显示done!后，会将test.obj对其到坐标系中心，大小缩放到1，需要重新打开网格！如果看到的网格大小不合适，用之。
+在OpenGL窗口上按n或按GLUI上窗口上File里的Reverse Normal按钮，当命令提示符窗口显示done!后，会将test.obj所有三角形顶点顺序取反，即翻转法向，需要重新打开网格！
+在OpenGL窗口上按b或按GLUI上窗口上的Auto Cut按钮，当命令提示符窗口显示done!后，会按照X、Y、Z最短的那个方向切分40份的步长构造SF
+在OpenGL窗口上按c或按GLUI上窗口上的Save按钮，当命令提示符窗口显示done!后，会在mesh文件夹里生成SF文件test_sf.txt
+在OpenGL窗口上按s或按GLUI上窗口上File里的Save按钮，当命令提示符窗口显示done!后，会保存marching cube到mesh文件夹下生成test_mc.obj
+在显示SF时，在OpenGL窗口上按d或勾选GLUI上窗口上Show Model：显示或隐藏model和标量场：
+    始终显示网格内部标量场
+    显示Model时，网格外部标量场隐藏
+    隐藏Model时，网格外部标量场显示
+    技巧：可以把显示模式改成WireFrame，并勾上Show Model，就能看到MC内部的SF了！
