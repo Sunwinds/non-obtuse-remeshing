@@ -1,7 +1,5 @@
 #include "testdeform.h"
 
-
-
 int testdeform(int argc, char* argv[])
 {
 	int   gShowObtuseAngles = 0;
@@ -61,8 +59,13 @@ int testdeform(int argc, char* argv[])
 	nonobtuseMesh.loadFile(open_text_2);
 
 	//Processing
-	optn.loadMesh(originalMesh.getVertices(), originalMesh.getNumVertices(), originalMesh.getPolygons(), originalMesh.getNumPolygons(), originalMesh.getVertexNeighbourList(), originalMesh.getEdgeNeighbourList(), originalMesh.getPolygonNeighbourList(), 
-		nonobtuseMesh.getVertices(), nonobtuseMesh.getNumVertices(), nonobtuseMesh.getPolygons(), nonobtuseMesh.getNumPolygons());
+	optn.loadMesh(
+        originalMesh.getVertices(), originalMesh.getNumVertices(),
+        originalMesh.getPolygons(), originalMesh.getNumPolygons(),
+        originalMesh.getVertexNeighbourList(), originalMesh.getEdgeNeighbourList(),
+        originalMesh.getPolygonNeighbourList(),
+		nonobtuseMesh.getVertices(), nonobtuseMesh.getNumVertices(),
+        nonobtuseMesh.getPolygons(), nonobtuseMesh.getNumPolygons());
 	optn.removeBadValence(SIMPLE3PLANES_TOWARD_CENTER,30.0);
 	optn.optimize_smoothing(3,0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
 	optn.optimize_afterMove(1000 * nonobtuseMesh.getNumVertices(), optn_threshold, optn_improvement_threshold, optn_alpha, optn_numOneRingSearch, optn_numOneRingQuadric, optn_angleBound, false, true, true, SIMPLE3PLANES_TOWARD_CENTER);

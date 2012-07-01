@@ -1671,9 +1671,11 @@ clock_t NonobtOptn::optimize_afterMove(unsigned int numMaxIteration,
 
 				QuadricMove* qm = new QuadricMove;
 				qm->q = computeQuadric(i, alpha, numOneRingSearch, numOneRingQuadric, bUpdateClosestPolygon);
-// 				qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
-				unsigned int numTries(0);
-				qm->bCanMove = computeOptimalLocation_linearSearch(qm->q.vIdx, qm->q, qm->newPos, angleBound, numTries);
+                
+				//Revised by Hui
+ 				qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
+				//unsigned int numTries(0);
+				//qm->bCanMove = computeOptimalLocation_linearSearch(qm->q.vIdx, qm->q, qm->newPos, angleBound, numTries);
 // 				if (!qm->bCanMove)
 // 					qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
 
@@ -1765,10 +1767,11 @@ clock_t NonobtOptn::optimize_afterMove(unsigned int numMaxIteration,
 			if (qm_front->q.dirtyQVal)
 				qm_front->q = computeQuadric(qm_front->q.vIdx, alpha, numOneRingSearch, numOneRingQuadric);
 
-			// update moved quadric
-// 			qm_front->bCanMove = computeOptimalLocation(qm_front->q.vIdx, qm_front->q, qm_front->newPos, region, angleBound);
-			unsigned int numTries(0);
-			qm_front->bCanMove = computeOptimalLocation_linearSearch(qm_front->q.vIdx, qm_front->q, qm_front->newPos, angleBound, numTries);
+			// update moved quadric 
+			//Revised by Hui
+            qm_front->bCanMove = computeOptimalLocation(qm_front->q.vIdx, qm_front->q, qm_front->newPos, region, angleBound);
+			//unsigned int numTries(0);
+			//qm_front->bCanMove = computeOptimalLocation_linearSearch(qm_front->q.vIdx, qm_front->q, qm_front->newPos, angleBound, numTries);
 // 			if (!qm_front->bCanMove)
 // 				qm_front->bCanMove = computeOptimalLocation(qm_front->q.vIdx, qm_front->q, qm_front->newPos, region, angleBound);
 				
@@ -1870,9 +1873,10 @@ clock_t NonobtOptn::optimize_afterMove(unsigned int numMaxIteration,
 					qm->q = computeQuadric(qm->q.vIdx, alpha, numOneRingSearch, numOneRingQuadric);
 	
 				// update moved quadric
-// 				qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
-				unsigned int numTries(0);
-				qm->bCanMove = computeOptimalLocation_linearSearch(qm->q.vIdx, qm->q, qm->newPos, angleBound, numTries);
+				//Revised by Hui
+ 				qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
+				//unsigned int numTries(0);
+				//qm->bCanMove = computeOptimalLocation_linearSearch(qm->q.vIdx, qm->q, qm->newPos, angleBound, numTries);
 // 				if (!qm->bCanMove)
 // 					qm->bCanMove = computeOptimalLocation(qm->q.vIdx, qm->q, qm->newPos, region, angleBound);
 				

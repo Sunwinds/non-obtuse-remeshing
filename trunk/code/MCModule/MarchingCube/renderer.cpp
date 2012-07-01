@@ -30,12 +30,26 @@ void Renderer::destroy()
         delete[] polygonsList[i];
         polygonNeighbourList[i].clear();
     }
+
+	//Original
+	/*
     delete[] polygonNeighbourList;
     delete[] polygonsList;
     delete[] verticesList;
     delete[] vertexNormalsList;
     delete[] faceNormalsList;
     delete[] meshCentroid;
+	*/
+	//Revised by Hui
+	if(numVertices > 0)
+	{
+		delete[] polygonNeighbourList;
+		delete[] polygonsList;
+		delete[] verticesList;
+		delete[] vertexNormalsList;
+		delete[] faceNormalsList;
+		delete[] meshCentroid;
+	}
 
     /*  
     delete[] scalarField;

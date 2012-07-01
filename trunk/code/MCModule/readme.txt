@@ -66,3 +66,21 @@ USETMC：tilingnonobtusemc的m_TriTable
 在#ifdef USETMC下面，类型为12b，因此基本确定论文作者的实验是基于这个m_TriTable的
 但是程序未必是论文的最终版本，因为tilingnonobtusemc中的CheckStiching函数直接导致程序生成MC时崩溃！
 尝试屏蔽CheckStiching函数，生成网格的钝角问题也很严重！
+
+============================================================
+//Hui Wang, June 30, 2012
+//Deforme-to-fit testing
+要求：Test.exe和mesh文件夹要在同一目录下，
+输入：test_original.obj---原来的网格
+            test-nonobtuse.obj---无钝角的网格
+输入：test_nonobtuse.obj---最后的输入网格（没有Laplace的优化，Laplace的优化部分有时候有bug）
+
+============================================================
+Cai Yu 2012-07-01
+1、合并MCModule和nonObtuse，在MCModule中添加nonObtuse工程，nonObtuse工程中指保留原来的main.cpp，其它部分调用MarchingCube、MeshParser和ObtuseOpt
+2、合并MCModule和MCModule_test，根据比对
+用MCModule_test中：
+  MarchingCube里的：renderer.h renderer.cpp
+  nonObtuse里的：nonobtuseptn.cpp
+  Test里的：testnmc.cpp testdeform.h testdeform.cpp main.cpp
+更新了MCModule中的对应文件

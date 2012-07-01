@@ -18,6 +18,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObtuseOpt", "ObtuseOpt\Obtu
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nonObtuse", "nonObtuse\nonObtuse.vcxproj", "{1DC6963F-8D11-4428-8A7C-1F8D1C67520D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6CFEF79-F58F-4EA8-BD4A-8DDF13367CC4} = {B6CFEF79-F58F-4EA8-BD4A-8DDF13367CC4}
+		{66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB} = {66D1A5BA-B514-43A7-B8D6-68AA1B41D8FB}
+		{EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A} = {EB53D2CF-63E6-4EDB-9550-FCD1E3AEF24A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
