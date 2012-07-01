@@ -261,7 +261,7 @@ namespace DUT
         // compute plane equation of triangle: normal*x+d=0
         normal = e0.cross(e1);
         // -NJMP- (line removed here)
-        if(!TriBox::planeBoxOverlap(normal, v0, boxHalfSize)) return 0;	// -NJMP-
+        if(!TriBox::planeBoxOverlap(normal, v0, boxHalfSize)) return 0; // -NJMP-
         return 1; // box and triangle overlaps
     }
 }
