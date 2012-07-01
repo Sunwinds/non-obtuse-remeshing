@@ -1,4 +1,0 @@
-1、nonObtuse工程用MCModule中的同名文件替换了nonObtuse中的原始文件
-2、nonObtuse中仅保留main.cpp，且main中添加了MCModule中的q、a、n、b快捷键，其它快捷键没有添加，因为可以通过GLUI界面的按钮实现
-3、glut_glui中的文件需要部署到系统环境中，然后编译nonObtuse就可以使用Windows版本了
-4、与MCModule的Test一样，nonObtuse.exe和mesh文件夹要在同一目录下才能正常运行
