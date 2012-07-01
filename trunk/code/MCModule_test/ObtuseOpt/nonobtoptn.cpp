@@ -2017,11 +2017,11 @@ clock_t NonobtOptn::optimize_afterMove_noPriority(unsigned int numMaxIteration,
 		qm.q = computeQuadric(processOrders[i], alpha, numOneRingSearch, numOneRingQuadric, bUpdateClosestPolygon);
 		for (unsigned int j = 0; j < 3; ++j)
 			qm.newPos[j] = noVerticesList[3*i+j];
-//  		qm.bCanMove = computeOptimalLocation(qm.q.vIdx, qm.q, qm.newPos, region, angleBound);
-		unsigned int numTries(0);
- 		qm.bCanMove = computeOptimalLocation_linearSearch(qm.q.vIdx, qm.q, qm.newPos, angleBound, numTries);
+        qm.bCanMove = computeOptimalLocation(qm.q.vIdx, qm.q, qm.newPos, region, angleBound);
+		//unsigned int numTries(0);
+ 		//qm.bCanMove = computeOptimalLocation_linearSearch(qm.q.vIdx, qm.q, qm.newPos, angleBound, numTries);
 //   		qm.bCanMove = computeOptimalLocation_radiiRandomProbing(qm.q.vIdx, qm.q, qm.newPos, angleBound, numTries);
-		avgNumTries += numTries;
+		//avgNumTries += numTries;
 //   		if (!qm.bCanMove)// || qm.q.vIdx == 8076 || qm.q.vIdx == 8342 || qm.q.vIdx == 8329 || qm.q.vIdx == 8225 || qm.q.vIdx == 7418 || qm.q.vIdx == 6843 || qm.q.vIdx == 7294)
 //  			qm.bCanMove = computeOptimalLocation(qm.q.vIdx, qm.q, qm.newPos, region, angleBound);
 
@@ -2731,11 +2731,11 @@ clock_t NonobtOptn::optimize_smoothing(unsigned int numMaxIteration,
 		qm.q = q;
 		for (unsigned int j = 0; j < 3; ++j)
 			qm.newPos[j] = noVerticesList[3*i+j];
-// 		qm.bCanMove = computeOptimalLocation(q.vIdx, q, qm.newPos, region, angleBound);
+ 		qm.bCanMove = computeOptimalLocation(q.vIdx, q, qm.newPos, region, angleBound);
 		unsigned int numTries(0);
- 		qm.bCanMove = computeOptimalLocation_linearSearch(q.vIdx, q, qm.newPos, angleBound, numTries);
+ 		//qm.bCanMove = computeOptimalLocation_linearSearch(q.vIdx, q, qm.newPos, angleBound, numTries);
 //   		qm.bCanMove = computeOptimalLocation_radiiRandomProbing(q.vIdx, q, qm.newPos, angleBound, numTries);
-		avgNumTries += numTries;
+		//avgNumTries += numTries;
 		
 // 		qm.qValue_afterMove = length(qm.newPos[0] - centroid[0], 
 // 									qm.newPos[1] - centroid[1],
