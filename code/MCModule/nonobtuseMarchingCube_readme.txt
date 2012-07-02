@@ -14,6 +14,8 @@ non-obtuse mesh 的生成的方法：给定一个网格，先生成标量场，然后再通过marching cub
 
 目前我们non-obtuse remeshing的入口是：tilingnonobtusemc中的GenerateSurface_simpleMC()
 
+Note: non-obtuse remeshing主要有三个要素：标量场的生成，插值点的计算，tritable, 而每一个要素在文中又有多个选择
+
 
  
 
