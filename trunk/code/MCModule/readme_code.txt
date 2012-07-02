@@ -4,7 +4,7 @@
 1. MC
 nonObtuse有5种MC：Mid-point, interpolated, Nonobtuse-interpolated, Tilling Nonobtuse & Simple MC
 目前Tilling Nonobtuse有运行时刻错误，其它都能运行通过，且都能产生完整的模型（如有缺失，是应为grid的分辨率不够）。
-Mid-point & Simple MC 能生成无钝角的三角网格
+Mid-point & Simple MC 能生成无钝角的三角网格（Simple MC不都是对的）
 interpolated, Nonobtuse-interpolated & Tilling Nonobtuse都生成含钝角的三角网格
 前4种：Mid-point, interpolated, Nonobtuse-interpolated, Tilling Nonobtuse都是用了-1,1距离场；
 最后一种直接进行三角片和grid的cell的求交。
