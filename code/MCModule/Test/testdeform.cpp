@@ -18,8 +18,8 @@ int testdeform(int argc, char* argv[])
 		nonobtuseMesh.getVertices(), nonobtuseMesh.getNumVertices(), nonobtuseMesh.getPolygons(), nonobtuseMesh.getNumPolygons());
 	optn.removeBadValence(SIMPLE3PLANES_TOWARD_CENTER,30.0);
 	//optn.optimize_smoothing(nonobtuseMesh.getNumVertices(),0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
-	optn.optimize_afterMove_noPriority(12000, 0.0, 0.0, 0.5, 3, 1, 30.0, false, true, true, SIMPLE3PLANES_TOWARD_CENTER);
-	optn.optimize_smoothing(2 * nonobtuseMesh.getNumVertices(),0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
+	optn.optimize_afterMove(2 * nonobtuseMesh.getNumVertices(), 0.0, 0.0, 0.5, 3, 1, 30.0, false, true, true, SIMPLE3PLANES_TOWARD_CENTER);
+	//optn.optimize_smoothing(2 * nonobtuseMesh.getNumVertices(),0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
 
 	//Save 
 	char  save_text[] = "./mesh/test_result.obj";
