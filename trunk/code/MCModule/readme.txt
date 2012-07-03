@@ -39,23 +39,9 @@ d：显示或隐藏model和标量场：
 支持鼠标按住左键旋转
 
 ============================================================
-//Hui Wang, June 30, 2012
-//Deforme-to-fit testing
-要求：Test.exe和mesh文件夹要在同一目录下，
-输入：test_original.obj---原来的网格
-            test-nonobtuse.obj---无钝角的网格
-输入：test_nonobtuse.obj---最后的输入网格（没有Laplace的优化，Laplace的优化部分有时候有bug）
-
-============================================================
-Cai Yu 2012-07-01
-1、合并MCModule和nonObtuse，在MCModule中添加nonObtuse工程，nonObtuse工程中指保留原来的main.cpp，其它部分调用MarchingCube、MeshParser和ObtuseOpt
-2、合并MCModule和MCModule_test，根据比对
-用MCModule_test中：
-  MarchingCube里的：renderer.h renderer.cpp
-  nonObtuse里的：nonobtuseptn.cpp
-  Test里的：testnmc.cpp testdeform.h testdeform.cpp main.cpp
-更新了MCModule中的对应文件
-
+Non-convex qcqp solver (non-convex Quadratic constrained Quadratic Programming)
+http://pages.cs.wisc.edu/~kline/qcqp/
+http://www.neos-guide.org/NEOS/index.php/Quadratic_Programming_Software 这里有可以用的,如BQPD等.
 
 ============================================================
 使用ParaView查看标量场out.csv (SFViewer.m 作用在test_sf.txt上，即可生成)
