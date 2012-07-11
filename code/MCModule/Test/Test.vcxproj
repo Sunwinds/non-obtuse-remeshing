@@ -39,6 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Program_Library\VC\glui-2.35\glui-2.35\src\include\GL;D:\Program_Library\Nlop\nlopt-2.2.4\api;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program_Library\Nlop\nlopt-2.2.4\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -58,7 +60,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\;..\..\OOQP\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MarchingCube.lib;MeshParser.lib;ObtuseOpt.lib;libblasd.lib;libMA27d.lib;libooqpbased.lib;libooqpgensparsed.lib;libooqpgondziod.lib;libooqpsparsed.lib;vcf2c.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MarchingCube.lib;MeshParser.lib;ObtuseOpt.lib;libblasd.lib;libMA27d.lib;libooqpbased.lib;libooqpgensparsed.lib;libooqpgondziod.lib;libooqpsparsed.lib;vcf2c.lib;glui32.lib;nloptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>

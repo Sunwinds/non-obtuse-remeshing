@@ -395,4 +395,21 @@ double boundingBoxDiagonal(const double* vList, int numV);
 template <class T>
 void swap(T &a, T &b);
 */
+typedef struct {
+	double x, y, z;
+}point_data;
+
+typedef struct {
+	double center_x, center_y, center_z, radius;
+}sphere_data;
+
+typedef struct{
+	double x, y, z, nx, ny, nz;
+}plane_data;
+
+double myfunc(unsigned n, const double *x, double *grad, void *my_func_data);
+
+double sphereConstraint(unsigned n, const double *x, double *grad, void *my_constrain_data);
+
+double planeConstraint(unsigned n, const double *x, double *grad, void *my_constrain_data);
 #endif
