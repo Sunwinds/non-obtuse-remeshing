@@ -2,6 +2,7 @@
 #define TESTDEFORM_H
 
 #include "../ObtuseOpt/nonobtoptn.h"
+#include "../ObtuseOpt/nonobtoptnHui.h"
 
 
 int testdeform(int argc, char* argv[]);

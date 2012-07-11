@@ -1502,4 +1502,53 @@ void swap(T &a, T &b)
 	b = tmp;
 }
 */
+
+double myfunc(unsigned n, const double *x, double *grad, void *my_func_data)
+{
+	point_data *p = (point_data *) my_func_data;
+	double val;
+
+	if (grad) 
+	{
+		grad[0] = 2 * (x[0] - p->x);
+		grad[1] = 2 * (x[1] - p->y);
+		grad[2] = 2 * (x[2] - p->z);
+	}
+
+	val = (x[0] - p->x) * (x[0] - p->x) + (x[1] - p->y) * (x[1] - p->y) + (x[2] - p->z) * (x[2] - p->z);
+
+	return val;
+}
+
+double sphereConstraint(unsigned n, const double *x, double *grad, void *my_constrain_data)
+{
+	sphere_data *s = (sphere_data *) my_constrain_data;
+	double val;
+
+	if(grad)
+	{
+		grad[0] = -2.0 * (x[0] - s->center_x);
+		grad[1] = -2.0 * (x[1] - s->center_y);
+		grad[2] = -2.0 * (x[2] - s->center_z);
+	}
+	val = s->radius * s->radius - (x[0] - s->center_x) * (x[0] - s->center_x) - (x[1] - s->center_y) * (x[1] - s->center_y) - (x[2] - s->center_z) * (x[2] - s->center_z);
+
+	return val;
+}
+
+double planeConstraint(unsigned n, const double *x, double *grad, void *my_constrain_data)
+{
+	plane_data *p = (plane_data *) my_constrain_data;
+	double val;
+
+	if(grad)
+	{
+		grad[0] = -1.0 * p->nx;
+		grad[1] = -1.0 * p->ny;
+		grad[2] = -1.0 * p->nz;
+	}
+	val = (p->x - x[0]) * p->nx + (p->y - x[1]) * p->ny + (p->z - x[2]) * p->nz;
+
+	return val;
+}
 #endif

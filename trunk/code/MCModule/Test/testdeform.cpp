@@ -5,7 +5,7 @@
 int testdeform(int argc, char* argv[])
 {
 	Renderer originalMesh,nonobtuseMesh,resultMesh;
-	NonobtOptn optn;
+	nonobtoptnHui optn;
 
 	//Read meshes
 	char  open_text_1[] = "./mesh/test_original.obj";
@@ -16,10 +16,13 @@ int testdeform(int argc, char* argv[])
 	//Processing
 	optn.loadMesh(originalMesh.getVertices(), originalMesh.getNumVertices(), originalMesh.getPolygons(), originalMesh.getNumPolygons(), originalMesh.getVertexNeighbourList(), originalMesh.getEdgeNeighbourList(), originalMesh.getPolygonNeighbourList(), 
 		nonobtuseMesh.getVertices(), nonobtuseMesh.getNumVertices(), nonobtuseMesh.getPolygons(), nonobtuseMesh.getNumPolygons());
+	/*
 	optn.removeBadValence(SIMPLE3PLANES_TOWARD_CENTER,30.0);
 	//optn.optimize_smoothing(nonobtuseMesh.getNumVertices(),0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
 	optn.optimize_afterMove(2 * nonobtuseMesh.getNumVertices(), 0.0, 0.0, 0.5, 3, 1, 30.0, false, true, true, SIMPLE3PLANES_TOWARD_CENTER);
 	//optn.optimize_smoothing(2 * nonobtuseMesh.getNumVertices(),0.0,30.0,false,SIMPLE3PLANES_TOWARD_CENTER);
+	*/
+	optn.constraint_smoothing();
 
 	//Save 
 	char  save_text[] = "./mesh/test_result.obj";
