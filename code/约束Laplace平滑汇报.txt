@@ -1,0 +1,11 @@
+用Nlopt求解带约束的Laplace平滑测试程序的汇报: 不知为什么，求解时总会出现钝角，也就是说解不在可行域里面。
+
+MATLAB：
+Data：里面为测试数据（OFF格式），对于cube能测试成功，另外两个不可以。
+Hui: 测试函数为Hui_test2.m, 
+       myconstraint21.m: 球面的约束
+       myconstraint22.m: 平面的约束
+       anglesOfFaces.m: 计算角度，为弧度制
+
+C++：
+主要是ObtuseOpt这个工程中的类nonobtoptnHui
