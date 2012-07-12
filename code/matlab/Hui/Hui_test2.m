@@ -1,6 +1,7 @@
 %Hui Wang, July 11, 2012
 clear;
 clc;
+path('..\NLopt',path);
 
 [V, F] = mRead;
 V0 = V;
