@@ -70,12 +70,12 @@ int   main_window;
 int gShowCellsRegion = 0;
 int gShowScalarField = 1;
 
-float fCellLengthX = 0.015;
-float fCellLengthY = 0.015;
-float fCellLengthZ = 0.015;
-int nCellX = 100;
-int nCellY = 100;
-int nCellZ = 100;
+float fCellLengthX = 0.021;
+float fCellLengthY = 0.021;
+float fCellLengthZ = 0.01;
+int nCellX = 50;
+int nCellY = 50;
+int nCellZ = 50;
 // armadillo
 //float fCellLengthX = 1.5;
 //float fCellLengthY = 1.5;
