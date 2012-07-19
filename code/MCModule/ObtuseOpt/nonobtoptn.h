@@ -230,20 +230,20 @@ public:
 	// bUpdateClosestPolygon (in): true - closest polygon for the vertex is updated when bRecomputeQuadrics is true
 	// region (in): determines how the non-obtuse region is to be approximated
 	// *********** OBSOLETE ***********
-// 	void optimize_alternate(unsigned int numMaxIteration = 0, 
-// 							unsigned int numMoveIteration = 10,
-// 							double quadricThreshold = 0.0, 
-// 							double improvementThreshold = 0.0,
-// 							double alpha = 0.5,
-// 							unsigned int numOneRingSearch = 3, 
-// 							unsigned int numOneRingQuadric = 1,
-// 							unsigned int numSmoothIteration = 10,
-// 							double smoothnessThreshold = 0.0,
-// 							double angleBound = 30.0,
-// 							bool bDoOptnFirst = true,
-// 							bool bRecompute = false, 
-// 							bool bUpdateClosestPolygon = true,
-// 							NORegionType region = SIMPLE3PLANES_TOWARD_CENTER);
+ 	void optimize_alternate(unsigned int numMaxIteration = 0, 
+ 							unsigned int numMoveIteration = 10,
+ 							double quadricThreshold = 0.0, 
+ 							double improvementThreshold = 0.0,
+ 							double alpha = 0.5,
+ 							unsigned int numOneRingSearch = 3, 
+ 							unsigned int numOneRingQuadric = 1,
+ 							unsigned int numSmoothIteration = 10,
+ 							double smoothnessThreshold = 0.0,
+ 							double angleBound = 30.0,
+							bool bDoOptnFirst = true,
+ 							bool bRecompute = false, 
+ 							bool bUpdateClosestPolygon = true,
+ 							NORegionType region = SIMPLE3PLANES_TOWARD_CENTER);
 
 	// non-obtuse decimate the non-obtuse mesh
 	// numRemaining (in): decimate until the mesh has numRemaining vertices
@@ -763,7 +763,7 @@ public:
 	// list of quadric moves for each vertex in non-obtuse mesh
 	// when sort_heap(), the list is sorted in order based on my_quadMove_largestImprovementFirst()
 	// used by optimize_afterMove()
-// 	vector<QuadricMove> qMoveList;
+ 	vector<QuadricMove> qMoveList;
 
 	// list of pointers to quadric moves of each vertex in non-obtuse mesh
 	// when sort_heap(), the list is sorted in order based on my_quadMove_largestImprovementFirst()
@@ -771,7 +771,7 @@ public:
 	vector<QuadricMove*> qMovePtrList;
 
 	// list of indices to elements in qMoveList
-// 	vector<unsigned int> qMoveIndicesList;
+ 	vector<unsigned int> qMoveIndicesList;
 
 	// list of sorted pointers to quadric moves of each vertex
 	vector<QuadricMove*> qMoveSortPtrList;

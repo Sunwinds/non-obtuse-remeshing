@@ -2787,283 +2787,281 @@ clock_t NonobtOptn::optimize_smoothing(unsigned int numMaxIteration,
 // bUpdateClosestPolygon (in): true - closest polygon for the vertex is updated when bRecomputeQuadrics is true
 // region (in): determines how the non-obtuse region is to be approximated
 // *********** OBSOLETE ***********
-// void NonobtOptn::optimize_alternate(unsigned int numMaxIteration,
-// 									unsigned int numMoveIteration,
-// 									double quadricThreshold, 
-// 									double improvementThreshold,
-// 									double alpha,
-// 									unsigned int numOneRingSearch, 
-// 									unsigned int numOneRingQuadric,
-// 									unsigned int numSmoothIteration,
-// 									double smoothnessThreshold,
-// 									double angleBound,
-// 									bool bDoOptnFirst,
-// 									bool bRecompute,
-// 									bool bUpdateClosestPolygon,
-// 									NORegionType region)
-// {
-// 	unsigned int iterationCount = 0;
-// 	unsigned int alterIterCount = 0;
-// 	bool doMove(bDoOptnFirst);
-// 	int lastVertexMovedIdx = -1;
-// 	bool continueOptimize(true);
-// 
-// 	if (bRecompute)
-// 	{	
-// 		qMoveList.clear();
-// 	}
-// 
-// 	while (continueOptimize)
-// 	{
-// 		// true if at least one vertex has quadric value > quadricThreshold or smoothness > smoothnessThreshold
-// 		bool hasPassThreshold(false);	
-// 		if (qMoveList.empty() || qSmoothList.empty())
-// 		{
-// 			qMoveList.clear();
-// 			qSmoothList.clear();
-// 			cout << "Computing Quadrics and Smoothness for all vertices for the first time..." << endl;
-// 			make_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);
-// 			make_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
-// 
-// 			for (int i = 0; i < numNoVertices; ++i)
-// 			{
-// 				cout << "processing vertex " << i << "/" << numNoVertices << "..." << endl;
-// 
-// 				// compute quadrics for each vertex
-// 				Quadric q = computeQuadric(i, alpha, numOneRingSearch, numOneRingQuadric, bUpdateClosestPolygon);
-// 				
-// 				QuadricMove qm;
-// 				qm.q = q;
-// 				qm.bCanMove = computeOptimalLocation(q.vIdx, q, qm.newPos, region, angleBound);
-// 
-// 				double minDist(0.0);
-// 				double closestPt[3] = {0,0,0};
-// 
-// 				if (isBoundaryVertex(qm.q.vIdx))
-// 				{
-// 					Edge closestBEdge_afterMove = findClosestBoundaryEdge(qm.q.vIdx, qm.newPos, closestPt, numOneRingSearch, false);
-// 					//qm.qValue_afterMove = computeBoundaryQuadricValue(qm.newPos, closestBEdge_afterMove, alpha, numOneRingQuadric);
-// 					qm.qValue_afterMove = computeBoundaryQuadricValue(qm.newPos, closestPt, alpha, numOneRingQuadric);
-// 				}
-// 				else
-// 				{
-// 					int closestPolyIdx_afterMove = findClosestPolygon(qm.newPos, dVerticesList, dPolygonsList, dVertexNeighbourList, numDPolygons, minDist, closestPt, false, closestFaceList[i], numOneRingSearch);
-// 					qm.qValue_afterMove = computeQuadricValue(qm.newPos, closestPolyIdx_afterMove, alpha, numOneRingQuadric);
-// 				}
-// 				qm.qValueImprovement = qm.q.quadricValue - qm.qValue_afterMove;	
-// 
-// 				qMoveList.push_back(qm);
-// 				push_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);
-// 
-// 				// compute smoothness for each vertex
-// 				double centroid[3] = {0,0,0};
-// 				Quadric qs = computeSmoothness(i, centroid, false);
-// 				
-// 				QuadricMove qms;
-// 				qms.q = qs;
-// 				qms.bCanMove = computeOptimalLocation(qs.vIdx, qs, qms.newPos, region, angleBound);
-// 				
-// 				qms.qValue_afterMove = length(qms.newPos[0] - centroid[0], 
-// 											qms.newPos[1] - centroid[1],
-// 											qms.newPos[2] - centroid[2]);
-// 
-// 				qms.qValueImprovement = qms.q.quadricValue - qms.qValue_afterMove;	
-// 
-// 				qSmoothList.push_back(qms);
-// 				push_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
-// 
-// 				// check if current vertex has smoothness exceeded the threshold
-// 				if (!hasPassThreshold && (qs.quadricValue > smoothnessThreshold || q.quadricValue > quadricThreshold))
-// 					hasPassThreshold = true;				
-// 			}
-// 			
-// 			qMoveIndicesList.resize(qMoveList.size());
-// 			qSmoothIndicesList.resize(qSmoothList.size());
-// 		}
-// 		else
-// 		{
-// 			cout << "Updating Quadrics and Smoothness at iteration " << iterationCount << endl;
-// 			if (lastVertexMovedIdx != -1)
-// 			{
-// 				// for taubin smoothing
-// 				updateCentroidList(lastVertexMovedIdx);
-// 
-// 				// update quadrics for the moved vertex
-// 				qMoveList[qMoveIndicesList[lastVertexMovedIdx]].q = computeQuadric(lastVertexMovedIdx, alpha, numOneRingSearch, numOneRingQuadric);
-// 				
-// 				// update moved quadrics for the moved vertex and its one-ring
-// 				// update smoothness and after-move-smoothness for the moved vertex and its one-ring
-// 				unsigned int numOneRingTriangles = noVertexNeighbourList[lastVertexMovedIdx].size();
-// 				vector<unsigned int> updatedIndices;
-// 				for (unsigned int i = 0; i < numOneRingTriangles; ++i)
-// 				{
-// 					unsigned int currentPolyIdx = noVertexNeighbourList[lastVertexMovedIdx][i];
-// 					for (unsigned int j = 0; j < 3; ++j)
-// 					{
-// 						unsigned int vIdx = noPolygonsList[currentPolyIdx][j];
-// 	
-// 						// check if the vertex has been updated
-// 						bool isUpdated(false);
-// 						for (unsigned int k = 0; k < updatedIndices.size(); ++k)
-// 						{
-// 							if (updatedIndices[k] == vIdx)
-// 							{	
-// 								isUpdated = true;
-// 								break;
-// 							}
-// 						}
-// 						if (isUpdated)
-// 							continue;
-// 	
-// 						// update moved quadric
-// 						qMoveList[qMoveIndicesList[vIdx]].bCanMove = computeOptimalLocation(qMoveList[qMoveIndicesList[vIdx]].q.vIdx, 
-// 																							qMoveList[qMoveIndicesList[vIdx]].q,
-// 																							qMoveList[qMoveIndicesList[vIdx]].newPos, region, angleBound);
-// 						
-// 						double minDist(0.0);
-// 						double closestPt[3] = {0,0,0};
-// 						if (isBoundaryVertex(qMoveList[qMoveIndicesList[vIdx]].q.vIdx))
-// 						{
-// 							Edge closestBEdge_afterMove = findClosestBoundaryEdge(qMoveList[qMoveIndicesList[vIdx]].q.vIdx, qMoveList[qMoveIndicesList[vIdx]].newPos, closestPt, numOneRingSearch, false);
-// 							qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove = computeBoundaryQuadricValue(qMoveList[qMoveIndicesList[vIdx]].newPos, closestPt, alpha, numOneRingQuadric);
-// 						}
-// 						else
-// 						{
-// 							int closestPolyIdx_afterMove = findClosestPolygon(qMoveList[qMoveIndicesList[vIdx]].newPos, dVerticesList, dPolygonsList, dVertexNeighbourList, numDPolygons, minDist, closestPt, false, closestFaceList[qMoveList[qMoveIndicesList[vIdx]].q.vIdx], numOneRingSearch);
-// 							qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove = computeQuadricValue(qMoveList[qMoveIndicesList[vIdx]].newPos, closestPolyIdx_afterMove, alpha, numOneRingQuadric);
-// 						}
-// 
-// 						qMoveList[qMoveIndicesList[vIdx]].qValueImprovement = qMoveList[qMoveIndicesList[vIdx]].q.quadricValue - qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove;
-// 
-// 						// update smoothness
-// 						double centroid[3] = {0,0,0};
-// 						qSmoothList[qSmoothIndicesList[vIdx]].q = computeSmoothness(qSmoothList[qSmoothIndicesList[vIdx]].q.vIdx, centroid, false);
-// 						
-// 						// update after move smoothness
-// 						qSmoothList[qSmoothIndicesList[vIdx]].bCanMove = computeOptimalLocation(qSmoothList[qSmoothIndicesList[vIdx]].q.vIdx, 
-// 												qSmoothList[qSmoothIndicesList[vIdx]].q,
-// 												qSmoothList[qSmoothIndicesList[vIdx]].newPos, region, angleBound);
-// 
-// 						qSmoothList[qSmoothIndicesList[vIdx]].qValue_afterMove = 
-// 									length(qSmoothList[qSmoothIndicesList[vIdx]].newPos[0] - centroid[0], 
-// 											qSmoothList[qSmoothIndicesList[vIdx]].newPos[1] - centroid[1],
-// 											qSmoothList[qSmoothIndicesList[vIdx]].newPos[2] - centroid[2]);
-// 						
-// 						qSmoothList[qSmoothIndicesList[vIdx]].qValueImprovement = qSmoothList[qSmoothIndicesList[vIdx]].q.quadricValue - qSmoothList[qSmoothIndicesList[vIdx]].qValue_afterMove;
-// 						
-// 						updatedIndices.push_back(vIdx);
-// 					}
-// 				}
-// 				
-// 				make_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);				
-// 				make_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
-// 			}
-// 
-// 			// check threshold
-// 			for (int i = 0; i < numNoVertices; ++i)
-// 			{
-// 				// check if current vertex has quadrics exceeded the threshold
-// 				if (!hasPassThreshold && (qMoveList[i].q.quadricValue > quadricThreshold || qSmoothList[i].q.quadricValue > smoothnessThreshold))
-// 				{
-// 					hasPassThreshold = true;
-// 					break;
-// 				}
-// 			}
-// 		}
-// 
-// 		// update qMoveIndicesList
-// 		for (unsigned int i = 0; i < qMoveList.size(); ++i)
-// 			qMoveIndicesList[qMoveList[i].q.vIdx] = i;
-// 		// update qSmoothIndicesList
-// 		for (unsigned int i = 0; i < qSmoothList.size(); ++i)
-// 			qSmoothIndicesList[qSmoothList[i].q.vIdx] = i;
-// 
-// 		if (iterationCount != 0 && iterationCount == numMaxIteration)	// max iterations reached
-// 			break;
-// 		if (!hasPassThreshold)	// all vertices have quadrics within the threshold
-// 			break;
-// 		
-// 		// --- debug
-// 		//vector<QuadricMove> qMoveList_debug = qMoveList;
-// 		//sort_heap(qMoveList_debug.begin(), qMoveList_debug.end(), my_quadMove_largestImprovementFirst);
-// 		//vector<QuadricMove> qSmoothList_debug = qSmoothList;
-// 		//sort_heap(qSmoothList_debug.begin(), qSmoothList_debug.end(), my_quadMove_largestImprovementFirst);
-// 		// --- end debug
-// 
-// 
-// 		QuadricMove qm;
-// 		if (doMove)
-// 			qm = qMoveList.front();
-// 		else
-// 			qm = qSmoothList.front();
-// 
-// 		if (qm.qValueImprovement > improvementThreshold && qm.bCanMove)
-// 		{
-// 			// ---- debug only ----
-// 			lastMovedVertexOldPos[0] = noVerticesList[3*(qm.q.vIdx)];
-// 			lastMovedVertexOldPos[1] = noVerticesList[3*(qm.q.vIdx)+1];
-// 			lastMovedVertexOldPos[2] = noVerticesList[3*(qm.q.vIdx)+2];
-// 			lastMovedVertexIdx = qm.q.vIdx;
-// 			isLastMovedVertexSet = true;
-// 			// ---- end debug -----
-// 
-// 			updateMesh(qm.q.vIdx, qm.newPos);
-// 			lastVertexMovedIdx = qm.q.vIdx;
-// 			if (doMove)
-// 				cout << "Moved vertex " << lastVertexMovedIdx << endl;
-// 			else
-// 				cout << "Smoothed vertex " << lastVertexMovedIdx << endl;
-// 
-// 		}
-// 		else		// no vertices can move or make improvment
-// 		{
-// 			if (doMove)
-// 			{
-// 				// can't move, so check if we can smooth
-// 				qm = qSmoothList.front();
-// 				if (numSmoothIteration > 0 && qm.qValueImprovement > 0 && qm.bCanMove)
-// 				{
-// 					doMove = false;
-// 					alterIterCount = 0;
-// 				}
-// 				else
-// 					break;
-// 			}
-// 			else
-// 			{
-// 				// can't smooth, so check if we can move
-// 				qm = qMoveList.front();
-// 				if (numMoveIteration > 0 && qm.qValueImprovement > 0 && qm.bCanMove)
-// 				{
-// 					doMove = true;
-// 					alterIterCount = 0;
-// 				}
-// 				else
-// 					break;
-// 			}
-// 		}
-// 		
-// 		iterationCount++;
-//  		alterIterCount++;
-// 
-// 		if (doMove)
-// 		{
-// 			if (alterIterCount == numMoveIteration && numSmoothIteration > 0)
-// 			{
-// 				doMove = false;
-// 				alterIterCount = 0;
-// 			}
-// 		}
-// 		else
-// 		{	
-// 			if (alterIterCount == numSmoothIteration && numMoveIteration > 0)
-// 			{
-// 				doMove = true;
-// 				alterIterCount = 0;
-// 			}
-// 		}
-// 	}
-// }
+void NonobtOptn::optimize_alternate(unsigned int numMaxIteration,
+	unsigned int numMoveIteration,
+ 									double quadricThreshold, 
+ 									double improvementThreshold,
+ 									double alpha,
+ 									unsigned int numOneRingSearch, 
+ 									unsigned int numOneRingQuadric,
+ 									unsigned int numSmoothIteration,
+ 									double smoothnessThreshold,
+ 									double angleBound,
+ 									bool bDoOptnFirst,
+ 									bool bRecompute,
+ 									bool bUpdateClosestPolygon,
+ 									NORegionType region)
+{
+ 	unsigned int iterationCount = 0;
+ 	unsigned int alterIterCount = 0;
+ 	bool doMove(bDoOptnFirst);
+ 	int lastVertexMovedIdx = -1;
+ 	bool continueOptimize(true);
+ 
+ 	if (bRecompute)
+	{	
+ 		qMoveList.clear();
+ 	}
+ 
+ 	while (continueOptimize)
+ 	{
+ 		// true if at least one vertex has quadric value > quadricThreshold or smoothness > smoothnessThreshold
+ 		bool hasPassThreshold(false);	
+ 		if (qMoveList.empty() || qSmoothList.empty())
+ 		{
+ 			qMoveList.clear();
+ 			qSmoothList.clear();
+ 			cout << "Computing Quadrics and Smoothness for all vertices for the first time..." << endl;
+ 			make_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);
+ 			make_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
+ 
+ 			for (int i = 0; i < numNoVertices; ++i)
+ 			{
+ 				cout << "processing vertex " << i << "/" << numNoVertices << "..." << endl;
+ 
+ 				// compute quadrics for each vertex
+ 				Quadric q = computeQuadric(i, alpha, numOneRingSearch, numOneRingQuadric, bUpdateClosestPolygon);
+ 				
+ 				QuadricMove qm;
+ 				qm.q = q;
+ 				qm.bCanMove = computeOptimalLocation(q.vIdx, q, qm.newPos, region, angleBound);
+ 
+ 				double minDist(0.0);
+ 				double closestPt[3] = {0,0,0};
+ 
+ 				if (isBoundaryVertex(qm.q.vIdx))
+ 				{
+ 					Edge closestBEdge_afterMove = findClosestBoundaryEdge(qm.q.vIdx, qm.newPos, closestPt, numOneRingSearch, false);
+ 					//qm.qValue_afterMove = computeBoundaryQuadricValue(qm.newPos, closestBEdge_afterMove, alpha, numOneRingQuadric);
+ 					qm.qValue_afterMove = computeBoundaryQuadricValue(qm.newPos, closestPt, alpha, numOneRingQuadric);
+ 				}
+ 				else
+ 				{
+ 					int closestPolyIdx_afterMove = findClosestPolygon(qm.newPos, dVerticesList, dPolygonsList, dVertexNeighbourList, numDPolygons, minDist, closestPt, false, closestFaceList[i], numOneRingSearch);
+ 					qm.qValue_afterMove = computeQuadricValue(qm.newPos, closestPolyIdx_afterMove, alpha, numOneRingQuadric);
+ 				}
+ 				qm.qValueImprovement = qm.q.quadricValue - qm.qValue_afterMove;	
+  				qMoveList.push_back(qm);
+ 				push_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);
+ 
+ 				// compute smoothness for each vertex
+ 				double centroid[3] = {0,0,0};
+ 				Quadric qs = computeSmoothness(i, centroid, false);
+ 				
+ 				QuadricMove qms;
+ 				qms.q = qs;
+ 				qms.bCanMove = computeOptimalLocation(qs.vIdx, qs, qms.newPos, region, angleBound);
+ 				
+ 				qms.qValue_afterMove = length(qms.newPos[0] - centroid[0], 
+ 											qms.newPos[1] - centroid[1],
+ 											qms.newPos[2] - centroid[2]);
+ 
+ 				qms.qValueImprovement = qms.q.quadricValue - qms.qValue_afterMove;	
+ 
+ 				qSmoothList.push_back(qms);
+ 				push_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
+ 
+ 				// check if current vertex has smoothness exceeded the threshold
+ 				if (!hasPassThreshold && (qs.quadricValue > smoothnessThreshold || q.quadricValue > quadricThreshold))
+ 					hasPassThreshold = true;				
+ 			}
+ 			
+ 			qMoveIndicesList.resize(qMoveList.size());
+ 			qSmoothIndicesList.resize(qSmoothList.size());
+ 		}
+ 		else 		
+		{
+ 			cout << "Updating Quadrics and Smoothness at iteration " << iterationCount << endl;
+ 			if (lastVertexMovedIdx != -1)
+ 			{
+ 				// for taubin smoothing
+ 				updateCentroidList(lastVertexMovedIdx);
+ 
+ 				// update quadrics for the moved vertex
+ 				qMoveList[qMoveIndicesList[lastVertexMovedIdx]].q = computeQuadric(lastVertexMovedIdx, alpha, numOneRingSearch, numOneRingQuadric);
+ 				
+ 				// update moved quadrics for the moved vertex and its one-ring
+ 				// update smoothness and after-move-smoothness for the moved vertex and its one-ring
+ 				unsigned int numOneRingTriangles = noVertexNeighbourList[lastVertexMovedIdx].size();
+ 				vector<unsigned int> updatedIndices;
+ 				for (unsigned int i = 0; i < numOneRingTriangles; ++i)
+ 				{
+ 					unsigned int currentPolyIdx = noVertexNeighbourList[lastVertexMovedIdx][i];
+ 					for (unsigned int j = 0; j < 3; ++j)
+ 					{
+ 						unsigned int vIdx = noPolygonsList[currentPolyIdx][j];
+ 	
+ 						// check if the vertex has been updated
+ 						bool isUpdated(false);
+ 						for (unsigned int k = 0; k < updatedIndices.size(); ++k)
+ 						{
+ 							if (updatedIndices[k] == vIdx)
+ 							{	
+ 								isUpdated = true;
+ 								break;
+ 							}
+ 						}
+ 						if (isUpdated)
+ 							continue;
+ 	
+ 						// update moved quadric
+ 						qMoveList[qMoveIndicesList[vIdx]].bCanMove = computeOptimalLocation(qMoveList[qMoveIndicesList[vIdx]].q.vIdx, 
+ 																							qMoveList[qMoveIndicesList[vIdx]].q,
+ 																							qMoveList[qMoveIndicesList[vIdx]].newPos, region, angleBound);
+ 						
+ 						double minDist(0.0);
+ 						double closestPt[3] = {0,0,0};
+ 						if (isBoundaryVertex(qMoveList[qMoveIndicesList[vIdx]].q.vIdx))
+ 						{
+ 							Edge closestBEdge_afterMove = findClosestBoundaryEdge(qMoveList[qMoveIndicesList[vIdx]].q.vIdx, qMoveList[qMoveIndicesList[vIdx]].newPos, closestPt, numOneRingSearch, false);
+ 							qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove = computeBoundaryQuadricValue(qMoveList[qMoveIndicesList[vIdx]].newPos, closestPt, alpha, numOneRingQuadric);
+ 						}
+ 						else
+ 						{
+ 							int closestPolyIdx_afterMove = findClosestPolygon(qMoveList[qMoveIndicesList[vIdx]].newPos, dVerticesList, dPolygonsList, dVertexNeighbourList, numDPolygons, minDist, closestPt, false, closestFaceList[qMoveList[qMoveIndicesList[vIdx]].q.vIdx], numOneRingSearch);
+ 							qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove = computeQuadricValue(qMoveList[qMoveIndicesList[vIdx]].newPos, closestPolyIdx_afterMove, alpha, numOneRingQuadric);
+ 						}
+ 
+ 						qMoveList[qMoveIndicesList[vIdx]].qValueImprovement = qMoveList[qMoveIndicesList[vIdx]].q.quadricValue - qMoveList[qMoveIndicesList[vIdx]].qValue_afterMove;
+  						// update smoothness
+						double centroid[3] = {0,0,0};
+ 						qSmoothList[qSmoothIndicesList[vIdx]].q = computeSmoothness(qSmoothList[qSmoothIndicesList[vIdx]].q.vIdx, centroid, false);
+ 						
+ 						// update after move smoothness
+ 						qSmoothList[qSmoothIndicesList[vIdx]].bCanMove = computeOptimalLocation(qSmoothList[qSmoothIndicesList[vIdx]].q.vIdx, 
+ 												qSmoothList[qSmoothIndicesList[vIdx]].q,
+ 												qSmoothList[qSmoothIndicesList[vIdx]].newPos, region, angleBound);
+ 
+ 						qSmoothList[qSmoothIndicesList[vIdx]].qValue_afterMove = 
+ 									length(qSmoothList[qSmoothIndicesList[vIdx]].newPos[0] - centroid[0], 
+ 											qSmoothList[qSmoothIndicesList[vIdx]].newPos[1] - centroid[1],
+ 											qSmoothList[qSmoothIndicesList[vIdx]].newPos[2] - centroid[2]);
+ 						
+ 						qSmoothList[qSmoothIndicesList[vIdx]].qValueImprovement = qSmoothList[qSmoothIndicesList[vIdx]].q.quadricValue - qSmoothList[qSmoothIndicesList[vIdx]].qValue_afterMove;
+ 						
+ 						updatedIndices.push_back(vIdx);
+ 					}
+ 				}
+ 				
+ 				make_heap(qMoveList.begin(), qMoveList.end(), my_quadMove_largestImprovementFirst);				
+ 				make_heap(qSmoothList.begin(), qSmoothList.end(), my_quadMove_largestImprovementFirst);
+ 			}
+ 
+ 			// check threshold
+ 			for (int i = 0; i < numNoVertices; ++i)
+ 			{
+ 				// check if current vertex has quadrics exceeded the threshold
+ 				if (!hasPassThreshold && (qMoveList[i].q.quadricValue > quadricThreshold || qSmoothList[i].q.quadricValue > smoothnessThreshold))
+ 				{
+ 					hasPassThreshold = true;
+ 					break;
+ 				}
+ 			}
+ 		}
+ 
+ 		// update qMoveIndicesList
+ 		for (unsigned int i = 0; i < qMoveList.size(); ++i)
+ 			qMoveIndicesList[qMoveList[i].q.vIdx] = i;
+ 		// update qSmoothIndicesList
+ 		for (unsigned int i = 0; i < qSmoothList.size(); ++i)
+ 			qSmoothIndicesList[qSmoothList[i].q.vIdx] = i;
+ 
+ 		if (iterationCount != 0 && iterationCount == numMaxIteration)	// max iterations reached
+ 			break;
+ 		if (!hasPassThreshold)	// all vertices have quadrics within the threshold
+ 			break;
+		
+ 		// --- debug
+ 		//vector<QuadricMove> qMoveList_debug = qMoveList;
+ 		//sort_heap(qMoveList_debug.begin(), qMoveList_debug.end(), my_quadMove_largestImprovementFirst);
+ 		//vector<QuadricMove> qSmoothList_debug = qSmoothList;
+ 		//sort_heap(qSmoothList_debug.begin(), qSmoothList_debug.end(), my_quadMove_largestImprovementFirst);
+ 		// --- end debug
+ 
+ 
+ 		QuadricMove qm;
+ 		if (doMove)
+ 			qm = qMoveList.front();
+ 		else
+ 			qm = qSmoothList.front();
+ 
+ 		if (qm.qValueImprovement > improvementThreshold && qm.bCanMove)
+ 		{
+ 			// ---- debug only ----
+ 			lastMovedVertexOldPos[0] = noVerticesList[3*(qm.q.vIdx)];
+ 			lastMovedVertexOldPos[1] = noVerticesList[3*(qm.q.vIdx)+1];
+ 			lastMovedVertexOldPos[2] = noVerticesList[3*(qm.q.vIdx)+2];
+ 			lastMovedVertexIdx = qm.q.vIdx;
+ 			isLastMovedVertexSet = true;
+ 			// ---- end debug -----
+ 
+ 			updateMesh(qm.q.vIdx, qm.newPos);
+ 			lastVertexMovedIdx = qm.q.vIdx;
+ 			if (doMove)
+ 				cout << "Moved vertex " << lastVertexMovedIdx << endl;
+ 			else
+ 				cout << "Smoothed vertex " << lastVertexMovedIdx << endl;
+ 
+ 		}
+ 		else		// no vertices can move or make improvment
+ 		{
+ 			if (doMove)
+ 			{
+ 				// can't move, so check if we can smooth
+ 				qm = qSmoothList.front();
+ 				if (numSmoothIteration > 0 && qm.qValueImprovement > 0 && qm.bCanMove)
+ 				{
+ 					doMove = false;
+ 					alterIterCount = 0;
+				}
+ 				else
+ 					break;
+ 			}
+ 			else
+ 			{
+ 				// can't smooth, so check if we can move
+ 				qm = qMoveList.front();
+ 				if (numMoveIteration > 0 && qm.qValueImprovement > 0 && qm.bCanMove)
+ 				{
+ 					doMove = true;
+ 					alterIterCount = 0;
+ 				}
+ 				else
+ 					break;
+ 			}
+ 		}
+ 		
+ 		iterationCount++;
+  		alterIterCount++;
+ 
+ 		if (doMove)
+ 		{
+ 			if (alterIterCount == numMoveIteration && numSmoothIteration > 0)
+ 			{
+ 				doMove = false;
+ 				alterIterCount = 0;
+ 			}
+ 		}
+		else
+ 		{	
+ 			if (alterIterCount == numSmoothIteration && numMoveIteration > 0)
+ 			{
+ 				doMove = true;
+ 				alterIterCount = 0;
+ 			}
+ 		}
+ 	}
+ }
 
 // non-obtuse decimate the non-obtuse mesh
 // numRemaining (in): decimate until the mesh has numRemaining vertices
