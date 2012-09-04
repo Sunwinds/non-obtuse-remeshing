@@ -1,0 +1,18 @@
+蔡宇：
+把MATLAB中funmincon的功能用Ipopt实现，参照optimalPositionOfPoint_Laplace.m,
+ 输入是：
+1. firstPointOfEdge（m个3维向量，m为一环面的个数）, secondPointOfEdge（m个3维向量）（一环面的第一个顶点位置和第二个顶点位置），这个应用约束项里面
+2. centroid（3维向量），当前点需要移动到的位置
+输出是：
+1. 极小化后的能量
+2. 极小值点（3维向量），在哪一点取得极小值
+
+
+王辉：
+优化算法，写文章初稿
+
+
+
+此外，别的另作的事情：
+1. 尝试扩大搜索模板
+2. 别特征的选择嵌入到non-obtuse marching cube,使得non-obtuse marching cube和特征有关
