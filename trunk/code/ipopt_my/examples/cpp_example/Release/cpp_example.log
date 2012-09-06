@@ -1,0 +1,23 @@
+﻿Build started 05/09/2012 7:14:34 PM.
+     1>Project "D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\cpp_example\cpp_example.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\cpp_example.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\ipopt\include\coin /I"D:\Program_Library\Ipopt\Ipopt-3.10.1-Win32-Win64-dll\include\coin" /I"D:\Program_Library\VC\glui-2.36\src\include" /I"D:\Program_Library\VC\567_forHui\567-forHui\Geometry Enhancement\Workspace\Smoother" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D HAVE_ASSERT_H /D HAVE_CONFIG_H /D HAVE_MATH_H /D HAVE_STDIO_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cpp_example.cpp
+         cpp_example.cpp
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\Release\cpp_example.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\ipopt\lib\win32\Release MKL" IpOptFSS.lib "IpOpt-vc10.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\cpp_example.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\Release\cpp_example.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\Release\cpp_example.lib" /MACHINE:X86 Release\cpp_example.obj
+         Release\Solver.obj
+         Generating code
+         Finished generating code
+         cpp_example.vcxproj -> D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\Release\cpp_example.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\Release\cpp_example.exe;#1" /manifest Release\cpp_example.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\cpp_example.unsuccessfulbuild".
+         Touching "Release\cpp_example.lastbuildstate".
+     1>Done Building Project "D:\My SVN Project\Nonobtuse_new\code\ipopt_my\examples\cpp_example\cpp_example.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.05

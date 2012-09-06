@@ -1,0 +1,43 @@
+﻿Build started 05/09/2012 1:12:39 PM.
+     1>Project "D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\scalable_problems\scalable_problems.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\scalable_problems.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\ipopt\include\coin /I"D:\Program_Library\Ipopt\Ipopt-3.10.1-Win32-Win64-dll\include\coin" /I"D:\Program_Library\VC\glui-2.36\src\include" /I"D:\Program_Library\VC\567_forHui\567-forHui\Geometry Enhancement\Workspace\Smoother" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D HAVE_ASSERT_H /D HAVE_CONFIG_H /D HAVE_MATH_H /D HAVE_STDIO_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt LuksanVlcek1.cpp LuksanVlcek2.cpp LuksanVlcek3.cpp LuksanVlcek4.cpp LuksanVlcek5.cpp LuksanVlcek6.cpp LuksanVlcek7.cpp MittelmannBndryCntrlDiri.cpp MittelmannBndryCntrlDiri3D.cpp MittelmannBndryCntrlDiri3Dsin.cpp MittelmannBndryCntrlDiri3D_27.cpp MittelmannBndryCntrlNeum.cpp MittelmannDistCntrlDiri.cpp MittelmannDistCntrlNeumA.cpp MittelmannDistCntrlNeumB.cpp solve_problem.cpp
+         LuksanVlcek1.cpp
+     1>LuksanVlcek1.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek2.cpp
+     1>LuksanVlcek2.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek3.cpp
+     1>LuksanVlcek3.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek4.cpp
+     1>LuksanVlcek4.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek5.cpp
+     1>LuksanVlcek5.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek6.cpp
+     1>LuksanVlcek6.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         LuksanVlcek7.cpp
+     1>LuksanVlcek7.cpp(12): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannBndryCntrlDiri.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannBndryCntrlDiri.hpp(16): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannBndryCntrlDiri3D.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannBndryCntrlDiri3D.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannBndryCntrlDiri3Dsin.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannBndryCntrlDiri3Dsin.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannBndryCntrlDiri3D_27.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannBndryCntrlDiri3D_27.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannBndryCntrlNeum.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannBndryCntrlNeum.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannDistCntrlDiri.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannDistCntrlDiri.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannDistCntrlNeumA.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannDistCntrlNeumA.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         MittelmannDistCntrlNeumB.cpp
+     1>d:\my svn project\nonobtuse_new\code\ipopt\examples\scalable_problems\MittelmannDistCntrlNeumB.hpp(17): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+         solve_problem.cpp
+     1>solve_problem.cpp(13): fatal error C1083: Cannot open include file: 'config.h': No such file or directory
+     1>Done Building Project "D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\scalable_problems\scalable_problems.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:23.29

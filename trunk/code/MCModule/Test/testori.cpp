@@ -72,10 +72,10 @@ int gShowScalarField = 1;
 
 float fCellLengthX = 0.021;
 float fCellLengthY = 0.021;
-float fCellLengthZ = 0.01;
-int nCellX = 50;
-int nCellY = 50;
-int nCellZ = 50;
+float fCellLengthZ = 0.021;
+int nCellX = 40;
+int nCellY = 40;
+int nCellZ = 40;
 // armadillo
 //float fCellLengthX = 1.5;
 //float fCellLengthY = 1.5;
