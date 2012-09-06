@@ -28,7 +28,7 @@ typedef map<unsigned int, vector<unsigned int> > VTOTRI;
 typedef map<unsigned int, vector<unsigned int> > ETOTRI;
 
 typedef pair<unsigned int, unsigned int> VPAIR;
-typedef map<VPAIR, unsigned int> VPAIRTOE;
+typedef map<VPAIR, unsigned int> VPAIRTOE; 
 
 typedef map<unsigned int, unsigned int> VTOEOFCUBE;
 typedef map<unsigned int, unsigned int> ETOFACE;

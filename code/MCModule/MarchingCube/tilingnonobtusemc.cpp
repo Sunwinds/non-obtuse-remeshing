@@ -133,7 +133,7 @@ template <class T> clock_t TilingNonobtuseMC<T>::GenerateSurface(const double* v
 	for (unsigned int z = 0; z < nCellsZ; ++z) {
 		for (unsigned int y = 0; y < nCellsY; ++y) {
 			for (unsigned int x = 0; x < nCellsX; ++x) {
-				//cout << "Triangulating cube(" << x << ", " << y << ", " << z << ")" << endl;
+				cout << "Triangulating cube(" << x << ", " << y << ", " << z << ")" << endl;
 				triangulate(x,y,z, verticesList, numVertices, polygonsList, numPolygons, polygonNeighbourList);
 			}
 		}

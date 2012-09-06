@@ -1,0 +1,24 @@
+﻿Build started 05/09/2012 1:12:36 PM.
+     1>Project "D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\hs071_cpp\hs071_cpp.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\hs071_cpp.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\ipopt\include\coin /I"D:\Program_Library\Ipopt\Ipopt-3.10.1-Win32-Win64-dll\include\coin" /I"D:\Program_Library\VC\glui-2.36\src\include" /I"D:\Program_Library\VC\567_forHui\567-forHui\Geometry Enhancement\Workspace\Smoother" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D HAVE_ASSERT_H /D HAVE_CONFIG_H /D HAVE_MATH_H /D HAVE_STDIO_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt hs071_main.cpp hs071_nlp.cpp
+         hs071_main.cpp
+         hs071_nlp.cpp
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\Release\hs071_cpp.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\ipopt\lib\win32\Release MKL" IpOptFSS.lib "IpOpt-vc10.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\hs071_cpp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\Release\hs071_cpp.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\Release\hs071_cpp.lib" /MACHINE:X86 Release\hs071_main.obj
+         Release\hs071_nlp.obj
+         Generating code
+         Finished generating code
+         hs071_cpp.vcxproj -> D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\Release\hs071_cpp.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\Release\hs071_cpp.exe;#1" /manifest Release\hs071_cpp.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\hs071_cpp.unsuccessfulbuild".
+         Touching "Release\hs071_cpp.lastbuildstate".
+     1>Done Building Project "D:\My SVN Project\Nonobtuse_new\code\ipopt\examples\hs071_cpp\hs071_cpp.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:09.27
