@@ -1,0 +1,11 @@
+Camel to Horse			: ..\_Table.1\camel2horse
+Camel to Dinosaur		: ..\_Table.1\camel2dino
+
+Old Man Head to Venus head	: ..\_Table.1\head2venus
+Old Man Head to Shaven		: ..\_Table.1\head2shaven
+
+Cat to Bunny 			: ..\Fig.12\cat2bunny
+Cat to Rabbit			: ..\Fig.12\cat2rabbit
+
+Sphere to Gums			: ..\Fig.11\sphere2teeth
+Sphere to Tooth			: ..\Fig.11\sphere2tooth
