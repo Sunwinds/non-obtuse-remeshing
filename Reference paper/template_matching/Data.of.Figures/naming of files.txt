@@ -1,0 +1,18 @@
+
+Naming of files...
+
+(source)xxxx : means source file = template mesh
+
+(target)xxxx : means fitting target
+
+*.fpt : feature pairs
+
+xxxx2xxxx[N] : after N iteration... (start from 0)
+
+xxxx2xxxx(sN+reift) : means xxxx after N level subdivision + refit process
+
+xxxx2xxxx(NoDual) : fitting without our dual-domain relaxation (for Fig.8)
+
+xxxx2xxxx_ManiPara : result made by Zhang et al. [37] (Author's Program)
+
+xxxx2xxxx_MIT : result made by Sumner et al. [33] (Our implementation)

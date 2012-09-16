@@ -1,0 +1,7 @@
+; facetNormal.def : Declares the module parameters for the DLL.
+
+LIBRARY      "facetNormal"
+
+EXPORTS
+    ; Explicit exports can go here
+     mexFunction

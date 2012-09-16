@@ -1,0 +1,107 @@
+\documentclass[10pt,journal,cspaper,compsoc]{IEEEtran}
+
+\usepackage{cite}
+
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+   \graphicspath{{figures/pdf/}{figures/png/}}
+\else
+   \usepackage[dvips]{graphicx}
+   \graphicspath{{figures/eps/}}
+\fi
+
+\usepackage{multirow}
+\usepackage{amssymb,amsmath,amsthm}
+%\usepackage[lined,linesnumbered,boxed]{algorithm2e}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\usepackage{url}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works}
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+
+\usepackage{hyperref}
+\usepackage[ruled,vlined]{algorithm2e}
+
+\begin{document}
+\title{Nonobtuse remeshing with a guaranteed angle bound}
+
+%Authors
+\author{%Hui Wang% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem ...\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+%E-mail: see http://www.sfu.ca
+\IEEEcompsocthanksitem ...}% <-this % stops a space
+\thanks{}}
+
+% The paper headers
+\markboth{Prepare for TVCG}%
+{Hui \MakeLowercase{\textit{et al.}}: Nonobtuse remeshing with a guaranteed angle bound}
+
+
+%Abstract
+\IEEEcompsoctitleabstractindextext{%
+\begin{abstract}
+%\boldmath
+Quality meshing is an important problem in geometric modeling, visualization and scientific computing. In this paper, we propose a 3D triangular remeshing method with a \emph{guaranteed} angle bound of $[30^{\circ}, 90^{\circ}]$. Given a original 2-manifold, open or closed, a rough approximate mesh with the proposed angle bound is first generated. This is achieved by a novel extension of the classical marching cubes algorithm. Next, an iterative constrained optimization, along with constrained Laplacian smoothing, decimation, and subdivision, is performed to arrive at a close approximation of the original mesh.
+\end{abstract}
+
+% Note that keywords are not normally used for peer review papers.
+\begin{keywords}
+Remeshing, non-obtuse meshes, marching cubes, deform-to-fit.
+\end{keywords}}
+
+\maketitle
+\IEEEdisplaynotcompsoctitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+
+%Introduction
+\section{Introduction}
+The most commonly used shape representation is triangular mesh. Efficient rendering, finite element analysis, and geometry processing such as compression, smoothing and deformation benefit form high quality meshes. Thus, a lot remeshing methods have been proposed to improve the mesh quality \cite{AUGA2008}, both in terms of geometry \cite{AVDI2003, ACDLD2003} and connectivity \cite{G2007, AYZ2012}.
+
+In terms of geometry quality, it is desirable for the triangular mesh to have no small angles and/or no larger angles, depending on the targeted applications \cite{S2002}. For example, an essential condition of the accuracy of finite element solutions on triangular meshes is that the angle of any triangle, independent of its size, should not be small. This is called the minimum angle condition. Furthermore, both small and large angles can cause poor condition of the stiffness matrix \cite{S2002}. For some applications, nonobtuse mesh, in which every angle is no larger than $90^{\circ}$, are desirable. Nonobtuse meshes result in more efficient and more accurate geodesic distances computation by fast marching method \cite{KS1998}. Also, nonobtusity ensures the well-known cotangent weights of discrete Laplace-Beltrami operator would be positive \cite{WMKG2007}.
+
+Thus, there have been lots of works on 2D triangulation with angle bounds and remeshing of curved surfaces with angle quality criterion. Chew develops a refinement scheme to ensure an angle bound of $[30^{\circ}, 120^{\circ}]$ based on constrained Delaunay triangulation \cite{C1993}. Bern et al. propose an $O(nlog^{2}n)$ nonobtuse triangulating algorithm \cite{BMR1994}. Cheng and Shi \cite{CS2005} use restricted union of balls to generate an $\varepsilon$-smapling of a surface and extract a mesh form the Delaunay triangulation of the samples points, where a lower angle bound of $30^{\circ}$ can be obtained. A survey on nonobtuse simplicial partitions is given in \cite{JKKS2009}. A novel obtuse triangle suppression method is proposed in \cite{SCWYLL2011} based on centroidal Voronoi tessellation.
+
+In this paper, we extend our nonobtuse remeshing work \cite{LZ2006} to the \emph{guaranteed} angle bound of $[30^{\circ}, 90^{\circ}]$. Furthermore, our method can preserve the sharp feature during the process of remeshing. We first construct an initial mesh with the angle bound via a novel modified marching cubes algorithm, then the rough approximated initial mesh is deformed and refined to reduce approximation error and preserve sharp features. The salient contributions of this paper include:
+\begin{itemize}
+\item
+\textbf{Modified midpoint marching cubes.} The classical marching cubes algorithm \cite{LC1987} is extended to ensure a guaranteed angle bound of $[30^{\circ}, 90^{\circ}]$. First, each mesh vertex is insisted at the midpoint of the cube edge instead of the linear interpolation of the original marching cubes method. And then with a few additional modifications on mesh connectivity, creating new vertices at cube centers in some cases, the angles in the resulting triangular mesh are within the guaranteed angle bound.
+
+\item
+\textbf{Constrained deform-to-fit.} Given the initial rough approximated mesh with the angle bound, we deform it to fit the original mesh via constrained optimization. In this step, the constrained Laplace smoothing and decimation are used to enlarge feasible regions of the constrained optimization so that the vertices can move.
+
+\item
+\textbf{Sharp features preserving.} After the deform-to-fit step, the approximation errors might not be desirable and the sharp features might be lost. We use the 1-to-4 Butterfly subdivision \cite{DLG1990, ZSS1996}, which splits each triangle into four by inserting a new vertex in the middle of each edge, to refine the mesh and deform it again for better approximation. In this step, we also find the correspondences vertices to the sharp features of the original mesh for feature preserving.
+
+\end{itemize}
+
+
+\section{Related Work}
+\subsection{Marching Cubes}
+
+\subsection{Angle-based triangulation and meshing}
+
+\subsection{Feature preserving remeshing}
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+%Reference
+\bibliographystyle{IEEEtran}
+\bibliography{tvcg}
+\end{document}
+
+
+

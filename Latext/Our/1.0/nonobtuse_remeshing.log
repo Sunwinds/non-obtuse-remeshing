@@ -1,0 +1,337 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.11.3)  1 SEP 2012 19:39
+entering extended mode
+**nonobtuse_remeshing.tex
+("D:\My SVN Project\Nonobtuse_my\Latext\Our\1.0\nonobtuse_remeshing.tex"
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for loaded.
+("D:\My SVN Project\Nonobtuse_my\Latext\Our\1.0\IEEEtran.cls"
+Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmptoksA=\toks14
+-- Using IEEE Computer Society mode.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 377.
+
+("C:\Program Files (x86)\CTEX\MiKTeX\tex\latex\psnfss\ot1ppl.fd"
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+-- Using 7.875in x 10.75in (letter) paper.
+-- Using DVI output.
+\@IEEEnormalsizeunitybaselineskip=\dimen104
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen105
+\CLASSINFOnormalsizeunitybaselineskip=\dimen106
+\IEEEnormaljot=\dimen107
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 735.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 735.
+\IEEEilabelindentA=\dimen108
+\IEEEilabelindentB=\dimen109
+\IEEEilabelindent=\dimen110
+\IEEEelabelindent=\dimen111
+\IEEEdlabelindent=\dimen112
+\IEEElabelindent=\dimen113
+\IEEEiednormlabelsep=\dimen114
+\IEEEiedmathlabelsep=\dimen115
+\IEEEiedtopsep=\skip41
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@IEEEsubequation=\count85
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count86
+\c@table=\count87
+\@IEEEeqnnumcols=\count88
+\@IEEEeqncolcnt=\count89
+\@IEEEtmpitemindent=\dimen116
+\c@IEEEbiography=\count90
+\@IEEEtranrubishbin=\box26
+) ("D:\My SVN Project\Nonobtuse_my\Latext\Our\1.0\nonobtuse_remeshing.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 310.
+LaTeX Font Info:    ... okay on input line 310.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 415.
+
+
+("C:\Program Files (x86)\CTEX\MiKTeX\tex\latex\psnfss\ot1phv.fd"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 415.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 415.
+
+** ATTENTION: \keywords is deprecated (line 415). Use \IEEEkeywords instead.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 415.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 415.
+("C:\Program Files (x86)\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd"
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+** ATTENTION: \keywords is deprecated (line 415). Use \IEEEkeywords instead.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 442.
+LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <12> not available
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 442.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 480.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 490.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 496.
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+[]\OT1/ppl/m/n/10 Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 5374) in paragraph at lines 497--499
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here. Sub-sub-sec-tion tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+[][]\OT1/ppl/m/n/10 Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+\OT1/ppl/m/n/10 here.Subsubsection tex-t here.Subsubsection tex-t
+ []
+
+
+Underfull \hbox (badness 3229) in paragraph at lines 592--593
+[]\OT1/ppl/m/n/10 The con-clu-sion goes here. The con-clu-sion goes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+\OT1/ppl/m/n/10 t-wo tex-t goes here.Appendix t-wo tex-t goes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+\OT1/ppl/m/n/10 t-wo tex-t goes here.Appendix t-wo tex-t goes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+\OT1/ppl/m/n/10 t-wo tex-t goes here.Appendix t-wo tex-t goes
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 620--621
+\OT1/ppl/m/n/10 here.Appendix t-wo tex-t goes here.Appendix t-wo
+ []
+
+[1
+
+
+]
+Underfull \hbox (badness 2744) in paragraph at lines 702--704
+[]\OT1/phv/b/n/8 John Doe \OT1/phv/m/n/8 Bi-og-ra-phy tex-t here.Biography tex-
+t here.Biography
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 702--704
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3058) in paragraph at lines 710--712
+[]\OT1/phv/b/n/8 Jane Doe \OT1/phv/m/n/8 Bi-og-ra-phy tex-t here.Biography tex-
+t here.Biography
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 710--712
+\OT1/phv/m/n/8 t here.Biography tex-t here.Biography tex-t here.Biography tex-
+ []
+
+[2
+
+] ("D:\My SVN Project\Nonobtuse_my\Latext\Our\1.0\nonobtuse_remeshing.aux") ) 
+Here is how much of TeX's memory you used:
+ 1003 strings out of 495363
+ 17666 string characters out of 3182926
+ 65855 words of memory out of 3000000
+ 4230 multiletter control sequences out of 15000+200000
+ 32145 words of font info for 80 fonts, out of 3000000 for 9000
+ 17 hyphenation exceptions out of 8191
+ 28i,8n,28p,727b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on nonobtuse_remeshing.dvi (2 pages, 9940 bytes).
